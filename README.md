@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/nicolasiensen/mf16.svg?branch=master)](https://travis-ci.org/nicolasiensen/mf16)
+
 # Installation
 ```
 bundle
