@@ -2,7 +2,7 @@ language: ruby
 rvm:
 - 2.3.0
 before_script:
-- rake db:test:prepare
+- bundle exec rake db:test:prepare
 - sh -e /etc/init.d/xvfb start
 env:
 - DISPLAY=:99.0
