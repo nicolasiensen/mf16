@@ -37,6 +37,8 @@ gem 'rails_12factor'
 gem 'puma'
 gem 'devise'
 gem 'basscss-rails'
+gem 'gibbon'
+gem 'sidekiq'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
