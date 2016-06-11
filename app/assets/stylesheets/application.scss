@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@import "basscss/basscss";
+@import "basscss/basscss-addons";
+
+// Waiting for https://github.com/basscss/addons/commit/810ee765c5c7e4752814e5e75bcf250bea77ea25
+input {
+  box-sizing: border-box;
+}
