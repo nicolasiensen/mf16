@@ -11,3 +11,5 @@ script:
 branches:
   only:
   - master
+services:
+  - redis-server
