@@ -6,6 +6,7 @@ pt-BR:
         email: 'Email'
         password: 'Senha'
         password_confirmation: 'Confirmação da senha'
+        current_password: 'Senha atual'
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
