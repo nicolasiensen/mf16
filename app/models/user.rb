@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  devise :omniauthable, :omniauth_providers => [:facebook]
+
   after_create { User.delay.subscribe_to_mailchimp_list(self.id) }
 
   def self.subscribe_to_mailchimp_list(user_id)
