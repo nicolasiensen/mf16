@@ -18,9 +18,7 @@
 
   <div>
     <h2>Veja seus amigos que apoiam a campanha</h2>
-    <% if current_user.facebook_friends.present? %>
-      <%= current_user.facebook_friends.map{|f| f["name"]}.join(', ') %>
-    <% else %>
+    <% if current_user.facebook_friends.nil? %>
       <%=
         link_to(
           "Conectar ao Facebook",
@@ -28,6 +26,10 @@
           class: "btn btn-outline blue"
         )
       %>
+    <% elsif current_user.facebook_friends.any? %>
+      <%= current_user.facebook_friends.map{|f| f["name"]}.join(', ') %>
+    <% else %>
+      <p>Você ainda não tem amigos na campanha</p>
     <% end %>
   </div>
 
