@@ -24,6 +24,6 @@ body {
 @import "basscss/basscss-addons";
 
 // Waiting for https://github.com/basscss/addons/commit/810ee765c5c7e4752814e5e75bcf250bea77ea25
-input {
-  box-sizing: border-box;
-}
+input { box-sizing: border-box; }
+
+label.required:before { content: "*" }

@@ -7,6 +7,10 @@ pt-BR:
         password: 'Senha'
         password_confirmation: 'Confirmação da senha'
         current_password: 'Senha atual'
+        first_name: 'Nome'
+        last_name: 'Sobrenome'
+        cell_phone_number: 'Celular'
+        district: 'Bairro'
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
