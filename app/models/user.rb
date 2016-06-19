@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   after_create { User.delay.subscribe_to_mailchimp_list(self.id) }
+  after_create { Notifier.welcome(self).deliver_later }
 
   validates :first_name, :last_name, presence: true
 
