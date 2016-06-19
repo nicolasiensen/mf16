@@ -4,20 +4,26 @@
       <div class="col col-12 md-col-6 px2 mb3">
         <%= f.label :first_name, class: "label required" %>
         <%= f.text_field :first_name, autofocus: true, class: "input", style: "margin-bottom: .25rem" %>
-        <div class="h6 red"><%= resource.errors.messages[:first_name].join(', ') %></div>
+        <div class="h6 red first_name_errors">
+          <%= resource.errors.messages[:first_name].join(', ') %>
+        </div>
       </div>
 
       <div class="col col-12 md-col-6 px2 mb3">
         <%= f.label :last_name, class: "label required" %>
         <%= f.text_field :last_name, class: "input", style: "margin-bottom: .25rem" %>
-        <div class="h6 red"><%= resource.errors.messages[:last_name].join(', ') %></div>
+        <div class="h6 red last_name_errors">
+          <%= resource.errors.messages[:last_name].join(', ') %>
+        </div>
       </div>
     </div>
 
     <div class="mb3">
       <%= f.label :email, class: "label required" %>
       <%= f.email_field :email, class: "input", style: "margin-bottom: .25rem" %>
-      <div class="h6 red"><%= resource.errors.messages[:email].join(', ') %></div>
+      <div class="h6 red email_errors">
+        <%= resource.errors.messages[:email].join(', ') %>
+      </div>
     </div>
 
     <div class="mb3">
@@ -36,13 +42,15 @@
       <div class="mb3 col col-12 md-col-6 px2">
         <%= f.label :password, class: "label required" %>
         <%= f.password_field :password, autocomplete: "off", class: "input", style: "margin-bottom: .25rem" %>
-        <span class="h6 red"><%= resource.errors.messages[:password].join(', ') %></span>
+        <div class="h6 red password_errors">
+          <%= resource.errors.messages[:password].join(', ') %>
+        </div>
       </div>
 
       <div class="mb3 col col-12 md-col-6 px2">
         <%= f.label :password_confirmation, class: "label required" %>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "input", style: "margin-bottom: .25rem" %>
-        <span class="h6 red"><%= resource.errors.messages[:password_confirmation].join(', ') %></span>
+        <div class="h6 red"><%= resource.errors.messages[:password_confirmation].join(', ') %></div>
       </div>
     </div>
 

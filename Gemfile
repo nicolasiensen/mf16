@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4'
   gem 'vcr'
   gem 'webmock'
+  gem 'capybara'
 end
 
 group :development do
