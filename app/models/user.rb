@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   after_create { User.delay.subscribe_to_mailchimp_list(self.id) }
   after_create { Notifier.welcome(self).deliver_later }
+  after_save { User.delay.update_mailchimp_subscription(self.id) }
 
   validates :first_name, :last_name, presence: true
 
@@ -28,5 +29,24 @@ class User < ActiveRecord::Base
     )
 
     user.update_attribute(:mailchimp_id, response["id"])
+  end
+
+  def self.update_mailchimp_subscription(user_id)
+    user = User.find(user_id)
+
+    list = Gibbon::Request.lists(ENV["MAILCHIMP_LIST_ID"])
+    member = list.members(Digest::MD5.hexdigest(user.email))
+    member.upsert(
+      body: {
+        email_address: user.email,
+        status: "subscribed",
+        merge_fields: {
+          FNAME: user.first_name,
+          LNAME: user.last_name,
+          DISTRICT: user.district,
+          CELLPHONE: user.cell_phone_number
+        }
+      }
+    )
   end
 end
