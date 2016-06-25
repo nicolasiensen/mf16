@@ -60,9 +60,28 @@
         )
       %>
     <% elsif current_user.facebook_friends.any? %>
-      <%= current_user.facebook_friends.map{|f| f["name"]}.join(', ') %>
+      <% current_user.facebook_friends.each do |friend| %>
+        <div class="mb3 flex items-center">
+          <%= avatar friend.facebook_image, class: "mr1" %>
+          <div><%= friend.first_name %> <%= friend.last_name %></div>
+        </div>
+        <%=
+          link_to(
+            "Procurar mais amigos",
+            user_omniauth_authorize_path(:facebook, scope: "user_friends"),
+            class: "btn btn-outline blue"
+          )
+        %>
+      <% end %>
     <% else %>
       <p>Você ainda não tem amigos na campanha</p>
+      <%=
+        link_to(
+          "Tentar novamente",
+          user_omniauth_authorize_path(:facebook, scope: "user_friends"),
+          class: "btn btn-outline blue"
+        )
+      %>
     <% end %>
   </div>
 

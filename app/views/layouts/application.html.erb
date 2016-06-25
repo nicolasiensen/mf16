@@ -8,8 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <div class="clearfix p1 white bg-blue">
+    <div class="max-width-4 mx-auto">
+      <% if current_user.present? %>
+        <%= link_to avatar(current_user.facebook_image), "#", class: "right" %>
+      <% else %>
+        <%= link_to "Entrar", new_user_session_path, class: "right white text-decoration-none" %>
+      <% end %>
+    </div>
+  </div>
   <div class="max-width-4 mx-auto">
-    <div class="clearfix py2">
+    <div class="clearfix py4">
       <%= yield %>
     </div>
   </div>
