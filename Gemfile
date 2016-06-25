@@ -43,6 +43,7 @@ gem 'rollbar'
 gem 'oj', '~> 2.12.14'
 gem 'omniauth-facebook'
 gem 'koala', '~> 2.2'
+gem 'sinatra', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
