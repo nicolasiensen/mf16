@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, presence: true
 
   def facebook_friends
-    User.where("facebook_id IN (?)", super.map {|f| f["id"]})
+    User.where("facebook_id IN (?)", (super || []).map {|f| f["id"]})
   end
 
   def self.subscribe_to_mailchimp_list(user_id)
