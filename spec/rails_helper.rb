@@ -14,6 +14,14 @@ VCR.configure do |config|
   config.hook_into :webmock
 end
 
+OmniAuth.config.test_mode = true
+
+OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+  credentials: { token: 'accessToken' },
+  extra: { raw_info: { id: '123' } },
+  info: { image: 'http://graph.facebook.com/123/picture' }
+})
+
 Rails.logger.level = 2
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

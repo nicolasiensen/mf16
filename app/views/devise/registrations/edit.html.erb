@@ -50,6 +50,56 @@
   <div class="border-top border-gray mt3 mb3"></div>
 
   <div>
+    <h2>Divulgue seu apoio no Facebook</h2>
+    <% if current_user.facebook_image %>
+      <div class="clearfix mxn2">
+        <div class="col col-12 md-col-4 px2">
+          <%=
+            cl_image_tag(
+              "users/facebook_image/#{current_user.id}",
+              gravity: "south_east",
+              height: 50,
+              overlay: "Google_favicon_2012_qikf37",
+              width: 50,
+              crop: "scale",
+              class: "fit",
+              id: "user-photo-with-badge"
+            )
+          %>
+        </div>
+        <div class="col col-12 md-col-8 px2">
+          <p>Baixe sua nova foto e atualize no seu perfil do Facebook</p>
+          <%=
+            link_to(
+              "Baixar foto",
+              cl_image_path(
+                "users/facebook_image/#{current_user.id}",
+                gravity: "south_east",
+                height: 50,
+                overlay: "Google_favicon_2012_qikf37",
+                width: 50,
+                crop: "scale"
+              ),
+              class: "btn btn-outline blue",
+              download: true
+            )
+          %>
+        </div>
+      </div>
+    <% else %>
+      <%=
+        link_to(
+          "Trocar minha foto do Facebook",
+          user_omniauth_authorize_path(:facebook, scope: "publish_actions"),
+          class: "btn btn-outline blue"
+        )
+      %>
+    <% end %>
+  </div>
+
+  <div class="border-top border-gray mt3 mb3"></div>
+
+  <div>
     <h2>Veja seus amigos que apoiam a campanha</h2>
     <% if current_user.facebook_friends.nil? %>
       <%=

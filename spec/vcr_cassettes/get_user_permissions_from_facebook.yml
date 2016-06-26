@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/me/permissions?access_token=accessToken
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"cb02d442c1741e482c9b356b6be7c3f459c7e203"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.6
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - Hf/k0738llc
+      X-Fb-Rev:
+      - '2413779'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - 2hQr+f557LJyLT2DsF2Dc4+IgaWt2/FUOrwYSTnyu8C+f6g2C8vvlUGii8Kx3ikzkkx1RPsds3vTXLgEwPhM5Q==
+      Date:
+      - Sun, 26 Jun 2016 07:22:05 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '94'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"permission":"user_friends","status":"granted"},{"permission":"public_profile","status":"granted"}]}'
+    http_version:
+  recorded_at: Sun, 26 Jun 2016 07:22:05 GMT
+- request:
+    method: get
+    uri: https://graph.facebook.com/me/friends?access_token=accessToken
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Etag:
+      - '"e44d4527d1285fc43cba2da20f61132f923d1208"'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Facebook-Api-Version:
+      - v2.6
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Fb-Trace-Id:
+      - BHItundCy6X
+      X-Fb-Rev:
+      - '2413779'
+      Vary:
+      - Accept-Encoding
+      X-Fb-Debug:
+      - FT2gMA6hSkd4IZmcFGhpBLqguMLjjSFH2kuG4HiaaXDXKlSy28haGavPmquFioIn5ft89e8IIxs+EkzxwrYxEA==
+      Date:
+      - Sun, 26 Jun 2016 07:22:05 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '257'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"name":"Linda Alabfhfidabdd Chaisky","id":"101154353650796"}],"paging":{"cursors":{"before":"QVFIUmZAlNDdGVThBOUhFZAW1TY28xNXBrOWlpQkZAPVlVBVGhtYVR5QUZA4TzU0SUF5RUlFanhzTlRQeGV3OGRYbmtpRlBRMDFDdEpVN292TUk2ZAmRmY0NncGlB","after":"QVFIUmZAlNDdGVThBOUhFZAW1TY28xNXBrOWlpQkZAPVlVBVGhtYVR5QUZA4TzU0SUF5RUlFanhzTlRQeGV3OGRYbmtpRlBRMDFDdEpVN292TUk2ZAmRmY0NncGlB"}},"summary":{"total_count":1}}'
+    http_version:
+  recorded_at: Sun, 26 Jun 2016 07:22:05 GMT
+recorded_with: VCR 3.0.3

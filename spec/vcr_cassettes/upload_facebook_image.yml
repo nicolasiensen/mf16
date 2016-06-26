@@ -1,0 +1,118 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.cloudinary.com/v1_1/dpzmefbfs/image/upload
+    body:
+      encoding: UTF-8
+      string: public_id=users%2Ffacebook_image%2F1&timestamp=1466956758&file=http%3A%2F%2Fgraph.facebook.com%2F123%2Fpicture%3Ftype%3Dlarge&signature=2487a7c552150da5b3b61382d3030a3c72617774&api_key=784142874734649
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - CloudinaryRuby/1.2.0
+      Content-Length:
+      - '200'
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2016 15:59:19 GMT
+      Etag:
+      - W/"361650ade453526089c0ed4c3664a159"
+      Server:
+      - cloudinary
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 8db23435e032aae5
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAwAAAP//LIzLDsIgEAD/Zc8kXbC8+jMNj6XdqMUUqgd/Xg4e
+        Z5KZL7yu+OC0coYFrkZnm0pIFGu9r/wMG00SBLyH53rAImdjvDZWewGNtyP0
+        66RRBiWLIp+j0eSdtZhn47JMWBymgkXHYOR8w/H6cO47LApRwE687f0Ppf4A
+        AAD//7SRwW7DIAyG3yXnNRBaWMhz7LSpigw4aSpSEJBJqdR3r5scetl1N2x9
+        8m9/pBmoqK5xJC5hDkuy2Jc1viK2bahvE0JB12+o4I06cHUQ6quRndRdo7+J
+        KTDmqvs5f1RmLUjP9thKau+TlugDOMKQOKqdMe1JSeAwfBqlT1wJkNo6oRGE
+        5Ecil+QJvJQSO8Zos9r6sLjpBmmtbZiZi/cZBzNktkvbI9jv2xf7W269H5vR
+        ksj+HZP/JyekaaRpvh8mjzeYXzriZLdffDwBAAD//wMARxFMyA0CAAA=
+    http_version: 
+  recorded_at: Sun, 26 Jun 2016 15:59:19 GMT
+- request:
+    method: post
+    uri: https://api.cloudinary.com/v1_1/dpzmefbfs/image/upload
+    body:
+      encoding: UTF-8
+      string: public_id=users%2Ffacebook_image%2F1&timestamp=1466956759&file=http%3A%2F%2Fgraph.facebook.com%2F123%2Fpicture%3Ftype%3Dlarge&signature=e42e875927cf1691657735596eb615828c30e34b&api_key=784142874734649
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - CloudinaryRuby/1.2.0
+      Content-Length:
+      - '200'
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 26 Jun 2016 15:59:21 GMT
+      Etag:
+      - W/"23f85ed47c8b46e620b9f3003f281af4"
+      Server:
+      - cloudinary
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 76fdee057196b8e9
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAyyMyw7CIBAA/2XPJF2wvPozDY+l3ajFFKoHf14OHmeSmS+8
+        rvjgtHKGBa5GZ5tKSBRrva/8DBtNEgS8h+d6wCJnY7w2VnsBjbcj9OukUQYl
+        iyKfo9HknbWYZ+OyTFgcpoJFx2DkfMPx+nDuOywKUcBOvO39D6X+AAAA//+0
+        kc1uwyAQhN/F58ZgEqjt58ipVWUtsHapcED8tHKlvns39iGXXntjR5+Y3Zm0
+        Ag3NR1yIS5hDTQanssW7xb4N6SYhFLTTjgreqRNXJ6GunRzlMHbDCzEFltyM
+        r29Pjd4K0rM/95Lk46cafQBLGBJHs9W6vygJHOZnrYYLVwLkYKwYEITkZyJr
+        8gS+lxJHxmiz1vhQrbtB2loTVmbj94qznjM7Qjss2OcjL/Z3uO1xbEZDQU4P
+        m/w/PoGa/EquFKQyS6pIUnILGfhpdh5vsN4Tis7sxf78AgAA//8DAOLTyMMg
+        AgAA
+    http_version: 
+  recorded_at: Sun, 26 Jun 2016 15:59:21 GMT
+recorded_with: VCR 3.0.3
