@@ -38,6 +38,12 @@
       <div class="h6 red"><%= resource.errors.messages[:cell_phone_number].join(', ') %></div>
     </div>
 
+    <div class="mb3">
+      <%= f.label :current_password, class: "label" %>
+      <%= f.password_field :current_password, class: "input", style: "margin-bottom: .25rem" %>
+      <div class="h6 red"><%= resource.errors.messages[:current_password].join(', ') %></div>
+    </div>
+
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
@@ -139,7 +145,14 @@
 
   <div>
     <h2>Altere sua senha</h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%=
+      form_for(
+        resource,
+        as: resource_name,
+        url: registration_path(resource_name),
+        html: { method: :put, id: "change-password" }
+      ) do |f|
+    %>
       <div>
         <%= f.label :password, class: "label" %>
         <%= f.password_field :password, autocomplete: "off", class: "input" %>

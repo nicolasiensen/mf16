@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.feature "UpdateAccount", type: :feature do
   before do
-    password = "123456"
-    @user = create(:user, password: password)
+    @password = "123456"
+    @user = create(:user, password: @password)
 
     visit "/users/sign_in"
 
     within("#new_user") do
       fill_in "user[email]", with: @user.email
-      fill_in "user[password]", with: password
+      fill_in "user[password]", with: @password
       click_on "Entrar"
     end
   end
@@ -24,24 +24,31 @@ RSpec.feature "UpdateAccount", type: :feature do
         cell_phone_number: "9999999999"
       }
 
-      fill_in "user[email]", with: @new_data[:email]
-      fill_in "user[first_name]", with: @new_data[:first_name]
-      fill_in "user[last_name]", with: @new_data[:last_name]
-      fill_in "user[district]", with: @new_data[:district]
-      fill_in "user[cell_phone_number]", with: @new_data[:cell_phone_number]
-      click_on "Atualizar"
+      within("#edit_user") do
+        fill_in "user[email]", with: @new_data[:email]
+        fill_in "user[first_name]", with: @new_data[:first_name]
+        fill_in "user[last_name]", with: @new_data[:last_name]
+        fill_in "user[district]", with: @new_data[:district]
+        fill_in "user[cell_phone_number]", with: @new_data[:cell_phone_number]
+        fill_in "user[current_password]", with: @password
+        click_on "Atualizar"
+      end
     end
 
     it "should redirect to the profile edit page" do
-      expect(current_path).to eql('/users')
+      expect(current_path).to eql('/')
+    end
+
+    it "should display a successful message" do
+      expect(page).to have_css('#successful-notice')
     end
 
     it "should update the user data" do
-      expect(find_field('user[email]').value).to eql(@new_data[:email])
-      expect(find_field('user[first_name]').value).to eql(@new_data[:first_name])
-      expect(find_field('user[last_name]').value).to eql(@new_data[:last_name])
-      expect(find_field('user[district]').value).to eql(@new_data[:district])
-      expect(find_field('user[cell_phone_number]').value).to eql(@new_data[:cell_phone_number])
+      expect(@user.reload.email).to eql(@new_data[:email])
+      expect(@user.reload.first_name).to eql(@new_data[:first_name])
+      expect(@user.reload.last_name).to eql(@new_data[:last_name])
+      expect(@user.reload.district).to eql(@new_data[:district])
+      expect(@user.reload.cell_phone_number).to eql(@new_data[:cell_phone_number])
     end
   end
 
