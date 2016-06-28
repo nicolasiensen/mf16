@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "SignUps", type: :feature do
+RSpec.feature "SignUp", type: :feature do
   context "when the sign up form is correct" do
     before do
       visit "/users/sign_up"
@@ -9,7 +9,7 @@ RSpec.feature "SignUps", type: :feature do
       fill_in "user[email]", with: "nicolas@mf16.com"
       fill_in "user[password]", with: "123456"
       fill_in "user[password_confirmation]", with: "123456"
-      click_on "Cadastrar-se"
+      click_on "Cadastrar"
     end
 
     it "should redirect to homepage" do
@@ -28,7 +28,7 @@ RSpec.feature "SignUps", type: :feature do
   context "when the sign up form is not correct" do
     it "should display errors" do
       visit "/users/sign_up"
-      click_on "Cadastrar-se"
+      click_on "Cadastrar"
 
       expect(page).to have_css(".first_name_errors", text: "não pode ficar em branco")
       expect(page).to have_css(".last_name_errors", text: "não pode ficar em branco")
