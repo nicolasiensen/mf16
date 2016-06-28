@@ -86,7 +86,7 @@
                 width: 50,
                 crop: "scale"
               ),
-              class: "btn btn-outline blue",
+              class: "btn btn-outline orange",
               download: true
             )
           %>
@@ -97,7 +97,7 @@
         link_to(
           "Trocar minha foto do Facebook",
           user_omniauth_authorize_path(:facebook),
-          class: "btn btn-outline blue"
+          class: "btn btn-outline orange"
         )
       %>
     <% end %>
@@ -112,7 +112,7 @@
         link_to(
           "Conectar ao Facebook",
           user_omniauth_authorize_path(:facebook, scope: "user_friends"),
-          class: "btn btn-outline blue"
+          class: "btn btn-outline orange"
         )
       %>
     <% elsif current_user.facebook_friends.any? %>
@@ -125,7 +125,7 @@
           link_to(
             "Procurar mais amigos",
             user_omniauth_authorize_path(:facebook, scope: "user_friends"),
-            class: "btn btn-outline blue"
+            class: "btn btn-outline orange"
           )
         %>
       <% end %>
@@ -135,7 +135,7 @@
         link_to(
           "Tentar novamente",
           user_omniauth_authorize_path(:facebook, scope: "user_friends"),
-          class: "btn btn-outline blue"
+          class: "btn btn-outline orange"
         )
       %>
     <% end %>
@@ -169,7 +169,7 @@
       </div>
 
       <div>
-        <%= f.submit "Salvar nova senha", class: "btn btn-outline blue" %>
+        <%= f.submit "Salvar nova senha", class: "btn btn-outline orange" %>
       </div>
     <% end %>
   </div>
