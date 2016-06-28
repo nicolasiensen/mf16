@@ -21,10 +21,20 @@ body {
   margin: 0;
 }
 
+$aqua: #00c9c9 !default;
+$orange: #ff8200 !default;
+$purple: #702798 !default;
+$black: #313131 !default;
+
+$button-background-color: $orange !default;
+$border-radius: 1px !default;
+
 @import "basscss/basscss";
 @import "basscss/basscss-addons";
 
 // Waiting for https://github.com/basscss/addons/commit/810ee765c5c7e4752814e5e75bcf250bea77ea25
 input { box-sizing: border-box; }
 
+.btn { text-transform: uppercase }
+.caps { letter-spacing: normal; }
 label.required:before { content: "*" }
