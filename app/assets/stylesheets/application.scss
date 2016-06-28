@@ -35,6 +35,7 @@ $border-radius: 1px !default;
 // Waiting for https://github.com/basscss/addons/commit/810ee765c5c7e4752814e5e75bcf250bea77ea25
 input { box-sizing: border-box; }
 
+.input { border-radius: $border-radius; }
 .btn { text-transform: uppercase }
 .caps { letter-spacing: normal; }
 label.required:before { content: "*" }
