@@ -40,7 +40,7 @@ RSpec.feature "UpdateAccount", type: :feature do
     end
 
     it "should display a successful message" do
-      expect(page).to have_css('#successful-notice')
+      expect(page).to have_css('#notice-message')
     end
 
     it "should update the user data" do

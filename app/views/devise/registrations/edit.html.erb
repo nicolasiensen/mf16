@@ -1,62 +1,62 @@
-<div class="sm-col-8 md-col-6 mx-auto px1">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <div class="mxn2">
-      <div class="col col-12 md-col-6 px2 mb3">
-        <%= f.label :first_name, class: "label required" %>
-        <%= f.text_field :first_name, autofocus: true, class: "input", style: "margin-bottom: .25rem" %>
-        <div class="h6 red first_name_errors">
-          <%= resource.errors.messages[:first_name].join(', ') %>
+<div class="sm-col-8 md-col-6 mx-auto mt3">
+  <%= card do %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="mxn2">
+        <div class="col col-12 md-col-6 px2 mb3">
+          <%= f.label :first_name, class: "label required" %>
+          <%= f.text_field :first_name, autofocus: true, class: "input", style: "margin-bottom: .25rem" %>
+          <div class="h6 red first_name_errors">
+            <%= resource.errors.messages[:first_name].join(', ') %>
+          </div>
+        </div>
+
+        <div class="col col-12 md-col-6 px2 mb3">
+          <%= f.label :last_name, class: "label required" %>
+          <%= f.text_field :last_name, class: "input", style: "margin-bottom: .25rem" %>
+          <div class="h6 red last_name_errors">
+            <%= resource.errors.messages[:last_name].join(', ') %>
+          </div>
         </div>
       </div>
 
-      <div class="col col-12 md-col-6 px2 mb3">
-        <%= f.label :last_name, class: "label required" %>
-        <%= f.text_field :last_name, class: "input", style: "margin-bottom: .25rem" %>
-        <div class="h6 red last_name_errors">
-          <%= resource.errors.messages[:last_name].join(', ') %>
+      <div class="mb3">
+        <%= f.label :email, class: "label required" %>
+        <%= f.email_field :email, class: "input", style: "margin-bottom: .25rem" %>
+        <div class="h6 red email_errors">
+          <%= resource.errors.messages[:email].join(', ') %>
         </div>
       </div>
-    </div>
 
-    <div class="mb3">
-      <%= f.label :email, class: "label required" %>
-      <%= f.email_field :email, class: "input", style: "margin-bottom: .25rem" %>
-      <div class="h6 red email_errors">
-        <%= resource.errors.messages[:email].join(', ') %>
+      <div class="mb3">
+        <%= f.label :district, class: "label" %>
+        <%= f.text_field :district, class: "input", style: "margin-bottom: .25rem" %>
+        <div class="h6 red"><%= resource.errors.messages[:district].join(', ') %></div>
       </div>
-    </div>
 
-    <div class="mb3">
-      <%= f.label :district, class: "label" %>
-      <%= f.text_field :district, class: "input", style: "margin-bottom: .25rem" %>
-      <div class="h6 red"><%= resource.errors.messages[:district].join(', ') %></div>
-    </div>
+      <div class="mb3">
+        <%= f.label :cell_phone_number, class: "label" %>
+        <%= f.telephone_field :cell_phone_number, class: "input", style: "margin-bottom: .25rem" %>
+        <div class="h6 red"><%= resource.errors.messages[:cell_phone_number].join(', ') %></div>
+      </div>
 
-    <div class="mb3">
-      <%= f.label :cell_phone_number, class: "label" %>
-      <%= f.telephone_field :cell_phone_number, class: "input", style: "margin-bottom: .25rem" %>
-      <div class="h6 red"><%= resource.errors.messages[:cell_phone_number].join(', ') %></div>
-    </div>
+      <div class="mb3">
+        <%= f.label :current_password, class: "label" %>
+        <%= f.password_field :current_password, class: "input", style: "margin-bottom: .25rem" %>
+        <div class="h6 red"><%= resource.errors.messages[:current_password].join(', ') %></div>
+      </div>
 
-    <div class="mb3">
-      <%= f.label :current_password, class: "label" %>
-      <%= f.password_field :current_password, class: "input", style: "margin-bottom: .25rem" %>
-      <div class="h6 red"><%= resource.errors.messages[:current_password].join(', ') %></div>
-    </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <div>
+        <%= f.submit "Atualizar", class: "btn btn-primary" %>
+      </div>
     <% end %>
-
-    <div>
-      <%= f.submit "Atualizar", class: "btn btn-primary" %>
-    </div>
   <% end %>
 
-  <div class="border-top border-gray mt3 mb3"></div>
-
-  <div>
-    <h2>Divulgue seu apoio no Facebook</h2>
+  <%= card do %>
+    <h2 class="mt0">Divulgue seu apoio no Facebook</h2>
     <% if current_user.facebook_image %>
       <div class="clearfix mxn2">
         <div class="col col-12 md-col-4 px2">
@@ -101,12 +101,10 @@
         )
       %>
     <% end %>
-  </div>
+  <% end %>
 
-  <div class="border-top border-gray mt3 mb3"></div>
-
-  <div>
-    <h2>Veja seus amigos que apoiam a campanha</h2>
+  <%= card do %>
+    <h2 class="mt0">Veja seus amigos que apoiam a campanha</h2>
     <% if current_user.facebook_friends.nil? %>
       <%=
         link_to(
@@ -139,12 +137,10 @@
         )
       %>
     <% end %>
-  </div>
+  <% end %>
 
-  <div class="border-top border-gray mt3 mb3"></div>
-
-  <div>
-    <h2>Altere sua senha</h2>
+  <%= card do %>
+    <h2 class="mt0">Altere sua senha</h2>
     <%=
       form_for(
         resource,
@@ -172,11 +168,9 @@
         <%= f.submit "Salvar nova senha", class: "btn btn-outline orange" %>
       </div>
     <% end %>
-  </div>
+  <% end %>
 
-  <div class="border-top border-gray mt3 mb3"></div>
-
-  <div>
+  <%= card do %>
     <p>Seria muito triste, mas caso não queira mais participar você pode cancelar a sua conta</p>
     <%=
       button_to(
@@ -187,5 +181,5 @@
         class: "btn btn-outline red"
       )
     %>
-  </div>
+  <% end %>
 </div>
