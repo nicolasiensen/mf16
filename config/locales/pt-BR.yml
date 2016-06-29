@@ -11,6 +11,7 @@ pt-BR:
         last_name: 'Sobrenome'
         cell_phone_number: 'Celular'
         district: 'Bairro'
+        remember_me: 'Manter-me conectado'
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
