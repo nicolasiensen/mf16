@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class="bg-silver">
   <div class="clearfix white p1 bg-black">
     <div class="max-width-4 mx-auto">
       <% if current_user.present? %>
@@ -18,17 +18,8 @@
     </div>
   </div>
   <div class="max-width-4 mx-auto">
-    <% if flash[:notice] %>
-      <div class="clearfix mt2">
-        <div class="col col-12 px2 center">
-          <div
-            id="successful-notice"
-            class="px2 py1 bg-green white rounded inline-block">
-            <%= flash[:notice] %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <%= flash_message(type: :notice, message: flash[:notice]) if flash[:notice] %>
+    <%= flash_message(type: :alert, message: flash[:alert]) if flash[:alert] %>
   </div>
   <%= yield %>
 </body>
