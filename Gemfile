@@ -45,6 +45,7 @@ gem 'omniauth-facebook'
 gem 'koala', '~> 2.2'
 gem 'sinatra', require: false
 gem 'cloudinary'
+gem 'pundit'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,7 +57,6 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
-  gem 'pundit'
 end
 
 group :development do
