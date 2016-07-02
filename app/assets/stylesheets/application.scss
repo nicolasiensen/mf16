@@ -14,8 +14,6 @@
  *= require_self
  */
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic);
-
 $aqua: #00c9c9;
 $orange: #ff8200;
 $purple: #702798;
@@ -25,12 +23,24 @@ $silver: #e1e1e1;
 $button-background-color: $orange;
 $border-radius: 1px;
 
+$h1: 4rem !default;
+$h2: 1.5rem !default;
+$h3: 1.25rem !default;
+$h4: 1rem !default;
+$h5: .875rem !default;
+$h6: .75rem !default;
+
+@import "./fonts";
 @import "basscss/basscss";
 @import "basscss/basscss-addons";
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Gotham', sans-serif;
   margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'League Gothic', sans-serif;
 }
 
 // Waiting for https://github.com/basscss/addons/commit/810ee765c5c7e4752814e5e75bcf250bea77ea25

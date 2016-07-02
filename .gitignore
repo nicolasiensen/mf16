@@ -12,3 +12,4 @@
 !/log/.keep
 /tmp
 config/initializers/01_env_vars.rb
+.DS_Store
