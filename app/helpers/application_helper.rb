@@ -15,4 +15,20 @@ module ApplicationHelper
   def flash_message options
     render partial: "shared/flash", locals: options
   end
+
+  def btn_sidebar text, path, options = {}
+    link_to(
+      text,
+      path,
+      class: [
+        "btn-primary",
+        "block",
+        "p2",
+        "text-decoration-none",
+        "black",
+        "btn-sidebar",
+        options[:selected] ? "selected" : nil
+      ]
+    )
+  end
 end
