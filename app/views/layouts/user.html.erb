@@ -11,15 +11,17 @@
             )
           %>
         </li>
-        <li>
-          <%=
-            btn_sidebar(
-              "Procurar usuário",
-              search_users_path,
-              selected: search_users_path == request.path
-            )
-          %>
-        </li>
+        <% if UserPolicy.new(current_user, User).search? %>
+          <li>
+            <%=
+              btn_sidebar(
+                "Procurar usuário",
+                search_users_path,
+                selected: search_users_path == request.path
+              )
+            %>
+          </li>
+        <% end %>
       </ul>
     </div>
 
