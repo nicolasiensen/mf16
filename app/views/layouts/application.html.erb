@@ -11,7 +11,7 @@
   <div class="clearfix white p1 bg-black">
     <div class="max-width-4 mx-auto">
       <% if current_user.present? %>
-        <%= link_to avatar(current_user.facebook_image), "#", class: "right" %>
+        <%= link_to avatar(current_user.facebook_image), '/', class: "right" %>
       <% else %>
         <%= link_to "Entrar", new_user_session_path, class: "right btn" %>
       <% end %>
