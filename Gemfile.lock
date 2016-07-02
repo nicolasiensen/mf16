@@ -143,6 +143,8 @@ GEM
     pg (0.18.4)
     pkg-config (1.1.7)
     puma (2.13.4)
+    pundit (1.0.1)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -281,6 +283,7 @@ DEPENDENCIES
   omniauth-facebook
   pg (~> 0.15)
   puma
+  pundit
   rails (= 4.2.6)
   rails_12factor
   rollbar
