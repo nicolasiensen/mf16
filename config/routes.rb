@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :users, only: [] do
+    get :search
+  end
+
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
