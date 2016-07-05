@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
+  resource :users, only: [] do
+    get :search
+  end
+
+  resource :volunteers, only: [:new, :create]
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_scope :user do
     unauthenticated do
-      root to: "devise/registrations#new", as: :unauthenticated_root
+      root to: "volunteers#new", as: :unauthenticated_root
     end
 
     authenticated :user do
       root to: "devise/registrations#edit", as: :authenticated_root
     end
-  end
-
-  resource :users, only: [] do
-    get :search
   end
 
   require 'sidekiq/web'

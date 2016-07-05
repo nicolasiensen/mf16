@@ -1,0 +1,60 @@
+<div class="bg-purple py4">
+  <div class="max-width-4 mx-auto">
+    <div class="col-12 sm-col-8 mx-auto">
+      <div class="px2">
+        <h1 class="caps white h1 m0 regular">
+          Este é um espaço para título de até duas linhas.
+        </h1>
+        <p class="white mb3 line-height-4">
+          Lorem ipsum dolor sit amet, movet dicant salutatus no his. Pri justo
+          nominavi euripidis eu, cu ius verear abhorreant voluptatum. Alterum
+          qualisque vim et. At summo paulo verear sea, est illud tibique scaevola
+          ei, mei et nisl nobis ocurreret.
+        </p>
+        <%= form_for @user, url: volunteers_path do |f| %>
+          <div class="mxn2">
+            <div class="col col-12 md-col-6 px2 mb3">
+              <%= f.label :first_name, class: "label required aqua" %>
+              <%= f.text_field :first_name, autofocus: true, class: "input", style: "margin-bottom: .25rem" %>
+              <div class="h6 red first_name_errors">
+                <%= @user.errors.messages[:first_name].join(', ') %>
+              </div>
+            </div>
+
+            <div class="col col-12 md-col-6 px2 mb3">
+              <%= f.label :last_name, class: "label required aqua" %>
+              <%= f.text_field :last_name, class: "input", style: "margin-bottom: .25rem" %>
+              <div class="h6 red last_name_errors">
+                <%= @user.errors.messages[:last_name].join(', ') %>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb3">
+            <%= f.label :email, class: "label required aqua" %>
+            <%= f.email_field :email, class: "input", style: "margin-bottom: .25rem" %>
+            <div class="h6 red email_errors">
+              <%= @user.errors.messages[:email].join(', ') %>
+            </div>
+          </div>
+
+          <div class="mb3">
+            <%= f.label :district, class: "label aqua" %>
+            <%= f.text_field :district, class: "input", style: "margin-bottom: .25rem" %>
+            <div class="h6 red"><%= @user.errors.messages[:district].join(', ') %></div>
+          </div>
+
+          <div class="mb3">
+            <%= f.label :cell_phone_number, class: "label aqua" %>
+            <%= f.telephone_field :cell_phone_number, class: "input", style: "margin-bottom: .25rem" %>
+            <div class="h6 red"><%= @user.errors.messages[:cell_phone_number].join(', ') %></div>
+          </div>
+
+          <div>
+            <%= f.submit "Cadastrar", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
