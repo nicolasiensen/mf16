@@ -10,6 +10,7 @@
 <body class="bg-silver">
   <div class="clearfix white p1 bg-black">
     <div class="max-width-4 mx-auto">
+      <%= link_to "MF16", unauthenticated_root_path, class: "left btn" %>
       <% if current_user.present? %>
         <%= link_to avatar(current_user.facebook_image), '/', class: "right" %>
       <% else %>
