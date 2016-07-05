@@ -43,6 +43,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'League Gothic', sans-serif;
 }
 
+a {
+  color: $blue;
+  text-decoration: none;
+}
+
 // Waiting for https://github.com/basscss/addons/commit/810ee765c5c7e4752814e5e75bcf250bea77ea25
 input { box-sizing: border-box; }
 
