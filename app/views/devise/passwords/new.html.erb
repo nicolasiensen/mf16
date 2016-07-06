@@ -1,6 +1,5 @@
 <div class="md-col-8 lg-col-4 mx-auto px1 mt4">
   <%= card do %>
-    <h2 class="mt0">Esqueceu sua senha?</h2>
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <div class="mb2">
         <%= f.label :email, class: "label" %>
@@ -10,7 +9,7 @@
         </div>
       </div>
 
-      <div class="mb2">
+      <div class="mb3">
         <%= f.submit "Refazer minha senha", class: "btn btn-primary" %>
       </div>
     <% end %>
