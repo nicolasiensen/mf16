@@ -12,7 +12,7 @@
     <div class="max-width-4 mx-auto">
       <%= link_to "MF16", unauthenticated_root_path, class: "left btn" %>
       <% if current_user.present? %>
-        <%= link_to avatar(current_user.facebook_image), '/', class: "right" %>
+        <%= user_menu current_user %>
       <% else %>
         <%= link_to "Entrar", new_user_session_path, class: "right btn" %>
       <% end %>
