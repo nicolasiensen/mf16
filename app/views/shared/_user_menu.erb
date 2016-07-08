@@ -1,0 +1,51 @@
+<script>
+  toggleUserMenu = function () {
+    var userMenu = document.getElementById("user-menu")
+    var overlay = document.getElementById("user-menu-overlay")
+
+    if (userMenu.className.includes("hide")) {
+      userMenu.className = userMenu.className.replace("hide", "")
+      overlay.className = overlay.className.replace("hide", "")
+    } else {
+      userMenu.className = userMenu.className.concat([" hide"])
+      overlay.className = overlay.className.concat([" hide"])
+    }
+
+    return false
+  }
+</script>
+
+<style>
+  .btn-user-menu:hover {
+    background: #eee;
+  }
+</style>
+
+<div
+  id="user-menu-overlay"
+  class="hide"
+  onClick="return toggleUserMenu()"
+  style="position: absolute; width: 100%; height: 100%; top: 0; left: 0">
+</div>
+
+<div class="right relative">
+  <%= link_to "#", class: "btn", onClick: "return toggleUserMenu()" do %>
+    <%= icon "bars", class: "white" %>
+  <% end %>
+
+  <div
+    id="user-menu"
+    class="bg-white black absolute right-0 rounded hide"
+    style="white-space: nowrap; box-shadow: 0 0 2px #999; top: 45px">
+    <div class="p2 flex items-center">
+      <%= avatar user.facebook_image, class: "mr1" %>
+      <div>
+        <div class="bold"><%= user.first_name %> <%= user.last_name %></div>
+        <div><%= user.email %></div>
+      </div>
+    </div>
+
+    <%= link_to "Editar perfil", edit_user_registration_path, class: "block p2 black btn-user-menu" %>
+    <%= link_to "Procurar usuário", search_users_path, class: "block p2 black btn-user-menu" %>
+  </div>
+</div>

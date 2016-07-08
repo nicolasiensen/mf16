@@ -8,8 +8,14 @@ module ApplicationHelper
     )
   end
 
-  def card
-    return content_tag(:div, class: "bg-white p3 rounded mb3") { yield }
+  def card options={}
+    default_options = {
+      title: nil
+    }
+
+    render layout: "shared/card", locals: default_options.merge(options) do
+      yield
+    end
   end
 
   def flash_message options
@@ -31,4 +37,12 @@ module ApplicationHelper
       ]
     )
   end
+
+  def user_menu user
+    render partial: "shared/user_menu", locals: {user: user}
+  end
+end
+
+def container
+  return content_tag(:div, class: "max-width-4 mx-auto py2 px2") { yield }
 end
