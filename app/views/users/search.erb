@@ -1,31 +1,31 @@
-<%= card do %>
-  <form class="mb3">
-    <input
-      name='search_query'
-      autofocus
-      class="input"
-      placeholder="Insira o email do usuário"
-      value="<%= params[:search_query] %>"
-    />
-  </form>
+<%= container do %>
+  <div class="sm-col-8 mx-auto">
+    <form class="mb3">
+      <input
+        name='search_query'
+        autofocus
+        class="input"
+        placeholder="Insira o email do usuário"
+        value="<%= params[:search_query] %>"
+      />
+    </form>
 
-  <strong class="block">
-    <%= t("users_found", count: @users.count, query: params[:search_query]) %>
-  </strong>
-
-  <% if @users.any? %>
-    <ul class="list-reset mb0">
-      <% @users.each do |user| %>
-        <li>
-          <%= link_to user, class: "flex items-center btn-primary bg-white p1 btn-list black text-decoration-none" do %>
-            <%= avatar user.facebook_image, class: 'mr1' %>
-            <div>
-              <div><%= user.first_name %> <%= user.last_name %></div>
-              <small><%= user.email %></small>
-            </div>
+    <%= card title: t("users_found", count: @users.count, query: params[:search_query]) do %>
+      <% if @users.any? %>
+        <ul class="list-reset mb0">
+          <% @users.each do |user| %>
+            <li>
+              <%= link_to user, class: "flex items-center btn-primary bg-white p1 btn-list black text-decoration-none" do %>
+                <%= avatar user.facebook_image, class: 'mr1' %>
+                <div>
+                  <div><%= user.first_name %> <%= user.last_name %></div>
+                  <small><%= user.email %></small>
+                </div>
+              <% end %>
+            </li>
           <% end %>
-        </li>
+        </ul>
       <% end %>
-    </ul>
-  <% end %>
+    <% end %>
+  </div>
 <% end %>

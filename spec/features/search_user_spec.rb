@@ -11,7 +11,7 @@ RSpec.feature "SearchUser", type: :feature, js: true do
     it "should display the users that match the email" do
       user = create(:user)
 
-      click_on "Procurar usuário"
+      visit search_users_path
       fill_in "search_query", with: user.email
       find("input[name='search_query']").send_keys([:enter])
 
