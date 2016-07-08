@@ -46,6 +46,7 @@ gem 'koala', '~> 2.2'
 gem 'sinatra', require: false
 gem 'cloudinary'
 gem 'pundit'
+gem 'font-awesome-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

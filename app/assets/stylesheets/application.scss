@@ -33,6 +33,8 @@ $h6: .75rem !default;
 @import "./fonts";
 @import "basscss/basscss";
 @import "basscss/basscss-addons";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body {
   font-family: 'Gotham', sans-serif;
