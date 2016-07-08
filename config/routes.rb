@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resource :users, only: [] do
-    get :search
-  end
-
   resource :volunteers, only: [:new, :create]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  resources :users, only: [:show] do
+    collection do
+      get :search
+    end
+  end
 
   devise_scope :user do
     unauthenticated do

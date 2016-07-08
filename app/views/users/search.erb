@@ -17,13 +17,13 @@
     <ul class="list-reset mb0">
       <% @users.each do |user| %>
         <li>
-          <a class="flex items-center btn-primary bg-white p1 btn-list black text-decoration-none" href="#">
+          <%= link_to user, class: "flex items-center btn-primary bg-white p1 btn-list black text-decoration-none" do %>
             <%= avatar user.facebook_image, class: 'mr1' %>
             <div>
               <div><%= user.first_name %> <%= user.last_name %></div>
               <small><%= user.email %></small>
             </div>
-          </a>
+          <% end %>
         </li>
       <% end %>
     </ul>
