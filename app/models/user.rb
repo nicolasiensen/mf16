@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     User.where("facebook_id IN (?)", (super || []).map {|f| f["id"]})
   end
 
+  def facebook_image_large
+    "#{self.facebook_image}?type=large"
+  end
+
   def upload_facebook_image
     if self.facebook_image
       Cloudinary::Uploader.upload(
