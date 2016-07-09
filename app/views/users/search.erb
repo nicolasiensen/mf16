@@ -10,21 +10,26 @@
       />
     </form>
 
-    <%= card title: t("users_found", count: @users.count, query: params[:search_query]) do %>
+    <%= card do %>
+      <%= card_header do %>
+        <%= t("users_found", count: @users.count, query: params[:search_query]) %>
+      <% end %>
       <% if @users.any? %>
-        <ul class="list-reset mb0">
-          <% @users.each do |user| %>
-            <li>
-              <%= link_to user, class: "flex items-center btn-primary bg-white p1 btn-list black text-decoration-none" do %>
-                <%= avatar user.facebook_image, class: 'mr1' %>
-                <div>
-                  <div><%= user.first_name %> <%= user.last_name %></div>
-                  <small><%= user.email %></small>
-                </div>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
+        <%= card_body do %>
+          <ul class="list-reset mb0">
+            <% @users.each do |user| %>
+              <li>
+                <%= link_to user, class: "flex items-center btn-primary bg-white p1 btn-list black text-decoration-none" do %>
+                  <%= avatar user.image, class: 'mr1' %>
+                  <div>
+                    <div><%= user.first_name %> <%= user.last_name %></div>
+                    <small><%= user.email %></small>
+                  </div>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
       <% end %>
     <% end %>
   </div>

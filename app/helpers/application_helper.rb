@@ -9,11 +9,25 @@ module ApplicationHelper
   end
 
   def card options={}
-    default_options = {
-      title: nil
-    }
+    render layout: "shared/card" do
+      yield
+    end
+  end
 
-    render layout: "shared/card", locals: default_options.merge(options) do
+  def card_body
+    render layout: "shared/card_body" do
+      yield
+    end
+  end
+
+  def card_actions
+    render layout: "shared/card_actions" do
+      yield
+    end
+  end
+
+  def card_header
+    render layout: "shared/card_header" do
       yield
     end
   end
