@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
+
+    member do
+      put :make_admin
+    end
   end
 
   devise_scope :user do

@@ -1,28 +1,53 @@
 <%= container do %>
-  <div class="sm-col-8 mx-auto">
+  <div class="sm-col-6 mx-auto">
     <%= card do %>
+      <%= card_body do %>
         <div class="clearfix mxn2">
-          <div class="col col-4 sm-col-4 px2">
-            <%= image_tag @user.facebook_image_large, class: ["circle", "fit"] %>
+          <div class="col col-3 sm-col-3 px2">
+            <%= image_tag @user.image, class: ["circle", "fit"] %>
           </div>
-          <div class="col col-8 sm-col-8 px2">
+          <div class="col col-9 sm-col-9 px2">
             <div class="bold"><%= @user.first_name %> <%= @user.last_name %></div>
             <div class="mb2"><%= @user.email %></div>
 
-            <div class="mb1">
-              <%= icon('map-marker', style: 'width: 15px') %>
-              <%= @user.district %>
-            </div>
+            <% if @user.district.present? %>
+              <div class="mb1">
+                <%= icon('map-marker', style: 'width: 15px') %>
+                <%= @user.district %>
+              </div>
+            <% end %>
+
+            <% if @user.cell_phone_number.present? %>
+              <div class="mb1">
+                <%= icon('phone', style: 'width: 15px') %>
+                <%= @user.cell_phone_number %>
+              </div>
+            <% end %>
+
             <div class="mb2">
-              <%= icon('phone', style: 'width: 15px') %>
-              <%= @user.cell_phone_number %>
+              <%= icon('user', style: 'width: 15px') %>
+              <%= @user.admin? ? "Admin" : "Voluntário" %>
             </div>
 
-            <div class="h5">Perfil criado <%= distance_of_time_in_words_to_now @user.created_at %> atrás</div>
+            <div class="h5">Perfil criado há <%= distance_of_time_in_words_to_now @user.created_at %> atrás</div>
             <div class="h5">Usuário entrou <%= @user.sign_in_count %> vezes</div>
           </div>
         </div>
-      </div>
+      <% end %>
+      <%= card_actions do %>
+        <% if @user.admin? %>
+          <span class="btn p2 is-disabled">
+            Tornar admin
+          </span>
+        <% else %>
+          <%= link_to(
+            "Tornar admin",
+            make_admin_user_path(@user),
+            method: :put,
+            class: "btn p2"
+          )%>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 <% end %>

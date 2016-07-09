@@ -17,6 +17,16 @@ class User < ActiveRecord::Base
     User.where("facebook_id IN (?)", (super || []).map {|f| f["id"]})
   end
 
+  def image
+    if self.facebook_image.present?
+      self.facebook_image
+    else
+      letter1 = self.first_name[0].downcase
+      letter2 = self.last_name[0].downcase
+      "https://i0.wp.com/cdn.auth0.com/avatars/#{letter1}#{letter2}.png?ssl=1"
+    end
+  end
+
   def facebook_image_large
     "#{self.facebook_image}?type=large"
   end

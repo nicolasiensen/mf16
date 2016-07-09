@@ -13,4 +13,8 @@ class UserPolicy
   def show?
     current_user.present? && current_user.admin?
   end
+
+  def make_admin?
+    current_user.present? && current_user.admin?
+  end
 end
