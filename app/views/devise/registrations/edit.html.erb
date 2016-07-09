@@ -4,8 +4,8 @@
       <%= card_header do %>
         Edite seu perfil
       <% end %>
-      <%= card_body do %>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= card_body do %>
           <div class="mxn2">
             <div class="col col-12 md-col-6 px2 mb3">
               <%= f.label :first_name, class: "label required" %>
@@ -44,19 +44,14 @@
             <div class="h6 red"><%= resource.errors.messages[:cell_phone_number].join(', ') %></div>
           </div>
 
-          <div class="mb3">
+          <div>
             <%= f.label :current_password, class: "label" %>
             <%= f.password_field :current_password, class: "input", style: "margin-bottom: .25rem" %>
             <div class="h6 red"><%= resource.errors.messages[:current_password].join(', ') %></div>
           </div>
-
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-          <% end %>
-
-          <div>
-            <%= f.submit "Atualizar", class: "btn btn-primary" %>
-          </div>
+        <% end %>
+        <%= card_actions do %>
+          <%= f.submit "Atualizar", class: "btn orange" %>
         <% end %>
       <% end %>
     <% end %>
@@ -157,15 +152,15 @@
       <%= card_header do %>
         Altere sua senha
       <% end %>
-      <%= card_body do %>
-        <%=
-          form_for(
-            resource,
-            as: resource_name,
-            url: registration_path(resource_name),
-            html: { method: :put, id: "change-password" }
-          ) do |f|
-        %>
+      <%=
+        form_for(
+          resource,
+          as: resource_name,
+          url: registration_path(resource_name),
+          html: { method: :put, id: "change-password" }
+        ) do |f|
+      %>
+        <%= card_body do %>
           <div>
             <%= f.label :password, class: "label" %>
             <%= f.password_field :password, autocomplete: "off", class: "input" %>
@@ -180,10 +175,9 @@
             <%= f.label :current_password, class: "label" %>
             <%= f.password_field :current_password, autocomplete: "off", class: "input" %>
           </div>
-
-          <div>
-            <%= f.submit "Salvar nova senha", class: "btn btn-outline orange" %>
-          </div>
+        <% end %>
+        <%= card_actions do %>
+          <%= f.submit "Salvar nova senha", class: "btn orange" %>
         <% end %>
       <% end %>
     <% end %>
@@ -191,13 +185,15 @@
     <%= card do %>
       <%= card_body do %>
         <p class="mt0">Seria muito triste, mas caso não queira mais participar você pode cancelar a sua conta</p>
+      <% end %>
+      <%= card_actions do %>
         <%=
           button_to(
             "Cancelar minha conta",
             registration_path(resource_name),
             data: { confirm: "Você tem certeza?" },
             method: :delete,
-            class: "btn btn-outline red"
+            class: "btn red"
           )
         %>
       <% end %>
