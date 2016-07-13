@@ -11,6 +11,9 @@
 <div class="bg-cover py4" style="background-image: url(<%= image_path('debate_petition_signatures/bg.png') %>)">
   <div class="max-width-4 mx-auto clearfix">
     <div class="col col-12 px2 center mb4">
+      <div class="block bold caps yellow clearfix mb1" style="font-size: 2em;">
+        <% number_with_delimiter(User.where(has_signed_debate_petition: true).count).split("").each_with_index do |digit, i| %><span class="inline-block bg-<%= i.odd? ? 'purple' : 'black' %> px1"><%= digit %></span><% end %>
+      </div>
       <span class="block bold caps yellow mb3" style="font-size: 2em;">Pessoas querem</span>
       <span class="block bold caps white" style="font-size: 4em; line-height: 100%; word-wrap: break-word">Democracia</span>
       <span class="block bold caps white" style="font-size: 3.75em; line-height: 60%;">Nos Debates!</span>
