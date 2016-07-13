@@ -31,7 +31,7 @@
         Democracia é garantir o direito dos eleitores de ouvir outras propostas para que eles possam decidir seu voto.
       </p>
       <div class='embed-container'>
-        <iframe src='https://www.youtube.com/embed/56ipnCJ_LYM' frameborder='0' allowfullscreen></iframe>
+        <iframe src='https://www.youtube.com/embed/l2jROJA-krE' frameborder='0' allowfullscreen></iframe>
       </div>
     </div>
     <div class="col col-12 md-col-6 px2">
@@ -78,7 +78,7 @@
 
             <div class="col col-12 md-col-6 px2 mb3">
               <%= f.label :district, "Bairro onde você mora:", class: "label yellow" %>
-              <%= f.text_field :district, class: "input", style: "margin-bottom: .25rem" %>
+              <%= f.select :district, district_list, {}, class: "input rounded", style: "margin-bottom: .25rem" %>
               <div class="h6 red"><%= @user.errors.messages[:district].join(', ') %></div>
             </div>
           </div>
