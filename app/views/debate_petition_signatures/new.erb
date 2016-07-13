@@ -10,10 +10,10 @@
 
 <div class="bg-cover py4" style="background-image: url(<%= image_path('debate_petition_signatures/bg.png') %>)">
   <div class="max-width-4 mx-auto clearfix">
-    <div class="col col-12 px2 center mb3">
-      <span class="block bold caps yellow mb3" style="font-size: 2rem">Pessoas querem</span>
-      <span class="block bold caps white" style="font-size: 4em; line-height: 70%">Democracia</span>
-      <span class="block bold caps white" style="font-size: 3.75rem; line-height: 100%">Nos Debates!</span>
+    <div class="col col-12 px2 center mb4">
+      <span class="block bold caps yellow mb3" style="font-size: 2em;">Pessoas querem</span>
+      <span class="block bold caps white" style="font-size: 4em; line-height: 100%; word-wrap: break-word">Democracia</span>
+      <span class="block bold caps white" style="font-size: 3.75em; line-height: 60%;">Nos Debates!</span>
     </div>
     <div class="col col-12 md-col-6 px2 mb3 md-m0 white">
       <p class="mt0">
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="col col-12 md-col-6 px2">
-      <div class="bg-darken-4 p3 white">
+      <div class="bg-darken-4 p3 white" id="form">
         <p class="mt0">
           <strong>
             Assine agora a petição para pressionar as emissoras de televisão
@@ -92,15 +92,15 @@
   </div>
 </div>
 
-<div class="py4" style="background-image: url(<%= image_path('debate_petition_signatures/bg2.png') %>)">
+<div class="py4 black" style="background-image: url(<%= image_path('debate_petition_signatures/bg2.png') %>)">
   <div class="max-width-4 mx-auto clearfix">
-    <div class="col-8 mx-auto px2 mb3">
+    <div class="sm-col-12 md-col-8 mx-auto px2 mb3">
       <div class="center caps bold h2 p1 black mb3" style="background: #ea9c00">Pra entender melhor</div>
-      <div class="clearfix mxn2 flex items-center mb2">
-        <div class="col col-3 px2">
+      <div class="clearfix mxn2 flex items-center mb3">
+        <div class="col col-12 sm-col-3 px2 center">
           <%= image_tag "debate_petition_signatures/cunha.png", class: "fit" %>
         </div>
-        <div class="col col-9 px2">
+        <div class="col col-12 sm-col-9 px2">
           <p class="m0">
             <strong>
               Enquanto ainda era presidente da Câmara, Eduardo Cunha (PMDB) articulou uma "reforma política"
@@ -109,11 +109,11 @@
           </p>
         </div>
       </div>
-      <div class="clearfix mxn2 flex items-center mb2">
-        <div class="col col-3 px2">
+      <div class="clearfix mxn2 flex items-center mb3">
+        <div class="col col-12 sm-col-3 px2 center">
           <%= image_tag "debate_petition_signatures/proibido.png", class: "fit" %>
         </div>
-        <div class="col col-9 px2">
+        <div class="col col-12 sm-col-9 px2">
           <p class="m0">
             Agora, só candidatos de partidos com mais de 10 deputados no congresso tem direito de participar dos
             debates. <strong>Partidos como o PSOL ficaram de fora e só participarão se as emissoras convidarem e 2
@@ -121,11 +121,11 @@
           </p>
         </div>
       </div>
-      <div class="clearfix mxn2 flex items-center mb2">
-        <div class="col col-3 px2">
+      <div class="clearfix mxn2 flex items-center mb3">
+        <div class="col col-12 sm-col-3 px2 center">
           <%= image_tag "debate_petition_signatures/revolta.png", class: "fit" %>
         </div>
-        <div class="col col-9 px2">
+        <div class="col col-12 sm-col-9 px2">
           <p class="m0">
             <strong>É por isso que precisamos pressionar de todas as formas as emissoras e os candidatos.</strong>
             Vamos mostrar que somos milhares de pessoas exigindo a chance de apresentarmos aos eleitores uma proposta
@@ -133,6 +133,26 @@
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-cover py4 white" style="background-image: url(<%= image_path('debate_petition_signatures/bg.png') %>)">
+  <div class="max-width-4 mx-auto mxn2 clearfix">
+    <div class="col-10 sm-col-6 px2 center mx-auto">
+      <p class="mb3">
+        <strong>Assine agora a nossa petição e você receberá mensagens sobre como continuar pressionando.</strong>
+      </p>
+      <%= link_to "Assinar", "#form", class: "bg-yellow border-none h3 py1 px4 caps navy bold rounded button" %>
+    </div>
+  </div>
+</div>
+
+<div class="bg-black py4 gray">
+  <div class="max-width-4 mx-auto clearfix">
+    <div class="col-10 sm-col-6 px2 center mx-auto">
+      <%= image_tag "debate_petition_signatures/psol.png", style: "max-width: 200px" %>
+      <p>Esse site foi desenvolvido pelo PSOL Rio. Por uma cidade mais justa e menos desigual.</p>
     </div>
   </div>
 </div>
