@@ -1,0 +1,93 @@
+<style>
+  .embed-container {
+    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;
+  }
+
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  }
+</style>
+
+<div class="bg-cover py4" style="background-image: url(<%= image_path('debate_petition_signatures/bg.png') %>)">
+  <div class="max-width-4 mx-auto clearfix">
+    <div class="col col-12 px2 center mb3">
+      <span class="block bold caps yellow mb3" style="font-size: 2rem">Pessoas querem</span>
+      <span class="block bold caps white" style="font-size: 4em; line-height: 70%">Democracia</span>
+      <span class="block bold caps white" style="font-size: 3.75rem; line-height: 100%">Nos Debates!</span>
+    </div>
+    <div class="col col-12 md-col-6 px2 mb3 md-m0 white">
+      <p class="mt0">
+        <strong>
+          Por causa da reforma política de Eduardo Cunha,
+          o PSOL corre o risco de ficar de fora dos debates eleitorais de TV nesse ano.
+        </strong>
+        Não podemos deixar isso acontecer.
+      </p>
+      <p>
+        <strong>
+          É a voz de cada um de nós que estão tentando calar.
+          Vamos mostrar que somos milhares de pessoas para dizer: censura nunca mais!
+        </strong>
+        Democracia é garantir o direito dos eleitores de ouvir outras propostas para que eles possam decidir seu voto.
+      </p>
+      <div class='embed-container'>
+        <iframe src='https://www.youtube.com/embed/56ipnCJ_LYM' frameborder='0' allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col col-12 md-col-6 px2">
+      <div class="bg-darken-4 p3 white">
+        <p class="mt0">
+          <strong>
+            Assine agora a petição para pressionar as emissoras de televisão
+            a garantir esse direito e espalhe pra todo mundo!
+          </strong>
+        </p>
+        <%= form_for @user, url: debate_petition_signatures_path do |f| %>
+          <div class="mxn2">
+            <div class="col col-12 md-col-6 px2 mb3">
+              <%= f.label :first_name, "Seu nome", class: "label required yellow" %>
+              <%= f.text_field :first_name, autofocus: true, class: "input", style: "margin-bottom: .25rem" %>
+              <div class="h6 red first_name_errors">
+                <%= @user.errors.messages[:first_name].join(', ') %>
+              </div>
+            </div>
+
+            <div class="col col-12 md-col-6 px2 mb3">
+              <%= f.label :last_name, "Seu sobrenome", class: "label required yellow" %>
+              <%= f.text_field :last_name, class: "input", style: "margin-bottom: .25rem" %>
+              <div class="h6 red last_name_errors">
+                <%= @user.errors.messages[:last_name].join(', ') %>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb3">
+            <%= f.label :email, "Seu e-mail", class: "label required yellow" %>
+            <%= f.email_field :email, class: "input", style: "margin-bottom: .25rem" %>
+            <div class="h6 red email_errors">
+              <%= @user.errors.messages[:email].join(', ') %>
+            </div>
+          </div>
+
+          <div class="mxn2 clearfix">
+            <div class="col col-12 md-col-6 px2 mb3">
+              <%= f.label :cell_phone_number, "Seu whatsapp", class: "label yellow" %>
+              <%= f.telephone_field :cell_phone_number, class: "input", style: "margin-bottom: .25rem" %>
+              <div class="h6 red"><%= @user.errors.messages[:cell_phone_number].join(', ') %></div>
+            </div>
+
+            <div class="col col-12 md-col-6 px2 mb3">
+              <%= f.label :district, "Bairro onde você mora:", class: "label yellow" %>
+              <%= f.text_field :district, class: "input", style: "margin-bottom: .25rem" %>
+              <div class="h6 red"><%= @user.errors.messages[:district].join(', ') %></div>
+            </div>
+          </div>
+
+          <div>
+            <%= f.submit "Assinar!", class: "bg-yellow border-none h3 py1 px4 caps navy bold rounded button" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
