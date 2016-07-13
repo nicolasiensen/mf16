@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'debate_petition_signatures#new'
   resource :volunteers, only: [:new, :create]
   resource :debate_petition_signatures, only: [:new, :create]
 
@@ -14,15 +15,15 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_scope :user do
-    unauthenticated do
-      root to: "volunteers#new", as: :unauthenticated_root
-    end
-
-    authenticated :user do
-      root to: "devise/registrations#edit", as: :authenticated_root
-    end
-  end
+  # devise_scope :user do
+  #   unauthenticated do
+  #     root to: "volunteers#new", as: :unauthenticated_root
+  #   end
+  #
+  #   authenticated :user do
+  #     root to: "devise/registrations#edit", as: :authenticated_root
+  #   end
+  # end
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
