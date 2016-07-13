@@ -34,60 +34,88 @@
         Democracia é garantir o direito dos eleitores de ouvir outras propostas para que eles possam decidir seu voto.
       </p>
       <div class='embed-container'>
-        <iframe src='https://www.youtube.com/embed/l2jROJA-krE' frameborder='0' allowfullscreen></iframe>
+        <iframe src='https://www.youtube.com/embed/YMdQtEz-EAM' frameborder='0' allowfullscreen></iframe>
       </div>
     </div>
     <div class="col col-12 md-col-6 px2">
       <div class="bg-darken-4 p3 white" id="form">
-        <p class="mt0">
-          <strong>
-            Assine agora a petição para pressionar as emissoras de televisão
-            a garantir esse direito e espalhe pra todo mundo!
-          </strong>
-        </p>
-        <%= form_for @user, url: debate_petition_signatures_path do |f| %>
-          <div class="mxn2">
-            <div class="col col-12 md-col-6 px2 mb3">
-              <%= f.label :first_name, "Seu nome", class: "label required yellow" %>
-              <%= f.text_field :first_name, autofocus: true, class: "input", style: "margin-bottom: .25rem" %>
-              <div class="h6 red first_name_errors">
-                <%= @user.errors.messages[:first_name].join(', ') %>
+        <% if flash[:notice].nil? %>
+          <p class="mt0">
+            <strong>
+              Assine agora a petição para pressionar as emissoras de televisão
+              a garantir esse direito e espalhe pra todo mundo!
+            </strong>
+          </p>
+          <%= form_for @user, url: debate_petition_signatures_path do |f| %>
+            <div class="mxn2">
+              <div class="col col-12 md-col-6 px2 mb3">
+                <%= f.label :first_name, "Seu nome", class: "label required yellow" %>
+                <%= f.text_field :first_name, autofocus: true, class: "input", style: "margin-bottom: .25rem" %>
+                <div class="h6 red first_name_errors">
+                  <%= @user.errors.messages[:first_name].join(', ') %>
+                </div>
+              </div>
+
+              <div class="col col-12 md-col-6 px2 mb3">
+                <%= f.label :last_name, "Seu sobrenome", class: "label required yellow" %>
+                <%= f.text_field :last_name, class: "input", style: "margin-bottom: .25rem" %>
+                <div class="h6 red last_name_errors">
+                  <%= @user.errors.messages[:last_name].join(', ') %>
+                </div>
               </div>
             </div>
 
-            <div class="col col-12 md-col-6 px2 mb3">
-              <%= f.label :last_name, "Seu sobrenome", class: "label required yellow" %>
-              <%= f.text_field :last_name, class: "input", style: "margin-bottom: .25rem" %>
-              <div class="h6 red last_name_errors">
-                <%= @user.errors.messages[:last_name].join(', ') %>
+            <div class="mb3">
+              <%= f.label :email, "Seu e-mail", class: "label required yellow" %>
+              <%= f.email_field :email, class: "input", style: "margin-bottom: .25rem" %>
+              <div class="h6 red email_errors">
+                <%= @user.errors.messages[:email].join(', ') %>
               </div>
             </div>
-          </div>
 
-          <div class="mb3">
-            <%= f.label :email, "Seu e-mail", class: "label required yellow" %>
-            <%= f.email_field :email, class: "input", style: "margin-bottom: .25rem" %>
-            <div class="h6 red email_errors">
-              <%= @user.errors.messages[:email].join(', ') %>
-            </div>
-          </div>
+            <div class="mxn2 clearfix">
+              <div class="col col-12 md-col-6 px2 mb3">
+                <%= f.label :cell_phone_number, "Seu whatsapp", class: "label yellow" %>
+                <%= f.telephone_field :cell_phone_number, class: "input", style: "margin-bottom: .25rem" %>
+                <div class="h6 red"><%= @user.errors.messages[:cell_phone_number].join(', ') %></div>
+              </div>
 
-          <div class="mxn2 clearfix">
-            <div class="col col-12 md-col-6 px2 mb3">
-              <%= f.label :cell_phone_number, "Seu whatsapp", class: "label yellow" %>
-              <%= f.telephone_field :cell_phone_number, class: "input", style: "margin-bottom: .25rem" %>
-              <div class="h6 red"><%= @user.errors.messages[:cell_phone_number].join(', ') %></div>
+              <div class="col col-12 md-col-6 px2 mb3">
+                <%= f.label :district, "Bairro onde você mora:", class: "label yellow" %>
+                <%= f.select :district, district_list, {}, class: "input rounded", style: "margin-bottom: .25rem" %>
+                <div class="h6 red"><%= @user.errors.messages[:district].join(', ') %></div>
+              </div>
             </div>
 
-            <div class="col col-12 md-col-6 px2 mb3">
-              <%= f.label :district, "Bairro onde você mora:", class: "label yellow" %>
-              <%= f.select :district, district_list, {}, class: "input rounded", style: "margin-bottom: .25rem" %>
-              <div class="h6 red"><%= @user.errors.messages[:district].join(', ') %></div>
+            <div>
+              <%= f.submit "Assinar!", class: "bg-yellow border-none h3 py1 px4 caps navy bold rounded button" %>
             </div>
-          </div>
-
-          <div>
-            <%= f.submit "Assinar!", class: "bg-yellow border-none h3 py1 px4 caps navy bold rounded button" %>
+          <% end %>
+        <% else %>
+          <p class="mt0">
+            Obrigado por agir para defender a #democracianosdebates! Já somos muitos mas precisamos trazer
+            mais gente!
+          </p>
+          <p class="mb3">Compartilhe agora essa página com sua família e amigos!</p>
+          <div class="clearfix mxn2">
+            <div class="col col-12 sm-col-6 px2 mb1">
+              <a
+                href="http://www.facebook.com/sharer/sharer.php?u=http://mf16.herokuapp.com/debate_petition_signatures/new"
+                class="border-none h3 py1 px2 caps white bold rounded button block center"
+                target="_blank"
+                style="background: #2a63f8;">
+                Compartilhar
+              </a>
+            </div>
+            <div class="col col-12 sm-col-6 px2 mb1">
+              <a
+                href="https://twitter.com/intent/tweet?text=Querem tirar o PSOL dos debates de TV! Não vão calar nossa voz:&url=http://democracianodebates.com&hashtags=DemocraciaNosDebates"
+                class="border-none h3 py1 px2 caps white bold rounded button block center"
+                target="_blank"
+                style="background: #00bcff;">
+                Tweetar
+              </a>
+            </div>
           </div>
         <% end %>
       </div>
