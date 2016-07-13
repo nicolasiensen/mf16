@@ -15,8 +15,8 @@
         <% number_with_delimiter(User.where(has_signed_debate_petition: true).count).split("").each_with_index do |digit, i| %><span class="inline-block bg-<%= i.odd? ? 'purple' : 'black' %> px1"><%= digit %></span><% end %>
       </div>
       <span class="block bold caps yellow mb3" style="font-size: 2em;">Pessoas querem</span>
-      <span class="block bold caps white" style="font-size: 4em; line-height: 100%; word-wrap: break-word">Democracia</span>
-      <span class="block bold caps white" style="font-size: 3.75em; line-height: 60%;">Nos Debates!</span>
+      <span class="block bold caps white" style="font-size: 3.5em; line-height: 100%;">Democracia</span>
+      <span class="block bold caps white" style="font-size: 3.75em; line-height: 100%;">Nos Debates!</span>
     </div>
     <div class="col col-12 md-col-6 px2 mb3 md-m0 white">
       <p class="mt0">
@@ -127,12 +127,12 @@
   <div class="max-width-4 mx-auto clearfix">
     <div class="sm-col-12 md-col-8 mx-auto px2 mb3">
       <div class="center caps bold h2 p1 black mb3" style="background: #ea9c00">Pra entender melhor</div>
-      <div class="clearfix mxn2 flex items-center mb3">
-        <div class="col col-12 sm-col-3 px2 center">
+      <div class="clearfix mxn2 mb3">
+        <div class="col xs-col-12 sm-col-3 px2 center">
           <%= image_tag "debate_petition_signatures/cunha.png", class: "fit" %>
         </div>
-        <div class="col col-12 sm-col-9 px2">
-          <p class="m0">
+        <div class="col xs-col-12 sm-col-9 px2">
+          <p class="mt3">
             <strong>
               Enquanto ainda era presidente da Câmara, Eduardo Cunha (PMDB) articulou uma "reforma política"
               absurda que mudou as regras das eleições de 2016.
@@ -140,24 +140,34 @@
           </p>
         </div>
       </div>
-      <div class="clearfix mxn2 flex items-center mb3">
-        <div class="col col-12 sm-col-3 px2 center">
+      <div class="clearfix mxn2 mb3">
+        <div class="col xs-col-12 sm-col-3 px2 center">
           <%= image_tag "debate_petition_signatures/proibido.png", class: "fit" %>
         </div>
-        <div class="col col-12 sm-col-9 px2">
-          <p class="m0">
+        <div class="col xs-col-12 sm-col-9 px2">
+          <p class="mt0 xs-hide">
+            Agora, só candidatos de partidos com mais de 10 deputados no congresso tem direito de participar dos
+            debates. <strong>Partidos como o PSOL ficaram de fora e só participarão se as emissoras convidarem e 2
+            terços dos candidatos com assento garantido aprovarem.</strong>
+          </p>
+          <p class="mt3 sm-hide md-hide lg-hide">
             Agora, só candidatos de partidos com mais de 10 deputados no congresso tem direito de participar dos
             debates. <strong>Partidos como o PSOL ficaram de fora e só participarão se as emissoras convidarem e 2
             terços dos candidatos com assento garantido aprovarem.</strong>
           </p>
         </div>
       </div>
-      <div class="clearfix mxn2 flex items-center mb3">
-        <div class="col col-12 sm-col-3 px2 center">
+      <div class="clearfix mxn2 mb3">
+        <div class="col xs-col-12 sm-col-3 px2 center">
           <%= image_tag "debate_petition_signatures/revolta.png", class: "fit" %>
         </div>
-        <div class="col col-12 sm-col-9 px2">
-          <p class="m0">
+        <div class="col xs-col-12 sm-col-9 px2">
+          <p class="mt0 xs-hide">
+            <strong>É por isso que precisamos pressionar de todas as formas as emissoras e os candidatos.</strong>
+            Vamos mostrar que somos milhares de pessoas exigindo a chance de apresentarmos aos eleitores uma proposta
+            possível de construção de uma outra cidade, mais justa e menos desigual.
+          </p>
+          <p class="mt3 sm-hide md-hide lg-hide">
             <strong>É por isso que precisamos pressionar de todas as formas as emissoras e os candidatos.</strong>
             Vamos mostrar que somos milhares de pessoas exigindo a chance de apresentarmos aos eleitores uma proposta
             possível de construção de uma outra cidade, mais justa e menos desigual.
