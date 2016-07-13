@@ -75,7 +75,7 @@
 
             <div class="mxn2 clearfix">
               <div class="col col-12 md-col-6 px2 mb3">
-                <%= f.label :cell_phone_number, "Seu whatsapp", class: "label yellow" %>
+                <%= f.label :cell_phone_number, "Seu celular", class: "label required yellow" %>
                 <%= f.telephone_field :cell_phone_number, class: "input", style: "margin-bottom: .25rem" %>
                 <div class="h6 red"><%= @user.errors.messages[:cell_phone_number].join(', ') %></div>
               </div>
