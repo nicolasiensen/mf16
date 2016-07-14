@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   after_save { User.delay.update_mailchimp_subscription(self.id) }
   after_save { self.upload_facebook_image }
 
-  validates :first_name, :last_name, :cell_phone_number, presence: true
+  validates :first_name, :last_name, presence: true
 
   def facebook_friends
     User.where("facebook_id IN (?)", (super || []).map {|f| f["id"]})
