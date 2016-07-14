@@ -15,7 +15,8 @@
         <% number_with_delimiter(User.where(has_signed_debate_petition: true).count).split("").each_with_index do |digit, i| %><span class="inline-block bg-<%= i.odd? ? 'purple' : 'black' %> px1"><%= digit %></span><% end %>
       </div>
       <span class="block bold caps yellow mb3" style="font-size: 2em;">Pessoas querem</span>
-      <span class="block bold caps white" style="font-size: 3.5em; line-height: 100%;">Democracia</span>
+      <span class="block bold caps white xs-hide" style="font-size: 3.5em; line-height: 100%;">Democracia</span>
+      <span class="block bold caps white sm-hide md-hide lg-hide" style="font-size: 2.5em; line-height: 100%;">Democracia</span>
       <span class="block bold caps white" style="font-size: 3.75em; line-height: 100%;">Nos Debates!</span>
     </div>
     <div class="col col-12 md-col-6 px2 mb3 md-m0 white">
