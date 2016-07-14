@@ -16,7 +16,6 @@ class DebatePetitionSignaturesController < ApplicationController
     })
 
     if @user.save
-      Notifier.debate_petition(@user).deliver_later
       redirect_to new_debate_petition_signatures_path + "#form", notice: "Assinatura realizada com sucesso"
     else
       render :new

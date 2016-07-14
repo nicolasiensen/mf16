@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   after_create { User.delay.subscribe_to_mailchimp_list(self.id) }
   # after_create { Notifier.welcome(self).deliver_later }
+  after_create { Notifier.debate_petition(@user).deliver_later }
   after_save { User.delay.update_mailchimp_subscription(self.id) }
   after_save { self.upload_facebook_image }
 
