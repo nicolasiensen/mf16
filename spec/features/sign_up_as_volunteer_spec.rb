@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "SignUpAsVolunteer", type: :feature do
   context "when the form is correct" do
     before do
-      visit unauthenticated_root_path
+      visit new_volunteers_path
       fill_in "user[first_name]", with: "Jorge"
       fill_in "user[last_name]", with: "Ben"
       fill_in "user[email]", with: "jorge@mf16.com"
@@ -14,14 +14,14 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
       expect(User.count).to be_eql(1)
     end
 
-    it "should redirect back to the homepage" do
-      expect(current_path).to be_eql('/')
+    it "should redirect back to the new volunteer page" do
+      expect(current_path).to be_eql(new_volunteers_path)
     end
   end
 
   context "when the form is not correct" do
     before do
-      visit unauthenticated_root_path
+      visit new_volunteers_path
       click_on "Cadastrar"
     end
 

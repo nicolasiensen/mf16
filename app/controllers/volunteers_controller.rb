@@ -13,7 +13,7 @@ class VolunteersController < ApplicationController
     })
 
     if @user.save
-      redirect_to unauthenticated_root_path
+      redirect_to new_volunteers_path
     else
       render :new
     end

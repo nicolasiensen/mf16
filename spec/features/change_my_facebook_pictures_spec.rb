@@ -10,6 +10,7 @@ RSpec.feature "ChangeMyFacebookPictures", type: :feature do
   it "should redirect the user back to his profile page" do
     VCR.use_cassette("get_user_permissions_from_facebook") do
       VCR.use_cassette("upload_facebook_image") do
+        expect(current_path).to be_eql("/users/edit")
         click_on "Trocar minha foto do Facebook"
         expect(current_path).to be_eql("/users/edit")
       end

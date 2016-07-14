@@ -29,7 +29,7 @@ RSpec.feature "UpdateAccount", type: :feature do
     end
 
     it "should redirect to the profile edit page" do
-      expect(current_path).to eql('/')
+      expect(current_path).to eql(edit_user_registration_path)
     end
 
     it "should display a successful message" do

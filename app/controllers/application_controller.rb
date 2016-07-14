@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:alert] = "Você não tem permissão para acessar esta página"
-    redirect_to(request.referrer || '/')
+    redirect_to(request.referrer || '/users/sign_in')
+  end
+
+  def after_sign_in_path_for user
+    edit_user_registration_path
   end
 end

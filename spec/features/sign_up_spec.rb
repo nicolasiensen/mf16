@@ -12,8 +12,8 @@ RSpec.feature "SignUp", type: :feature do
       click_on "Cadastrar"
     end
 
-    it "should redirect to homepage" do
-      expect(current_path).to eql('/')
+    it "should redirect to profile page" do
+      expect(current_path).to eql(edit_user_registration_path)
     end
 
     it "should create a new user" do

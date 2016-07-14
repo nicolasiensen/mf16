@@ -10,7 +10,7 @@
 <body class="bg-silver">
   <div class="clearfix white p1 bg-black">
     <div class="max-width-4 mx-auto">
-      <%= link_to "MF16", unauthenticated_root_path, class: "left btn" %>
+      <%= link_to "MF16", new_volunteers_path, class: "left btn" %>
       <% if current_user.present? %>
         <%= user_menu current_user %>
       <% else %>
