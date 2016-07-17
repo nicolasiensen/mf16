@@ -44,18 +44,25 @@ class User < ActiveRecord::Base
   def self.subscribe_to_mailchimp_list(user_id)
     user = User.find(user_id)
 
-    response = Gibbon::Request.lists(ENV["MAILCHIMP_LIST_ID"]).members.create(
-      body: {
-        email_address: user.email,
-        status: "subscribed",
-        merge_fields: {
-          FNAME: user.first_name,
-          LNAME: user.last_name,
-          DISTRICT: user.district,
-          CELLPHONE: user.cell_phone_number
+    list = Gibbon::Request.lists(ENV["MAILCHIMP_LIST_ID"])
+    member = list.members(Digest::MD5.hexdigest(user.email))
+
+    begin
+      response = member.retrieve
+    rescue Gibbon::MailChimpError
+      response = Gibbon::Request.lists(ENV["MAILCHIMP_LIST_ID"]).members.create(
+        body: {
+          email_address: user.email,
+          status: "subscribed",
+          merge_fields: {
+            FNAME: user.first_name,
+            LNAME: user.last_name,
+            DISTRICT: user.district || "",
+            CELLPHONE: user.cell_phone_number || ""
+          }
         }
-      }
-    )
+      )
+    end
 
     user.update_attribute(:mailchimp_id, response["id"])
   end
