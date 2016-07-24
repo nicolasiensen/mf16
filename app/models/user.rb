@@ -54,7 +54,10 @@ class User < ActiveRecord::Base
         body: {
           email_address: user.email,
           status: "subscribed",
-          interests: {"#{ENV["MAILCHIMP_INTEREST_ID"]}" => true},
+          interests: {
+            "#{ENV["MAILCHIMP_INTEREST_ID"]}" => true,
+            "#{ENV["MAILCHIMP_SIGNED_DEBATE_PETITION_INTEREST_ID"]}" => user.has_signed_debate_petition
+          },
           merge_fields: {
             FNAME: user.first_name,
             LNAME: user.last_name,
@@ -77,7 +80,10 @@ class User < ActiveRecord::Base
       body: {
         email_address: user.email,
         status: "subscribed",
-        interests: {"#{ENV["MAILCHIMP_INTEREST_ID"]}" => true},
+        interests: {
+          "#{ENV["MAILCHIMP_INTEREST_ID"]}" => true,
+          "#{ENV["MAILCHIMP_SIGNED_DEBATE_PETITION_INTEREST_ID"]}" => user.has_signed_debate_petition
+        },
         merge_fields: {
           FNAME: user.first_name,
           LNAME: user.last_name,
