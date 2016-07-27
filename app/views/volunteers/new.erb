@@ -24,95 +24,103 @@
       </div>
     </div>
     <div class="xs-col-12 sm-col-5 mx-auto px2">
-      <%= form_for @user, url: volunteers_path do |f| %>
-        <div class="mxn2">
-          <div class="col col-12 md-col-6 px2 mb3">
+      <% if flash[:notice].present? %>
+        <%= card do %>
+          <%= card_body do %>
+            <%= flash[:notice] %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= form_for @user, url: volunteers_path do |f| %>
+          <div class="mxn2">
+            <div class="col col-12 md-col-6 px2 mb3">
+              <%=
+                f.text_field(
+                  :first_name,
+                  placeholder: t('activerecord.attributes.user.first_name'),
+                  class: "input",
+                  style: "margin-bottom: .25rem"
+                )
+              %>
+              <div class="h6 white first_name_errors">
+                <%= @user.errors.messages[:first_name].join(', ') %>
+              </div>
+            </div>
+
+            <div class="col col-12 md-col-6 px2 mb3">
+              <%=
+                f.text_field(
+                  :last_name,
+                  placeholder: t('activerecord.attributes.user.last_name'),
+                  class: "input",
+                  style: "margin-bottom: .25rem"
+                )
+              %>
+              <div class="h6 white last_name_errors">
+                <%= @user.errors.messages[:last_name].join(', ') %>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb3">
             <%=
-              f.text_field(
-                :first_name,
-                placeholder: t('activerecord.attributes.user.first_name'),
+              f.email_field(
+                :email,
+                placeholder: t('activerecord.attributes.user.email'),
                 class: "input",
                 style: "margin-bottom: .25rem"
               )
             %>
-            <div class="h6 white first_name_errors">
-              <%= @user.errors.messages[:first_name].join(', ') %>
+            <div class="h6 white email_errors">
+              <%= @user.errors.messages[:email].join(', ') %>
             </div>
           </div>
 
-          <div class="col col-12 md-col-6 px2 mb3">
+          <div class="mb3">
             <%=
-              f.text_field(
-                :last_name,
-                placeholder: t('activerecord.attributes.user.last_name'),
+              f.telephone_field(
+                :cell_phone_number,
+                placeholder: t('activerecord.attributes.user.cell_phone_number'),
                 class: "input",
                 style: "margin-bottom: .25rem"
               )
             %>
-            <div class="h6 white last_name_errors">
-              <%= @user.errors.messages[:last_name].join(', ') %>
-            </div>
+            <div class="h6 white"><%= @user.errors.messages[:cell_phone_number].join(', ') %></div>
           </div>
-        </div>
 
-        <div class="mb3">
-          <%=
-            f.email_field(
-              :email,
-              placeholder: t('activerecord.attributes.user.email'),
-              class: "input",
-              style: "margin-bottom: .25rem"
-            )
-          %>
-          <div class="h6 white email_errors">
-            <%= @user.errors.messages[:email].join(', ') %>
+          <div class="mb3">
+            <%=
+              f.select(
+                :district,
+                district_list,
+                {prompt: t('activerecord.attributes.user.district')},
+                class: "input rounded",
+                style: "margin-bottom: .25rem"
+              )
+            %>
+            <div class="h6 white"><%= @user.errors.messages[:district].join(', ') %></div>
           </div>
-        </div>
 
-        <div class="mb3">
-          <%=
-            f.telephone_field(
-              :cell_phone_number,
-              placeholder: t('activerecord.attributes.user.cell_phone_number'),
-              class: "input",
-              style: "margin-bottom: .25rem"
-            )
-          %>
-          <div class="h6 white"><%= @user.errors.messages[:cell_phone_number].join(', ') %></div>
-        </div>
-
-        <div class="mb3">
-          <%=
-            f.select(
-              :district,
-              district_list,
-              {prompt: t('activerecord.attributes.user.district')},
-              class: "input rounded",
-              style: "margin-bottom: .25rem"
-            )
-          %>
-          <div class="h6 white"><%= @user.errors.messages[:district].join(', ') %></div>
-        </div>
-
-        <div class="mb3">
-          <%=
-            f.submit(
-              "Quero participar",
-              class: "button bg-yellow block caps p2 h2 white border-none rounded bold",
-              style: "width: 100%"
-            )
-          %>
-        </div>
-        <div class="center">
-          <%=
-            link_to_popup(
-              "Compartilhar",
-              "http://www.facebook.com/sharer/sharer.php?u=#{request.url}",
-              class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4"
-            )
-          %>
-        </div>
+          <div class="mb3">
+            <%=
+              f.submit(
+                "Quero participar",
+                class: "button bg-yellow block caps p2 h2 white border-none rounded bold",
+                style: "width: 100%"
+              )
+            %>
+          </div>
+        <% end %>
       <% end %>
+      <div class="center">
+        <%=
+          link_to_popup(
+            "Compartilhar",
+            "http://www.facebook.com/sharer/sharer.php?u=#{request.url}",
+            class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4"
+          )
+        %>
+      </div>
     </div>
   </div>
 </div>

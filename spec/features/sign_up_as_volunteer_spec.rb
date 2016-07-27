@@ -17,6 +17,14 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
     it "should redirect back to the new volunteer page" do
       expect(current_path).to be_eql(new_volunteers_path)
     end
+
+    it "should not display the form" do
+      expect(page).to_not have_css('form#new_user')
+    end
+
+    it "should display a success message" do
+      expect(page).to have_content("Seja bem-vindo à campanha!")
+    end
   end
 
   context "when the form is not correct" do

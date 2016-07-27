@@ -15,7 +15,10 @@ class VolunteersController < ApplicationController
     })
 
     if @user.save
-      redirect_to new_volunteers_path
+      redirect_to(
+        new_volunteers_path,
+        notice: "Seja bem-vindo à campanha! Aguarde o nosso contato para oportunidades de participação"
+      )
     else
       render :new
     end
