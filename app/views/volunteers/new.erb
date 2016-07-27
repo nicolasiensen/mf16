@@ -10,16 +10,15 @@
         <div class="mb3 lg-hide"></div>
       </div>
       <div class="col col-12 sm-col-12 md-col-7 lg-col-7 px2 flex items-center">
-        <div class="h1 caps bold bg-aqua purple mx-auto" style="letter-spacing: 2px">
-          Pré candidato à prefeitura<br/>
-          do Rio de Janeiro
+        <div class="mx-auto">
+          <%= image_tag "volunteers/slogan.png", class: "fit" %>
         </div>
       </div>
     </div>
     <div class="mb3 lg-hide"></div>
-    <div class="clearfix">
+    <div class="clearfix mt2">
       <div class="col sm-col-12 mx-auto center px2">
-        <h1 class="white h1 regular mb4">
+        <h1 class="white h2 regular mb4">
           Espaço para texto esperto pedindo para que o usuário se inscreva nos campos abaixo e clique no botão para ficar por dentro.
         </h1>
       </div>
@@ -95,7 +94,7 @@
           <div class="h6 white"><%= @user.errors.messages[:district].join(', ') %></div>
         </div>
 
-        <div>
+        <div class="mb3">
           <%=
             f.submit(
               "Quero participar",
@@ -104,28 +103,39 @@
             )
           %>
         </div>
+        <div class="center">
+          <%=
+            link_to(
+              "Compartilhar",
+              "http://www.facebook.com/sharer/sharer.php?u=#{request.url}",
+              target: "_blank",
+              class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4"
+            )
+          %>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
 
-<div class="bg-purple py2">
+<div class="bg-purple clearfix">
   <div class="max-width-4 mx-auto sm-flex justify-around px2">
     <a
       target="_blank"
       href="https://www.facebook.com/MarceloFreixoPsol/"
       style="letter-spacing: 2px"
-      class="yellow caps block">
+      class="yellow caps block bold mt2 mb2">
       <%= icon('facebook', class: "white") %>
       /marcelofreixopsol
     </a>
     <a
       target="_blank"
-      href="http://www.marcelofreixo.com.br/"
+      href="https://twitter.com/marcelofreixo"
       style="letter-spacing: 2px"
-      class="yellow caps block">
+      class="yellow caps block bold mt2 mb2">
+      <%= icon('twitter', class: "white") %>
       /marcelofreixo
     </a>
-    <div class="yellow caps block" style="letter-spacing: 2px">(21) 2588 1268</div>
+    <div class="yellow caps block bold mt2 mb2" style="letter-spacing: 2px">(21) 2588 1268</div>
   </div>
 </div>
