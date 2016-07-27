@@ -1,4 +1,6 @@
 class VolunteersController < ApplicationController
+  layout "splash"
+
   def new
     skip_authorization
     @user = User.new

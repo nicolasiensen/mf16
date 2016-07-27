@@ -7,7 +7,7 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
       fill_in "user[first_name]", with: "Jorge"
       fill_in "user[last_name]", with: "Ben"
       fill_in "user[email]", with: "jorge@mf16.com"
-      click_on "Cadastrar"
+      click_on "Quero participar"
     end
 
     it "should create a new user" do
@@ -22,7 +22,7 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
   context "when the form is not correct" do
     before do
       visit new_volunteers_path
-      click_on "Cadastrar"
+      click_on "Quero participar"
     end
 
     it "should display form errors" do
