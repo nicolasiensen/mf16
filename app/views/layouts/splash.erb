@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Queremos o PSOL nos debates à prefeitura do Rio!</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Queremos o PSOL nos debates à prefeitura do Rio!" />
-  <meta property="og:image" content="<%= image_url 'debate_petition_signatures/share.jpg' %>" />
-  <meta property="og:description" content="Assine a petição agora!" />
-  <%= favicon_link_tag 'debate_petition_signatures/favicon.png' %>
+  <%= yield :head %>
 </head>
 <body class="bg-silver">
   <%= yield %>
