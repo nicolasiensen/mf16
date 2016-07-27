@@ -1,0 +1,8 @@
+<script>
+  openPopup = function (path, text) {
+    window.open(path, text, 'height=600,width=710')
+    return false
+  }
+</script>
+
+<%= link_to(text, path, options.merge(onClick: "return openPopup('#{path}', '#{text}')")) %>

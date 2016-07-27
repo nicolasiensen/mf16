@@ -61,6 +61,10 @@ def container
   return content_tag(:div, class: "max-width-4 mx-auto py2 px2") { yield }
 end
 
+def link_to_popup text, path, options
+  render partial: "shared/link_to_popup", locals: {text: text, path: path, options: options}
+end
+
 def district_list
   [
     "Não moro no Rio",
