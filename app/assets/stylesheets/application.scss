@@ -16,9 +16,10 @@
 
 $aqua: #00c9c9;
 $orange: #ff8200;
-$purple: #211733;
+$purple: #762e9e;
 $black: #313131;
 $silver: #e1e1e1;
+$yellow: #ffa600;
 
 $button-background-color: $orange;
 $border-radius: 1px;
@@ -32,6 +33,10 @@ $border-radius: 1px;
 body {
   font-family: 'Proxima Nova', sans-serif;
   margin: 0;
+}
+
+input {
+  font-family: 'Proxima Nova', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
