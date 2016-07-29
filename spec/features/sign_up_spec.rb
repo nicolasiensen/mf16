@@ -19,10 +19,6 @@ RSpec.feature "SignUp", type: :feature do
     it "should create a new user" do
       expect(User.count).to eql(1)
     end
-
-    it "should send an email to the new user" do
-      expect(ActionMailer::Base.deliveries.count).to eql(1)
-    end
   end
 
   context "when the sign up form is not correct" do
