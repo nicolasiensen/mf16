@@ -5,4 +5,6 @@
   }
 </script>
 
-<%= link_to(text, path, options.merge(onClick: "return openPopup('#{path}', '#{text}')")) %>
+<%= link_to(path, options.merge(onClick: "return openPopup('#{path}')")) do %>
+  <%= capture(&block) %>
+<% end %>
