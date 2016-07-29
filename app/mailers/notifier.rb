@@ -3,7 +3,7 @@ class Notifier < ApplicationMailer
 
   def welcome user
     @user = user
-    mail(to: @user.email, subject: "Valeu!")
+    mail(from: "Marcelo Freixo <contato@marcelofreixo.com.br>", to: @user.email, subject: "Valeu!")
   end
 
   def debate_petition user
