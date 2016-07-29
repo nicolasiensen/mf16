@@ -15,6 +15,7 @@ class VolunteersController < ApplicationController
     })
 
     if @user.save
+      Notifier.welcome(@user).deliver_later
       redirect_to(
         new_volunteers_path,
         notice: "Seja bem-vindo à campanha! Aguarde o nosso contato para oportunidades de participação"
