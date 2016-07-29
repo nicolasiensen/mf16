@@ -21,6 +21,7 @@ $black: #313131;
 $silver: #e1e1e1;
 $yellow: #ffa600;
 $facebook-blue: #2a61a9;
+$twitter-blue: #1da1f3;
 
 $button-background-color: $orange;
 $border-radius: 1px;
@@ -81,4 +82,8 @@ label.required:before { content: "*" }
 
 .bg-facebook-blue {
   background-color: $facebook-blue;
+}
+
+.bg-twitter-blue {
+  background-color: $twitter-blue;
 }
