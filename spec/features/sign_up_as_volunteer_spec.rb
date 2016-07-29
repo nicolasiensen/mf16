@@ -7,7 +7,7 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
       fill_in "user[first_name]", with: "Jorge"
       fill_in "user[last_name]", with: "Ben"
       fill_in "user[email]", with: "jorge@mf16.com"
-      click_on "Quero participar"
+      click_on "Tô dentro!"
     end
 
     it "should create a new user" do
@@ -23,14 +23,18 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
     end
 
     it "should display a success message" do
-      expect(page).to have_content("Seja bem-vindo à campanha!")
+      expect(page).to have_content("Obrigado por se juntar a essa campanha!")
+    end
+
+    it "should send an email to the new user" do
+      expect(ActionMailer::Base.deliveries.count).to eql(1)
     end
   end
 
   context "when the form is not correct" do
     before do
       visit new_volunteers_path
-      click_on "Quero participar"
+      click_on "Tô dentro!"
     end
 
     it "should display form errors" do

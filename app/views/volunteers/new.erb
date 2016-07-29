@@ -1,5 +1,10 @@
 <%= content_for :head do %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marcelo Freixo | É o candidato do PSOL à Prefeitura do Rio de Janeiro.</title>
+  <meta property="og:title" content="Marcelo Freixo | É o candidato do PSOL à Prefeitura do Rio de Janeiro." />
+  <meta property="og:image" content="<%= image_url 'debate_petition_signatures/share.jpg' %>" />
+  <meta property="og:description" content="Está chegando a hora de mostrarmos a força de uma campanha construída coletivamente, sem dinheiro das empreiteiras e dos bancos, nem a máquina do governo ou da igreja. Inscreva-se abaixo para saber como você vai poder ajudar na campanha por uma cidade mais democrática e menos desigual." />
+  <%= favicon_link_tag 'debate_petition_signatures/favicon.png' %>
 <% end %>
 
 <div class="bg-cover py4" style="background-image: url('<%= image_path('volunteers/bg.jpg') %>')">
@@ -18,16 +23,44 @@
     <div class="mb3 lg-hide"></div>
     <div class="clearfix mt2">
       <div class="col sm-col-12 mx-auto center px2">
-        <h1 class="white h2 regular mb4">
-          Espaço para texto esperto pedindo para que o usuário se inscreva nos campos abaixo e clique no botão para ficar por dentro.
+        <h1 class="white h3 regular mb4">
+          <p>
+            Está chegando a hora de mostrarmos a força de uma campanha construída coletivamente, sem dinheiro das empreiteiras e dos bancos, nem a máquina do governo ou da igreja.
+          </p>
+          <p>
+            Inscreva-se abaixo para saber como você vai poder ajudar na campanha por uma cidade mais democrática e menos desigual.
+          </p>
         </h1>
       </div>
     </div>
     <div class="xs-col-12 sm-col-5 mx-auto px2">
-      <% if flash[:notice].present? %>
+      <% if flash[:notice] %>
         <%= card do %>
           <%= card_body do %>
-            <%= flash[:notice] %>
+            <p class="mt0">
+              Obrigado por se juntar a essa campanha! Já somos mais de 40 mil pessoas que têm uma ligação com Freixo, mas para ganharmos a cidade precisamos de mais pessoas!
+            </p>
+            <p class="mb3">
+              Compartilhe agora essa página com sua família e amigos que têm interesse em participar da campanha quando ela começar!
+            </p>
+            <div class="center">
+              <%=
+                link_to_popup(
+                  "http://www.facebook.com/sharer/sharer.php?u=#{request.url}",
+                  class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4 m1"
+                ) do
+              %>
+                <%= icon('facebook') %> Compartilhar
+              <% end %>
+              <%=
+                link_to_popup(
+                  "https://twitter.com/intent/tweet?text=Marcelo Freixo é o candidato do PSOL à Prefeitura do Rio de Janeiro&url=#{request.url}",
+                  class: "button bg-twitter-blue white py1 px3 caps inline-block rounded bold h4 m1"
+                ) do
+              %>
+                <%= icon('twitter') %> Tweetar
+              <% end %>
+            </div>
           <% end %>
         <% end %>
       <% else %>
@@ -104,23 +137,24 @@
           <div class="mb3">
             <%=
               f.submit(
-                "Quero participar",
+                "Tô dentro!",
                 class: "button bg-yellow block caps p2 h2 white border-none rounded bold",
                 style: "width: 100%"
               )
             %>
           </div>
+          <div class="center">
+            <%=
+              link_to_popup(
+                "http://www.facebook.com/sharer/sharer.php?u=#{request.url}",
+                class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4"
+              ) do
+            %>
+              <%= icon('facebook') %> Compartilhar
+            <% end %>
+          </div>
         <% end %>
       <% end %>
-      <div class="center">
-        <%=
-          link_to_popup(
-            "Compartilhar",
-            "http://www.facebook.com/sharer/sharer.php?u=#{request.url}",
-            class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4"
-          )
-        %>
-      </div>
     </div>
   </div>
 </div>
