@@ -7,7 +7,7 @@ RSpec.feature "SignDebatePetition", type: :feature do
       fill_in "user[first_name]", with: "Jorge"
       fill_in "user[last_name]", with: "Ben"
       fill_in "user[email]", with: "jorge@mf16.com"
-      fill_in "user[cell_phone_number]", with: "21 988887777"
+      fill_in "user[cell_phone_number]", with: "(21) 988887777"
       select "Barra da Tijuca", from: "user[district]"
       click_on "Assinar!"
     end

@@ -34,6 +34,7 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
   context "when the form is not correct" do
     before do
       visit new_volunteers_path
+      check "user[wants_to_receive_tasks_via_whatsapp]"
       click_on "Tô dentro!"
     end
 
@@ -41,6 +42,7 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
       expect(page).to have_css(".first_name_errors", text: "não pode ficar em branco")
       expect(page).to have_css(".last_name_errors", text: "não pode ficar em branco")
       expect(page).to have_css(".email_errors", text: "não pode ficar em branco")
+      expect(page).to have_css(".cell_phone_number_errors", text: "não pode ficar em branco")
     end
   end
 end

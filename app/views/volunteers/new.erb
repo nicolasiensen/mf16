@@ -118,7 +118,14 @@
                 style: "margin-bottom: .25rem"
               )
             %>
-            <div class="h6 white"><%= @user.errors.messages[:cell_phone_number].join(', ') %></div>
+            <div class="h6 white cell_phone_number_errors">
+              <%= @user.errors.messages[:cell_phone_number].join(', ') %>
+            </div>
+          </div>
+
+          <div class="mb3 white">
+            <%= f.check_box :wants_to_receive_tasks_via_whatsapp %>
+            <%= f.label :wants_to_receive_tasks_via_whatsapp, style: "cursor: pointer" %>
           </div>
 
           <div class="mb3">
@@ -155,6 +162,25 @@
           </div>
         <% end %>
       <% end %>
+    </div>
+    <div class="clearfix mt4">
+      <div class="col sm-col-12 mx-auto center px2">
+        <h1 class="white h3 regular">
+          <p>
+            Esse ano os outros candidatos não poderão receber doações das empresas que sempre investiram na campanha deles. É a nossa chance de mostrar que a força da construção coletiva pode mudar essa cidade.
+          </p>
+          <p>
+            Faça a sua doação e ajude a estruturar o início da nossa campanha!
+          </p>
+        </h1>
+        <%=
+          link_to(
+            "Apoiar",
+            "http://eufinancio.marcelofreixo.com.br",
+            class: "button bg-yellow white py1 px2 caps bold rounded"
+          )
+        %>
+      </div>
     </div>
   </div>
 </div>

@@ -33,7 +33,8 @@ class VolunteersController < ApplicationController
       :last_name,
       :email,
       :district,
-      :cell_phone_number
+      :cell_phone_number,
+      :wants_to_receive_tasks_via_whatsapp
     )
   end
 end

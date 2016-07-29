@@ -14,7 +14,7 @@ RSpec.feature "UpdateAccount", type: :feature do
         first_name: "Aloe",
         last_name: "Blacc",
         district: "Laguna Hills",
-        cell_phone_number: "9999999999"
+        cell_phone_number: "(21) 9999999999"
       }
 
       within("#edit_user") do

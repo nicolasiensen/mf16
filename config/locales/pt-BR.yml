@@ -9,10 +9,16 @@ pt-BR:
         current_password: 'Sua senha atual'
         first_name: 'Seu nome'
         last_name: 'Seu sobrenome'
-        cell_phone_number: 'Seu celular'
+        cell_phone_number: 'Seu celular (21) 9999 99999'
         district: 'Seu bairro'
         remember_me: 'Manter-me conectado'
+        wants_to_receive_tasks_via_whatsapp: 'Quero receber tarefas diárias por Whatsapp quando a campanha começar!'
     errors:
+      models:
+        user:
+          attributes:
+            cell_phone_number:
+              invalid: 'formato deve ser (21) 9999 99999'
       messages:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
