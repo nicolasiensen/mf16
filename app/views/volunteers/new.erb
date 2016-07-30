@@ -1,9 +1,9 @@
 <%= content_for :head do %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marcelo Freixo | É o candidato do PSOL à Prefeitura do Rio de Janeiro.</title>
-  <meta property="og:title" content="Marcelo Freixo | É o candidato do PSOL à Prefeitura do Rio de Janeiro." />
-  <meta property="og:image" content="<%= image_url 'debate_petition_signatures/share.jpg' %>" />
-  <meta property="og:description" content="Está chegando a hora de mostrarmos a força de uma campanha construída coletivamente, sem dinheiro das empreiteiras e dos bancos, nem a máquina do governo ou da igreja. Inscreva-se abaixo para saber como você vai poder ajudar a construir uma cidade mais democrática e menos desigual." />
+  <meta property="og:title" content="Dia 16 começa. Participe da campanha do Freixo à Prefeitura." />
+  <meta property="og:image" content="<%= image_url 'volunteers/facebook-share.jpg' %>" />
+  <meta property="og:description" content="Clique pra saber como participar." />
   <%= favicon_link_tag 'debate_petition_signatures/favicon.png' %>
 <% end %>
 
@@ -54,7 +54,7 @@
               <% end %>
               <%=
                 link_to_popup(
-                  "https://twitter.com/intent/tweet?text=Marcelo Freixo é o candidato do PSOL à Prefeitura do Rio de Janeiro&url=#{request.url}",
+                  "https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{request.url}",
                   class: "button bg-twitter-blue white py1 px3 caps inline-block rounded bold h4 m1"
                 ) do
               %>
