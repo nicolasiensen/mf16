@@ -13,6 +13,8 @@ pt-BR:
         district: 'Seu bairro'
         remember_me: 'Manter-me conectado'
         wants_to_receive_tasks_via_whatsapp: 'Quero receber tarefas diárias por Whatsapp quando a campanha começar!'
+        wants_to_donate: 'Posso apoiar o financiamento coletivo da campanha quando começar!'
+        school: 'Está em alguma instituição de ensino?'
     errors:
       models:
         user:

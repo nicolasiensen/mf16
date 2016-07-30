@@ -41,6 +41,26 @@ class User < ActiveRecord::Base
     end
   end
 
+  def mailchimp_fields
+    {
+      email_address: self.email,
+      status: "subscribed",
+      interests: {
+        "#{ENV["MAILCHIMP_INTEREST_ID"]}" => true,
+        "#{ENV["MAILCHIMP_SIGNED_DEBATE_PETITION_INTEREST_ID"]}" => self.has_signed_debate_petition
+      },
+      merge_fields: {
+        FNAME: self.first_name,
+        LNAME: self.last_name,
+        DISTRICT: self.district || "",
+        CELLPHONE: self.cell_phone_number || "",
+        WHATSENABL: self.wants_to_receive_tasks_via_whatsapp ? "Sim" : "Não",
+        WANTDONATE: self.wants_to_donate ? "Sim" : "Não",
+        SCHOOL: self.school || ""
+      }
+    }
+  end
+
   def self.subscribe_to_mailchimp_list(user_id)
     user = User.find(user_id)
 
@@ -50,23 +70,7 @@ class User < ActiveRecord::Base
     begin
       response = member.retrieve
     rescue Gibbon::MailChimpError
-      response = Gibbon::Request.lists(ENV["MAILCHIMP_LIST_ID"]).members.create(
-        body: {
-          email_address: user.email,
-          status: "subscribed",
-          interests: {
-            "#{ENV["MAILCHIMP_INTEREST_ID"]}" => true,
-            "#{ENV["MAILCHIMP_SIGNED_DEBATE_PETITION_INTEREST_ID"]}" => user.has_signed_debate_petition
-          },
-          merge_fields: {
-            FNAME: user.first_name,
-            LNAME: user.last_name,
-            DISTRICT: user.district || "",
-            CELLPHONE: user.cell_phone_number || "",
-            WHATSENABL: user.wants_to_receive_tasks_via_whatsapp ? "Sim" : "Não"
-          }
-        }
-      )
+      response = Gibbon::Request.lists(ENV["MAILCHIMP_LIST_ID"]).members.create(body: user.mailchimp_fields)
     end
 
     user.update_attribute(:mailchimp_id, response["id"])
@@ -77,22 +81,6 @@ class User < ActiveRecord::Base
 
     list = Gibbon::Request.lists(ENV["MAILCHIMP_LIST_ID"])
     member = list.members(Digest::MD5.hexdigest(user.email))
-    member.upsert(
-      body: {
-        email_address: user.email,
-        status: "subscribed",
-        interests: {
-          "#{ENV["MAILCHIMP_INTEREST_ID"]}" => true,
-          "#{ENV["MAILCHIMP_SIGNED_DEBATE_PETITION_INTEREST_ID"]}" => user.has_signed_debate_petition
-        },
-        merge_fields: {
-          FNAME: user.first_name,
-          LNAME: user.last_name,
-          DISTRICT: user.district,
-          CELLPHONE: user.cell_phone_number,
-          WHATSENABL: user.wants_to_receive_tasks_via_whatsapp ? "Sim" : "Não"
-        }
-      }
-    )
+    member.upsert(body: user.mailchimp_fields)
   end
 end

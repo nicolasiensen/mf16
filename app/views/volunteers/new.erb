@@ -3,7 +3,7 @@
   <title>Marcelo Freixo | É o candidato do PSOL à Prefeitura do Rio de Janeiro.</title>
   <meta property="og:title" content="Marcelo Freixo | É o candidato do PSOL à Prefeitura do Rio de Janeiro." />
   <meta property="og:image" content="<%= image_url 'debate_petition_signatures/share.jpg' %>" />
-  <meta property="og:description" content="Está chegando a hora de mostrarmos a força de uma campanha construída coletivamente, sem dinheiro das empreiteiras e dos bancos, nem a máquina do governo ou da igreja. Inscreva-se abaixo para saber como você vai poder ajudar na campanha por uma cidade mais democrática e menos desigual." />
+  <meta property="og:description" content="Está chegando a hora de mostrarmos a força de uma campanha construída coletivamente, sem dinheiro das empreiteiras e dos bancos, nem a máquina do governo ou da igreja. Inscreva-se abaixo para saber como você vai poder ajudar a construir uma cidade mais democrática e menos desigual." />
   <%= favicon_link_tag 'debate_petition_signatures/favicon.png' %>
 <% end %>
 
@@ -28,7 +28,7 @@
             Está chegando a hora de mostrarmos a força de uma campanha construída coletivamente, sem dinheiro das empreiteiras e dos bancos, nem a máquina do governo ou da igreja.
           </p>
           <p>
-            Inscreva-se abaixo para saber como você vai poder ajudar na campanha por uma cidade mais democrática e menos desigual.
+            Inscreva-se abaixo para saber como você vai poder ajudar a construir uma cidade mais democrática e menos desigual.
           </p>
         </h1>
       </div>
@@ -123,11 +123,6 @@
             </div>
           </div>
 
-          <div class="mb3 white">
-            <%= f.check_box :wants_to_receive_tasks_via_whatsapp %>
-            <%= f.label :wants_to_receive_tasks_via_whatsapp, style: "cursor: pointer" %>
-          </div>
-
           <div class="mb3">
             <%=
               f.select(
@@ -139,6 +134,29 @@
               )
             %>
             <div class="h6 white"><%= @user.errors.messages[:district].join(', ') %></div>
+          </div>
+
+          <div class="mb3">
+            <%=
+              f.select(
+                :school,
+                school_list,
+                {prompt: t('activerecord.attributes.user.school')},
+                class: "input rounded",
+                style: "margin-bottom: .25rem"
+              )
+            %>
+            <div class="h6 white"><%= @user.errors.messages[:school].join(', ') %></div>
+          </div>
+
+          <div class="mb3 white">
+            <%= f.check_box :wants_to_receive_tasks_via_whatsapp %>
+            <%= f.label :wants_to_receive_tasks_via_whatsapp, style: "cursor: pointer" %>
+          </div>
+
+          <div class="mb3 white">
+            <%= f.check_box :wants_to_donate %>
+            <%= f.label :wants_to_donate, style: "cursor: pointer" %>
           </div>
 
           <div class="mb3">
