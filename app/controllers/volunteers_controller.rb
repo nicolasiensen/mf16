@@ -8,17 +8,25 @@ class VolunteersController < ApplicationController
 
   def create
     skip_authorization
-    password = Digest::SHA256.hexdigest(Time.now.to_s)
-    @user = User.new user_params.merge({
-      password: password,
-      password_confirmation: password
-    })
+
+    existing_user = User.find_by(email: user_params[:email])
+
+    if existing_user.present?
+      @user = existing_user
+      @user.attributes = user_params
+    else
+      password = Digest::SHA256.hexdigest(Time.now.to_s)
+      @user = User.new user_params.merge({
+        password: password,
+        password_confirmation: password
+      })
+    end
 
     if @user.save
       Notifier.welcome(@user).deliver_later
       redirect_to(
         new_volunteers_path,
-        notice: "Seja bem-vindo à campanha! Aguarde o nosso contato para oportunidades de participação"
+        notice: true
       )
     else
       render :new

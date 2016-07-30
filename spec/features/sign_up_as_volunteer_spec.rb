@@ -29,6 +29,24 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
     it "should send an email to the new user" do
       expect(ActionMailer::Base.deliveries.count).to eql(1)
     end
+
+    context "when the user already exists" do
+      before do
+        visit new_volunteers_path
+        fill_in "user[first_name]", with: "Jorge"
+        fill_in "user[last_name]", with: "Benjamin"
+        fill_in "user[email]", with: "jorge@mf16.com"
+        click_on "Tô dentro!"
+      end
+
+      it "should redirect back to the new volunteer page" do
+        expect(current_path).to be_eql(new_volunteers_path)
+      end
+
+      it "should update the existing user" do
+        expect(User.find_by(email: "jorge@mf16.com").last_name).to be_eql("Benjamin")
+      end
+    end
   end
 
   context "when the form is not correct" do
