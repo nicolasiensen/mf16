@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
     skip_authorization
+    @events = Event.all
   end
 
   def new

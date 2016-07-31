@@ -1,1 +1,19 @@
-<%= link_to "Novo evento", new_event_path %>
+<div class="p2 max-width-2 mx-auto">
+  <div class="clearfix mb3">
+    <h1 class="regular left m0">Eventos</h1>
+    <%= link_to "Novo evento", new_event_path, class: "button bold caps bg-orange px2 py1 white border-none inline-block rounded right" %>
+  </div>
+
+  <% @events.each do |event| %>
+    <%= card do %>
+      <%= card_header do %>
+        <div>
+          <%= event.title %>
+        </div>
+        <div class="h5">
+          <%= l(event.start_at, format: :short) %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
