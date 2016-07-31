@@ -168,37 +168,30 @@
               )
             %>
           </div>
-          <div class="center">
-            <%=
-              link_to_popup(
-                "http://www.facebook.com/sharer/sharer.php?u=#{request.url}",
-                class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4"
-              ) do
-            %>
-              <%= icon('facebook') %> Compartilhar
-            <% end %>
-          </div>
         <% end %>
       <% end %>
     </div>
-    <div class="clearfix mt4">
-      <div class="col sm-col-12 mx-auto center px2">
-        <h1 class="white h3 regular">
-          <p>
-            Esse ano os outros candidatos não poderão receber doações das empresas que sempre investiram na campanha deles. É a nossa chance de mostrar que a força da construção coletiva pode mudar essa cidade.
-          </p>
-          <p>
-            Faça a sua doação e ajude a estruturar o início da nossa campanha!
-          </p>
-        </h1>
-        <%=
-          link_to(
-            "Apoiar",
-            "http://eufinancio.marcelofreixo.com.br",
-            class: "button bg-yellow white py1 px2 caps bold rounded"
-          )
-        %>
-      </div>
+  </div>
+</div>
+
+<div class="bg-black clearfix py3">
+  <div class="max-width-4 mx-auto">
+    <div class="col sm-col-12 mx-auto center px2">
+      <h1 class="white h3 regular">
+        <p>
+          Esse ano os outros candidatos não poderão receber doações das empresas que sempre investiram na campanha deles. É a nossa chance de mostrar que a força da construção coletiva pode mudar essa cidade.
+        </p>
+        <p>
+          Faça a sua doação e ajude a estruturar o início da nossa campanha!
+        </p>
+      </h1>
+      <%=
+        link_to(
+          "Apoiar",
+          "http://eufinancio.marcelofreixo.com.br",
+          class: "button bg-yellow white py1 px2 caps bold rounded inline-block"
+        )
+      %>
     </div>
   </div>
 </div>
