@@ -4,12 +4,12 @@ class EventsController < ApplicationController
   end
 
   def new
-    skip_authorization
+    authorize Event
     @event = Event.new
   end
 
   def create
-    skip_authorization
+    authorize Event
 
     @event = Event.new(event_params)
     @event.organizer = User.find_by(email: params[:organizer_email])
