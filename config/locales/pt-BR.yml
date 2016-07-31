@@ -15,6 +15,16 @@ pt-BR:
         wants_to_receive_tasks_via_whatsapp: 'Quero receber tarefas diárias por Whatsapp quando a campanha começar!'
         wants_to_donate: 'Posso apoiar o financiamento coletivo da campanha quando começar!'
         school: 'Está em alguma instituição de ensino?'
+      event:
+        title: "Título"
+        category: "Categoria"
+        short_description: "Descrição curta"
+        long_description: "Descrição longa"
+        address: "Endereço"
+        start_at: "Data"
+        facebook_link: "Link para Facebook"
+        google_calendar_link: "Link para Google Calendar"
+        has_streaming: "Tem streaming?"
     errors:
       models:
         user:

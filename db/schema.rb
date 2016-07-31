@@ -11,11 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730060133) do
+ActiveRecord::Schema.define(version: 20160730080726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.string   "category"
+    t.text     "short_description"
+    t.text     "long_description"
+    t.string   "address"
+    t.datetime "start_at"
+    t.string   "facebook_link"
+    t.string   "google_calendar_link"
+    t.boolean  "has_streaming"
+    t.integer  "organizer_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                               default: "", null: false
