@@ -16,6 +16,15 @@
       <% else %>
         <%= link_to "Entrar", new_user_session_path, class: "right btn" %>
       <% end %>
+      <% if Setting.livestream_embed.present? %>
+        <%= toggle_link_to "livestream", id: "livestream-button", class: "right btn" do %>
+          Ao vivo
+          <%= icon("video-camera", class: "red") %>
+        <% end %>
+        <%= dialog "livestream" do %>
+          <%= raw Setting.livestream_embed %>
+        <% end %>
+      <% end %>
     </div>
   </div>
   <div class="max-width-4 mx-auto">

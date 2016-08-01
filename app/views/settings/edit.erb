@@ -1,0 +1,21 @@
+<div class="max-width-1 mx-auto px1 py1">
+  <%= form_tag settings_path, method: :put do %>
+    <%= card do %>
+      <%= card_body do %>
+        <%= label_tag :livestream_embed, "Embed da transmissão ao vivo", class: "label" %>
+        <small>Deixe o campo abaixo em branco para desativar a transmissão ao vivo</small>
+        <%=
+          text_area_tag(
+            :livestream_embed,
+            Setting.livestream_embed,
+            class: "input mt1 mb0",
+            style: "box-sizing: border-box; height: 150px"
+          )
+        %>
+      <% end %>
+      <%= card_actions do %>
+        <%= submit_tag "Salvar", class: "button orange bg-white px2 py1 border-none caps bold" %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

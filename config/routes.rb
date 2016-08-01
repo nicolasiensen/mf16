@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :settings, only: [:edit, :update]
+
   # devise_scope :user do
   #   unauthenticated do
   #     root to: "volunteers#new", as: :unauthenticated_root
