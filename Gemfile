@@ -47,6 +47,7 @@ gem 'sinatra', require: false
 gem 'cloudinary'
 gem 'pundit'
 gem 'font-awesome-sass'
+gem 'rails-settings-cached'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
