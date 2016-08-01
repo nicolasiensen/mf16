@@ -64,6 +64,18 @@ module ApplicationHelper
     render partial: "shared/link_to_popup", locals: {path: path, options: options, block: block}
   end
 
+  def dialog id
+    render layout: "shared/dialog", locals: {id: id} do
+      yield
+    end
+  end
+
+  def toggle_link_to id, options
+    render layout: "shared/toggle_link_to", locals: {id: id, options: options} do
+      yield
+    end
+  end
+
   def district_list
     [
       "Não moro no Rio",

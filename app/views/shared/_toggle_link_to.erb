@@ -1,0 +1,17 @@
+<script>
+  toggle<%= id %> = function () {
+    var toggable = document.getElementById("<%= id %>")
+
+    if (toggable.className.includes("hide")) {
+      toggable.className = toggable.className.replace("hide", "")
+    } else {
+      toggable.className = toggable.className.concat([" hide"])
+    }
+
+    return false
+  }
+</script>
+
+<%= link_to "##{id}", options.merge({onClick: "return toggle#{id}()"}) do %>
+  <%= yield %>
+<% end %>
