@@ -2,14 +2,35 @@
   <%= form_tag settings_path, method: :put do %>
     <%= card do %>
       <%= card_body do %>
+
         <%= label_tag :livestream_embed, "Embed da transmissão ao vivo", class: "label" %>
         <small>Deixe o campo abaixo em branco para desativar a transmissão ao vivo</small>
         <%=
           text_area_tag(
             :livestream_embed,
             Setting.livestream_embed,
-            class: "input mt1 mb0",
+            class: "input mt1",
             style: "box-sizing: border-box; height: 150px"
+          )
+        %>
+
+        <%= label_tag :daily_task_description, "Descrição da tarefa do dia", class: "label" %>
+        <small>Deixe o campo abaixo em branco para desativar a tarefa do dia</small>
+        <%=
+          text_area_tag(
+            :daily_task_description,
+            Setting.daily_task_description,
+            class: "input mt1",
+            style: "box-sizing: border-box; height: 75px"
+          )
+        %>
+
+        <%= label_tag :daily_task_link, "Link da tarefa do dia", class: "label" %>
+        <%=
+          text_field_tag(
+            :daily_task_link,
+            Setting.daily_task_link,
+            class: "input mb0"
           )
         %>
       <% end %>

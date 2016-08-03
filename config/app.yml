@@ -1,6 +1,8 @@
 # config/app.yml for rails-settings-cached
 defaults: &defaults
   livestream_embed: ''
+  daily_task_description: ''
+  daily_task_link: ''
 
 development:
   <<: *defaults

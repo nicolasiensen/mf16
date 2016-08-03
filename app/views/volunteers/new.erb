@@ -189,12 +189,27 @@
         link_to(
           "Apoiar",
           "http://eufinancio.marcelofreixo.com.br",
-          class: "button bg-yellow white py1 px2 caps bold rounded inline-block"
+          class: "button bg-yellow white py2 px3 caps bold rounded inline-block"
         )
       %>
     </div>
   </div>
 </div>
+
+<% if Setting.daily_task_description.present? %>
+  <div id="daily-task" class="max-width-1 mx-auto px2 py3 black">
+    <h2 class="caps mt0">O que posso fazer hoje?</h2>
+    <div class="mb2"><%= Setting.daily_task_description %></div>
+    <%=
+      link_to(
+        "Participar",
+        Setting.daily_task_link,
+        class: "button bg-yellow h4 white caps block p2 center bold",
+        target: :blank
+      )
+    %>
+  </div>
+<% end %>
 
 <div class="bg-purple clearfix">
   <div class="max-width-4 mx-auto sm-flex justify-around px2">

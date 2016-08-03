@@ -6,6 +6,8 @@ class SettingsController < ApplicationController
   def update
     authorize Setting
     Setting.livestream_embed = params[:livestream_embed]
-    redirect_to edit_settings_path
+    Setting.daily_task_description = params[:daily_task_description]
+    Setting.daily_task_link = params[:daily_task_link]
+    redirect_to edit_settings_path, notice: "Suas alterações foram salvas com sucesso"
   end
 end
