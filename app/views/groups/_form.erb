@@ -1,0 +1,77 @@
+<%= form_for @group do |form| %>
+  <%= card do %>
+    <%= card_header do %>
+      <%= @group.persisted? ? "Editar núcleo" : "Novo núcleo" %>
+    <% end %>
+    <%= card_body do %>
+      <div class="mb2">
+        <%= form.label :kind_territorial, class: "inline-block label mr2", style: "cursor: pointer" do %>
+          <div class="left" style="margin-top: -2px; margin-right: 0.25rem">
+            <%= form.radio_button :kind, "territorial" %>
+          </div>
+          <%= t("activerecord.attributes.group.kind_territorial") %>
+        <% end %>
+
+        <%= form.label :kind_thematic, class: "inline-block label", style: "cursor: pointer" do %>
+          <div class="left" style="margin-top: -2px; margin-right: 0.25rem">
+            <%= form.radio_button :kind, "thematic" %>
+          </div>
+          <%= t("activerecord.attributes.group.kind_thematic") %>
+        <% end %>
+
+        <div class="h6 red kind_errors">
+          <%= @group.errors.messages[:kind].join(', ') %>
+        </div>
+      </div>
+
+      <div class="mb2">
+        <%= form.label :name, class: "label" %>
+        <%= form.text_field :name, class: "input mb0" %>
+        <div class="h6 red name_errors">
+          <%= @group.errors.messages[:name].join(', ') %>
+        </div>
+      </div>
+
+      <div class="mb2">
+        <%= form.label :district, class: "label" %>
+        <%=
+          form.select(
+            :district,
+            (district_list - ["Não moro no Rio", "Outro"]),
+            {prompt: "Selecione um bairro"},
+            class: "input mb0"
+          )
+        %>
+        <div class="h6 red district_errors">
+          <%= @group.errors.messages[:district].join(', ') %>
+        </div>
+      </div>
+
+      <div class="mb2">
+        <%= form.label :theme, class: "label" %>
+        <%= form.select :theme, theme_list, {prompt: "Selecione um tema"}, class: "input mb0" %>
+        <div class="h6 red theme_errors">
+          <%= @group.errors.messages[:theme].join(', ') %>
+        </div>
+      </div>
+
+      <%= form.label :address, class: "label" %>
+      <%= form.text_field :address, class: "input" %>
+
+      <%= form.label :email, class: "label" %>
+      <%= form.email_field :email, class: "input" %>
+
+      <%= form.label :phone, class: "label" %>
+      <%= form.text_field :phone, class: "input" %>
+
+      <%= form.label :facebook_page, class: "label" %>
+      <%= form.url_field :facebook_page, class: "input" %>
+
+      <%= form.label :facebook_group, class: "label" %>
+      <%= form.url_field :facebook_group, class: "input" %>
+    <% end %>
+    <%= card_actions do %>
+      <%= form.submit class: "button bg-orange white caps bold p1 border-none h4 rounded" %>
+    <% end %>
+  <% end %>
+<% end %>

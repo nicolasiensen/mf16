@@ -1,0 +1,93 @@
+<div class="max-width-3 mx-auto p1">
+  <h1 class="regular black h2 m0">
+    Bem-vindo ao núcleo
+    <span class="bold block"><%= @group.name %></span>
+  </h1>
+
+  <% if @group.territorial? %>
+    <p>Um núcleo territorial do bairro <%= @group.district %></p>
+  <% elsif @group.thematic? %>
+    <p>Um núcleo temático sobre <%= @group.theme.downcase %></p>
+  <% end %>
+
+  <% if policy(Group).edit? %>
+    <%=
+      link_to(
+        "Editar núcleo",
+        edit_group_path(@group),
+        class: "button bg-orange white rounded caps bold p1 inline-block mb2"
+      )
+    %>
+  <% end %>
+
+  <div class="clearfix mxn1">
+    <% if @group.facebook_page.present? || @group.facebook_group.present? %>
+      <div class="col col-12 xs-col-12 sm-col-12 md-col-6 lg-col-6 px1">
+        <%= card do %>
+          <%= card_body do %>
+            <p class="mt0">O nosso núcleo está também no Facebook</p>
+            <% if @group.facebook_page.present? %>
+              <%=
+                link_to(
+                  @group.facebook_page,
+                  target: :blank,
+                  class: "button bg-facebook-blue caps white border-none p1 bold inline-block mb1"
+                ) do
+              %>
+                <%= icon("facebook") %> Veja nossa página
+              <% end %>
+            <% end %>
+
+            <% if @group.facebook_group.present? %>
+              <%=
+                link_to(
+                  @group.facebook_group,
+                  target: :blank,
+                  class: "button bg-facebook-blue caps white border-none p1 bold inline-block"
+                ) do
+              %>
+                <%= icon("facebook") %> Veja nosso grupo
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @group.address.present? || @group.email.present? || @group.phone.present? %>
+      <div class="col col-12 xs-col-12 sm-col-12 md-col-6 lg-col-6 px1">
+        <%= card do %>
+          <%= card_header do %>
+            Entre em contato
+          <% end %>
+          <%= card_body do %>
+            <% if @group.address.present? %>
+              <div class="mb1">
+                <div class="inline-block center" style="width: 17px">
+                  <%= icon('map-marker') %>
+                </div>
+                <%= @group.address %>
+              </div>
+            <% end %>
+            <% if @group.email.present? %>
+              <div class="mb1">
+                <div class="inline-block center" style="width: 17px">
+                  <%= icon('envelope-o') %>
+                </div>
+                <%= @group.email %>
+              </div>
+            <% end %>
+            <% if @group.phone.present? %>
+              <div>
+                <div class="inline-block center" style="width: 17px">
+                  <%= icon('phone') %>
+                </div>
+                <%= @group.phone %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

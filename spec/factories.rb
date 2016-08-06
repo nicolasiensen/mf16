@@ -1,4 +1,14 @@
 FactoryGirl.define do
+  factory :group do
+    kind "MyString"
+    name "MyString"
+    district "MyString"
+    address "MyString"
+    email "MyString"
+    phone "MyString"
+    facebook_page "MyString"
+    facebook_group "MyString"
+  end
   factory :user do
     first_name "Nícolas"
     last_name  "Iensen"

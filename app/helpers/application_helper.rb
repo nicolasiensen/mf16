@@ -339,4 +339,12 @@ module ApplicationHelper
       "Intervenção urbana"
     ]
   end
+
+  def theme_list
+    [
+      "Educação",
+      "Saúde",
+      "Transporte"
+    ]
+  end
 end

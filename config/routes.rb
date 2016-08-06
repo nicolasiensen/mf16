@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resource :volunteers, only: [:new, :create]
   resource :debate_petition_signatures, only: [:new, :create]
   resources :events, only: [:index, :new, :create]
+  resources :groups, only: [:show, :new, :create, :edit, :update]
 
   devise_for :users, :controllers => {
     :omniauth_callbacks => "users/omniauth_callbacks",
