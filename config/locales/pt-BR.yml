@@ -1,6 +1,8 @@
 ---
 pt-BR:
   activerecord:
+    models:
+      group: "Núcleo"
     attributes:
       user:
         email: 'Seu e-mail'
@@ -25,6 +27,17 @@ pt-BR:
         facebook_link: "Link para Facebook"
         google_calendar_link: "Link para Google Calendar"
         has_streaming: "Tem streaming?"
+      group:
+        kind_territorial: "Territorial"
+        kind_thematic: "Temático"
+        name: "Nome"
+        district: "Bairro"
+        address: "Endereço"
+        email: "E-mail"
+        phone: "Telefone"
+        facebook_page: "Página do Facebook"
+        facebook_group: "Grupo do Facebook"
+        theme: "Tema"
     errors:
       models:
         user:
