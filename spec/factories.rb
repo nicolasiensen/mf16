@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :group_subscription do
+    group_id 1
+    email "MyString"
+    phone "MyString"
+  end
   factory :group do
     kind "MyString"
     name "MyString"
