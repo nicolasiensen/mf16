@@ -1,3 +1,8 @@
+<%= content_for :head do %>
+  <title><%= @group.name %></title>
+  <meta property="og:title" content="<%= @group.name %>" />
+<% end %>
+
 <div class="max-width-3 mx-auto p1">
   <h1 class="regular black h2 m0">
     Bem-vindo ao núcleo
@@ -21,8 +26,62 @@
   <% end %>
 
   <div class="clearfix mxn1">
-    <% if @group.facebook_page.present? || @group.facebook_group.present? %>
-      <div class="col col-12 xs-col-12 sm-col-12 md-col-6 lg-col-6 px1">
+    <div class="col col-12 xs-col-12 sm-col-12 md-col-6 lg-col-6 px1">
+      <div class="mb1">
+        <%= card do %>
+          <% if flash[:group_subscription_created] %>
+            <%= card_body do %>
+              <div class="thanks_for_subscribing">
+                <p class="mt0">Valeu por se inscrever no nosso núcleo, agora aguarde que entraremos em contato.</p>
+                <p>Para fortalecer ainda mais o nosso núcleo, não deixe de compartilhar essa página em suas redes sociais:</p>
+                <div class="center">
+                  <%=
+                    link_to_popup(
+                      "http://www.facebook.com/sharer/sharer.php?u=#{group_url(@group)}",
+                      class: "button bg-facebook-blue white caps bold p1 inline-block mb1 rounded"
+                    ) do
+                  %>
+                    <%= icon("facebook") %> Compartilhar
+                  <% end %>
+                  <%=
+                    link_to_popup(
+                      "https://twitter.com/intent/tweet?text=#{URI.escape('')}&url=#{group_url(@group)}",
+                      class: "button bg-twitter-blue white caps bold p1 inline-block rounded"
+                    ) do
+                  %>
+                    <%= icon("twitter") %> Tweetar
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <%= form_for [@group, @group_subscription] do |f| %>
+              <%= card_body do %>
+                <p class="mt0">Receba notificações sobre as atividades do nosso núcleo, e participe!</p>
+                <div class="mb2">
+                  <%= f.label :email, class: "label" %>
+                  <%= f.email_field :email, class: "input mb0" %>
+                  <div class="h6 red email_errors">
+                    <%= @group_subscription.errors.messages[:email].join(', ') %>
+                  </div>
+                </div>
+
+                <div>
+                  <%= f.label :phone, class: "label" %>
+                  <%= f.text_field :phone, class: "input mb0" %>
+                  <div class="h6 red phone_errors">
+                    <%= @group_subscription.errors.messages[:phone].join(', ') %>
+                  </div>
+                </div>
+              <% end %>
+              <%= card_actions do %>
+                <%= f.submit "Inscrever-se", class: "button bg-orange p1 caps white border-none h4 rounded bold" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <% if @group.facebook_page.present? || @group.facebook_group.present? %>
         <%= card do %>
           <%= card_body do %>
             <p class="mt0">O nosso núcleo está também no Facebook</p>
@@ -51,8 +110,8 @@
             <% end %>
           <% end %>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
     <% if @group.address.present? || @group.email.present? || @group.phone.present? %>
       <div class="col col-12 xs-col-12 sm-col-12 md-col-6 lg-col-6 px1">

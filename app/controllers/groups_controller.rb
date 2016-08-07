@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   def show
     authorize Group
     @group = Group.find(params[:id].split("-")[0])
+    @group_subscription = GroupSubscription.new
   end
 
   def new
