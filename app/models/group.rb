@@ -3,6 +3,8 @@ class Group < ActiveRecord::Base
   validates :district, presence: true, if: :territorial?
   validates :theme, presence: true, if: :thematic?
 
+  has_many :group_subscriptions
+
   def territorial?
     self.kind == "territorial"
   end
