@@ -84,7 +84,7 @@
               <div class="center">
                 <%=
                   link_to_popup(
-                    "http://www.facebook.com/sharer/sharer.php?u=#{request.url}",
+                    "http://www.facebook.com/sharer/sharer.php?u=#{root_url}",
                     class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4 m1"
                   ) do
                 %>
@@ -92,7 +92,7 @@
                 <% end %>
                 <%=
                   link_to_popup(
-                    "https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{request.url}",
+                    "https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{root_url}",
                     class: "button bg-twitter-blue white py1 px3 caps inline-block rounded bold h4 m1"
                   ) do
                 %>
