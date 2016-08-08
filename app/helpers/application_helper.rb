@@ -308,10 +308,10 @@ module ApplicationHelper
       "Faculdade Teológica Evangélica do Rio de Janeiro (FATERJ)",
       "Fundação Técnico - Educacional Souza Marques (FTESM)",
       "Fundação Getulio Vargas (FGV)",
-      "Insitituto Infnet",
-      "Insitituto Isabel",
-      "Insituto Superior de Educação Pró-Saber (ISEPS)",
-      "Insituto Superior de Informática (ISI)",
+      "Instituto Infnet",
+      "Instituto Isabel",
+      "Instuto Superior de Educação Pró-Saber (ISEPS)",
+      "Instuto Superior de Informática (ISI)",
       "Trevisan Escola de Negocios",
       "Universidade Cândido Mendes (UCAM)",
       "Universidade Castelo Branco (UCB)",
@@ -345,6 +345,33 @@ module ApplicationHelper
       "Educação",
       "Saúde",
       "Transporte"
+    ]
+  end
+
+  def favorite_tasks
+    [
+      "Divulgar materiais da campanha",
+      "Ajudar com pesquisas de opinião coletivas pelo celular",
+      "Participar da campanha no meu bairro ",
+      "Participar de mutirões de cadastramento e contato com apoiadores da campanha",
+      "Organizar eventos da campanha na minha casa/bairro/trabalho/escola/universidade",
+      "Abrir a minha casa para ser um ponto de distribuição de materiais",
+      "Doar dinheiro"
+    ]
+  end
+
+  def favorite_topics
+    [
+      "Mulheres",
+      "Negras e negros",
+      "LGBTs",
+      "Cultura",
+      "Educação",
+      "Segurança",
+      "Mobilidade",
+      "Meio Ambiente",
+      "Saúde",
+      "Juventude"
     ]
   end
 end
