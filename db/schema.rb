@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807125526) do
+ActiveRecord::Schema.define(version: 20160808193906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,8 @@ ActiveRecord::Schema.define(version: 20160807125526) do
     t.boolean  "wants_to_receive_tasks_via_whatsapp"
     t.boolean  "wants_to_donate"
     t.string   "school"
+    t.string   "favorite_tasks",                      default: [],              array: true
+    t.string   "favorite_topics",                     default: [],              array: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
