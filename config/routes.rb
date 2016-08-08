@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'volunteers#new'
-  resource :volunteers, only: [:new, :create]
+  resources :volunteers, only: [:new, :create, :update]
   resource :debate_petition_signatures, only: [:new, :create]
   resources :events, only: [:index, :new, :create]
 

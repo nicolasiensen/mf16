@@ -26,7 +26,7 @@ RSpec.feature "ManageTheDailyTask", type: :feature do
     end
 
     it "should set the daily task visible" do
-      visit new_volunteers_path
+      visit new_volunteer_path
       expect(page).to have_content("This is the new task")
       expect(page).to have_link("Participar", href: "http://www.marcelofreixo.com.br/")
     end
@@ -45,7 +45,7 @@ RSpec.feature "ManageTheDailyTask", type: :feature do
     end
 
     it "should set the daily task invisible" do
-      visit new_volunteers_path
+      visit new_volunteer_path
       expect(page).to_not have_css("#daily-task")
     end
   end

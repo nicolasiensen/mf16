@@ -34,35 +34,74 @@
       </div>
     </div>
     <div class="xs-col-12 sm-col-5 mx-auto px2">
-      <% if flash[:notice] %>
-        <%= card do %>
-          <%= card_body do %>
-            <p class="mt0">
-              Obrigado por se juntar a essa campanha! Já somos mais de 40 mil pessoas que têm uma ligação com Freixo, mas para ganharmos a cidade precisamos de mais pessoas!
-            </p>
-            <p class="mb3">
-              Compartilhe agora essa página com sua família e amigos que têm interesse em participar da campanha quando ela começar!
-            </p>
-            <div class="center">
+      <% if params[:profile_created] %>
+        <%= form_for @user, url: volunteer_path(@user.id), method: :put do |f| %>
+          <%= card do %>
+            <%= card_body do %>
+              <p class="mt0">
+                Obrigado por se juntar a essa campanha!
+              </p>
+              <p>
+                Só queremos te mandar os chamados que sejam mais interessantes pra você. Complete o seu perfil para dizer como você quer ajudar com a campanha:
+              </p>
+              <div class="mb2">
+                <% favorite_tasks.each do |task| %>
+                  <div class="mb1">
+                    <%= f.check_box "favorite_tasks", {multiple: true}, task %>
+                    <%= f.label "favorite_tasks_#{task.parameterize.underscore}", task, class: "label inline" %>
+                  </div>
+                <% end %>
+              </div>
+
               <%=
-                link_to_popup(
-                  "http://www.facebook.com/sharer/sharer.php?u=#{request.url}",
-                  class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4 m1"
-                ) do
+                f.select(
+                  :school,
+                  school_list,
+                  { prompt: t('activerecord.attributes.user.school') },
+                  class: "input"
+                )
               %>
-                <%= icon('facebook') %> Compartilhar
+
+              <% favorite_topics.each do |topic| %>
+                <div class="mb1">
+                  <%= f.check_box "favorite_topics", {multiple: true}, topic %>
+                  <%= f.label "favorite_topics_#{topic.parameterize.underscore}", topic, class: "label inline" %>
+                </div>
               <% end %>
-              <%=
-                link_to_popup(
-                  "https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{request.url}",
-                  class: "button bg-twitter-blue white py1 px3 caps inline-block rounded bold h4 m1"
-                ) do
-              %>
-                <%= icon('twitter') %> Tweetar
-              <% end %>
-            </div>
+            <% end %>
+            <%= card_actions do %>
+              <%= f.submit "Enviar!", class: "button bg-orange white caps bold border-none h3 p1 rounded" %>
+            <% end %>
           <% end %>
         <% end %>
+      <% elsif params[:profile_completed] %>
+        <div id="profile_completed">
+          <%= card do %>
+            <%= card_body do %>
+              <p class="mt0">Seu perfil foi atualizado! Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.</p>
+              <p>Agora, compartilhe o nosso site de mobilização em todas as suas redes.</p>
+              <p>Quanto mais pessoas estiverem mobilizadas, maiores são as nossas chances de ganhar essa campanha!</p>
+              <div class="center">
+                <%=
+                  link_to_popup(
+                    "http://www.facebook.com/sharer/sharer.php?u=#{request.url}",
+                    class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4 m1"
+                  ) do
+                %>
+                  <%= icon('facebook') %> Compartilhar
+                <% end %>
+                <%=
+                  link_to_popup(
+                    "https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{request.url}",
+                    class: "button bg-twitter-blue white py1 px3 caps inline-block rounded bold h4 m1"
+                  ) do
+                %>
+                  <%= icon('twitter') %> Tweetar
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       <% else %>
         <%= form_for @user, url: volunteers_path do |f| %>
           <div class="mxn2">
