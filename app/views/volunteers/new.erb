@@ -238,7 +238,7 @@
 <% if Setting.daily_task_description.present? %>
   <div id="daily-task" class="max-width-1 mx-auto px2 py3 black">
     <h2 class="caps mt0">O que posso fazer hoje?</h2>
-    <div class="mb2"><%= Setting.daily_task_description %></div>
+    <div class="mb2"><%= raw Setting.daily_task_description %></div>
     <%=
       link_to(
         "Participar",
