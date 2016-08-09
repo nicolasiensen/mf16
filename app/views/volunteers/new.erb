@@ -47,7 +47,7 @@
               <div class="mb2">
                 <% favorite_tasks.each do |task| %>
                   <div class="mb1">
-                    <%= f.check_box "favorite_tasks", {multiple: true}, task %>
+                    <%= f.check_box "favorite_tasks", {multiple: true, include_hidden: false}, task %>
                     <%= f.label "favorite_tasks_#{task.parameterize.underscore}", task, class: "label inline" %>
                   </div>
                 <% end %>
@@ -64,7 +64,7 @@
 
               <% favorite_topics.each do |topic| %>
                 <div class="mb1">
-                  <%= f.check_box "favorite_topics", {multiple: true}, topic %>
+                  <%= f.check_box "favorite_topics", {multiple: true, include_hidden: false}, topic %>
                   <%= f.label "favorite_topics_#{topic.parameterize.underscore}", topic, class: "label inline" %>
                 </div>
               <% end %>
