@@ -1,6 +1,4 @@
 class VolunteersController < ApplicationController
-  layout "splash"
-
   def new
     skip_authorization
     @user = flash[:user_id].present? ? User.find(flash[:user_id]) : User.new

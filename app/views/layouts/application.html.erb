@@ -34,7 +34,7 @@
               <%= raw Setting.livestream_embed %>
             <% end %>
           <% else %>
-            <%= link_to "Faça uma doação", "https://eufinancio.marcelofreixo.com.br/", class: "button bg-yellow white caps p1 inline-block right bold rounded mr1 xs-hide", target: :blank %>
+            <%= link_to "Faça uma doação", "https://eufinancio.marcelofreixo.com.br/", class: "button bg-aqua white caps p1 inline-block right bold rounded mr1 xs-hide", target: :blank %>
             <%= link_to "Doar", "https://eufinancio.marcelofreixo.com.br/", class: "button bg-aqua white caps p1 inline-block right bold rounded mr1 md-hide sm-hide lg-hide", target: :blank %>
           <% end %>
         </div>
@@ -45,6 +45,8 @@
     <%= flash_message(type: :notice, message: flash[:notice]) if flash[:notice] %>
     <%= flash_message(type: :alert, message: flash[:alert]) if flash[:alert] %>
   </div>
-  <%= yield %>
+  <div style="padding-top: 52px">
+    <%= yield %>
+  </div>
 </body>
 </html>
