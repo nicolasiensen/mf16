@@ -25,17 +25,17 @@
   id="user-menu-overlay"
   class="hide"
   onClick="return toggleUserMenu()"
-  style="position: absolute; width: 100%; height: 100%; top: 0; left: 0">
+  style="position: absolute; width: 100vw; height: 100vh; top: 0; left: 0">
 </div>
 
-<div class="right relative">
-  <%= link_to "#", class: "btn", onClick: "return toggleUserMenu()" do %>
-    <%= icon "bars", class: "white" %>
+<div class="left relative">
+  <%= link_to "#", class: "h1", onClick: "return toggleUserMenu()" do %>
+    <%= icon "bars", class: "aqua" %>
   <% end %>
 
   <div
     id="user-menu"
-    class="bg-white black absolute right-0 rounded hide"
+    class="bg-white black absolute left-0 rounded hide"
     style="white-space: nowrap; box-shadow: 0 0 2px #999; top: 45px">
     <div class="p2 flex items-center">
       <%= avatar user.image, class: "mr1" %>
