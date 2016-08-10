@@ -158,42 +158,61 @@
   </div>
 </div>
 
-<div class="bg-black clearfix py3">
-  <div class="max-width-4 mx-auto">
-    <div class="col sm-col-12 mx-auto center px2">
-      <h1 class="white h3 regular">
-        <p>
-          Desde a campanha de 2014 que o PSOL não aceita doações de empresas.
-        </p>
-        <p>
-          Mais uma vez, queremos financiar nossa campanha com quem acredita em uma nova forma de fazer política. Faça a sua doação agora e ajude a estruturar o início da campanha!
-        </p>
-      </h1>
-      <%=
-        link_to(
-          "Apoiar",
-          "http://eufinancio.marcelofreixo.com.br",
-          class: "button bg-aqua white py2 px3 caps bold rounded inline-block"
-        )
-      %>
-    </div>
-  </div>
-</div>
-
 <% if Setting.daily_task_description.present? %>
-  <div id="daily-task" class="max-width-1 mx-auto px2 py3 black">
-    <h2 class="caps mt0">O que posso fazer hoje?</h2>
-    <div class="mb2"><%= raw Setting.daily_task_description %></div>
+  <div id="daily-task" class="max-width-1 mx-auto px2 py3 black center">
+    <h2 class="caps mt0">O quê você pode fazer hoje?</h2>
+    <div class="mb3"><%= raw Setting.daily_task_description %></div>
     <%=
       link_to(
-        "Participar",
+        "Fazer tarefa",
         Setting.daily_task_link,
-        class: "button bg-aqua h4 white caps block p2 center bold",
+        class: "button bg-orange h4 white caps block p2 center bold",
         target: :blank
       )
     %>
   </div>
 <% end %>
+
+<div class="bg-purple">
+  <div class="max-width-1 mx-auto px2 py3 white center">
+    <h2 class="caps mt0">Próximos eventos da campanha:</h2>
+    <% Event.where("start_at >= ?", Time.now).order("start_at").each do |event| %>
+      <%= card do %>
+        <%= card_body do %>
+          <h3 class="red m0"><%= event.title %></h3>
+          <h4 class="aqua mt0"><%= l(event.start_at, format: :short) %></h4>
+          <p class="black"><%= event.short_description %></p>
+          <%= link_to "Participar", event.facebook_link, target: :blank, class: "button bg-orange block caps bold white p1 rounded" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="max-width-1 mx-auto px2 py3 center black">
+  <h2>Participe da campanha onde você mora ou estuda!</h2>
+  <%= select_tag "group", options_for_select(Group.all.map {|g| [g.name, group_path(g)]}), class: "input", prompt: "Selecione um núcleo", onChange: "window.location = event.target.value" %>
+</div>
+
+<div class="bg-purple white">
+  <div class="max-width-1 mx-auto clearfix py3">
+    <h1 class="h3 regular">
+      <p>
+        Desde a campanha de 2014 que o PSOL não aceita doações de empresas.
+      </p>
+      <p>
+        Mais uma vez, queremos financiar nossa campanha com quem acredita em uma nova forma de fazer política. Faça a sua doação agora e ajude a estruturar o início da campanha!
+      </p>
+    </h1>
+    <%=
+      link_to(
+        "Apoiar",
+        "http://eufinancio.marcelofreixo.com.br",
+        class: "button bg-aqua white py2 px3 caps bold rounded inline-block"
+      )
+    %>
+  </div>
+</div>
 
 <div class="bg-purple clearfix">
   <div class="max-width-4 mx-auto sm-flex justify-around px2">
