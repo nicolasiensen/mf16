@@ -7,33 +7,19 @@
   <%= favicon_link_tag 'favicon.png' %>
 <% end %>
 
-<div class="bg-cover py4" style="background-image: url('<%= image_path('volunteers/bg.jpg') %>')">
+<div class="bg-red white py1">
   <div class="max-width-4 mx-auto">
-    <div class="clearfix md-flex">
-      <div class="col col-12 sm-col-12 md-col-5 lg-col-5 px2">
-        <%= image_tag('volunteers/logo.png', class: "fit") %>
-        <div class="mb3 lg-hide"></div>
-      </div>
-      <div class="col col-12 sm-col-12 md-col-7 lg-col-7 px2 flex items-center">
-        <div class="mx-auto">
-          <%= image_tag "volunteers/slogan.png", class: "fit" %>
-        </div>
-      </div>
-    </div>
-    <div class="mb3 lg-hide"></div>
-    <div class="clearfix mt2">
-      <div class="col sm-col-12 mx-auto center px2">
-        <h1 class="white h3 mb4">
-          <p>
-            Está chegando a hora de mostrarmos a força de uma campanha construída coletivamente, com quem acredita em um Rio mais democrático e menos desigual.
-          </p>
-          <p>
-            Inscreva-se abaixo para saber como você vai poder ajudar essa campanha a acontecer.
-          </p>
-        </h1>
-      </div>
-    </div>
     <div class="xs-col-12 sm-col-5 mx-auto px2">
+      <div class="center">
+        <h1 class="white h3">Um Rio de Janeiro mais humano é possível.</h1>
+        <p>
+          É hora de apresentarmos um projeto para a cidade construído coletivamente.
+          Temos <strong><%= (Date.new(2016, 10, 2) - Date.today).to_i %> dias</strong> até a eleição e <strong><%= number_with_delimiter(User.count + 10000) %></strong> pessoas mobilizadas.
+        </p>
+        <p class="bold mb3">
+          Junte-se a nós agora e saiba como você pode ajudar a fazer isso acontecer:
+        </p>
+      </div>
       <% if params[:profile_created] %>
         <%= form_for @user, url: volunteer_path(@user.id), method: :put do |f| %>
           <%= card do %>
@@ -70,7 +56,7 @@
               <% end %>
             <% end %>
             <%= card_actions do %>
-              <%= f.submit "Enviar!", class: "button bg-orange white caps bold border-none h3 p1 rounded" %>
+              <%= f.submit "Enviar!", class: "button bg-aqua white caps bold border-none h3 p1 rounded" %>
             <% end %>
           <% end %>
         <% end %>
@@ -106,28 +92,16 @@
         <%= form_for @user, url: volunteers_path do |f| %>
           <div class="mxn2">
             <div class="col col-12 md-col-6 px2 mb3">
-              <%=
-                f.text_field(
-                  :first_name,
-                  placeholder: t('activerecord.attributes.user.first_name'),
-                  class: "input",
-                  style: "margin-bottom: .25rem"
-                )
-              %>
+              <%= f.label :first_name, class: "aqua label required" %>
+              <%= f.text_field(:first_name, class: "input", style: "margin-bottom: .25rem") %>
               <div class="h6 white first_name_errors">
                 <%= @user.errors.messages[:first_name].join(', ') %>
               </div>
             </div>
 
             <div class="col col-12 md-col-6 px2 mb3">
-              <%=
-                f.text_field(
-                  :last_name,
-                  placeholder: t('activerecord.attributes.user.last_name'),
-                  class: "input",
-                  style: "margin-bottom: .25rem"
-                )
-              %>
+              <%= f.label :last_name, class: "aqua label required" %>
+              <%= f.text_field(:last_name, class: "input", style: "margin-bottom: .25rem") %>
               <div class="h6 white last_name_errors">
                 <%= @user.errors.messages[:last_name].join(', ') %>
               </div>
@@ -135,39 +109,28 @@
           </div>
 
           <div class="mb3">
-            <%=
-              f.email_field(
-                :email,
-                placeholder: t('activerecord.attributes.user.email'),
-                class: "input",
-                style: "margin-bottom: .25rem"
-              )
-            %>
+            <%= f.label :email, class: "aqua label required" %>
+            <%= f.email_field(:email, class: "input", style: "margin-bottom: .25rem") %>
             <div class="h6 white email_errors">
               <%= @user.errors.messages[:email].join(', ') %>
             </div>
           </div>
 
           <div class="mb3">
-            <%=
-              f.telephone_field(
-                :cell_phone_number,
-                placeholder: t('activerecord.attributes.user.cell_phone_number'),
-                class: "input",
-                style: "margin-bottom: .25rem"
-              )
-            %>
+            <%= f.label :cell_phone_number, class: "aqua label" %>
+            <%= f.telephone_field(:cell_phone_number, class: "input", style: "margin-bottom: .25rem") %>
             <div class="h6 white cell_phone_number_errors">
               <%= @user.errors.messages[:cell_phone_number].join(', ') %>
             </div>
           </div>
 
           <div class="mb3">
+            <%= f.label :district, class: "aqua label" %>
             <%=
               f.select(
                 :district,
                 district_list,
-                {prompt: t('activerecord.attributes.user.district')},
+                {include_blank: true},
                 class: "input rounded",
                 style: "margin-bottom: .25rem"
               )
@@ -175,34 +138,16 @@
             <div class="h6 white"><%= @user.errors.messages[:district].join(', ') %></div>
           </div>
 
-          <div class="mb3">
-            <%=
-              f.select(
-                :school,
-                school_list,
-                {prompt: t('activerecord.attributes.user.school')},
-                class: "input rounded",
-                style: "margin-bottom: .25rem"
-              )
-            %>
-            <div class="h6 white"><%= @user.errors.messages[:school].join(', ') %></div>
-          </div>
-
           <div class="mb3 white">
             <%= f.check_box :wants_to_receive_tasks_via_whatsapp %>
-            <%= f.label :wants_to_receive_tasks_via_whatsapp, style: "cursor: pointer" %>
-          </div>
-
-          <div class="mb3 white">
-            <%= f.check_box :wants_to_donate %>
-            <%= f.label :wants_to_donate, style: "cursor: pointer" %>
+            <%= f.label :wants_to_receive_tasks_via_whatsapp, style: "cursor: pointer", class: "h5" %>
           </div>
 
           <div class="mb3">
             <%=
               f.submit(
                 "Tô dentro!",
-                class: "button bg-yellow block caps p2 h2 white border-none rounded bold",
+                class: "button bg-aqua block caps p2 h2 white border-none rounded bold",
                 style: "width: 100%"
               )
             %>
@@ -228,7 +173,7 @@
         link_to(
           "Apoiar",
           "http://eufinancio.marcelofreixo.com.br",
-          class: "button bg-yellow white py2 px3 caps bold rounded inline-block"
+          class: "button bg-aqua white py2 px3 caps bold rounded inline-block"
         )
       %>
     </div>
@@ -243,7 +188,7 @@
       link_to(
         "Participar",
         Setting.daily_task_link,
-        class: "button bg-yellow h4 white caps block p2 center bold",
+        class: "button bg-aqua h4 white caps block p2 center bold",
         target: :blank
       )
     %>
