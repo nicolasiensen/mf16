@@ -37,26 +37,30 @@
     id="user-menu"
     class="bg-white black absolute left-0 rounded hide"
     style="white-space: nowrap; box-shadow: 0 0 2px #999; top: 45px">
-    <div class="p2 flex items-center">
-      <%= avatar user.image, class: "mr1" %>
-      <div>
-        <div class="bold"><%= user.first_name %> <%= user.last_name %></div>
-        <div><%= user.email %></div>
+
+    <% if current_user.present? %>
+      <div class="p2 flex items-center">
+        <%= avatar user.image, class: "mr1" %>
+        <div>
+          <div class="bold"><%= user.first_name %> <%= user.last_name %></div>
+          <div><%= user.email %></div>
+        </div>
       </div>
-    </div>
+      <%= link_to "Editar perfil", edit_user_registration_path, class: "block p2 black btn-user-menu" %>
+      <%= link_to "Procurar usuário", search_users_path, class: "block p2 black btn-user-menu" %>
+      <%= link_to "Eventos", events_path, class: "block p2 black btn-user-menu" %>
 
-    <%= link_to "Editar perfil", edit_user_registration_path, class: "block p2 black btn-user-menu" %>
-    <%= link_to "Procurar usuário", search_users_path, class: "block p2 black btn-user-menu" %>
-    <%= link_to "Eventos", events_path, class: "block p2 black btn-user-menu" %>
+      <% if policy(Group).create? %>
+        <%= link_to "Criar núcleo", new_group_path, class: "block p2 black btn-user-menu" %>
+      <% end %>
 
-    <% if policy(Group).create? %>
-      <%= link_to "Criar núcleo", new_group_path, class: "block p2 black btn-user-menu" %>
+      <% if policy(Setting).edit? %>
+        <%= link_to "Configurações do site", edit_settings_path, class: "block p2 black btn-user-menu" %>
+      <% end %>
+
+      <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "block p2 black btn-user-menu" %>
+    <% else %>
+      <%= link_to "Entrar", new_user_session_path, class: "btn" %>
     <% end %>
-
-    <% if policy(Setting).edit? %>
-      <%= link_to "Configurações do site", edit_settings_path, class: "block p2 black btn-user-menu" %>
-    <% end %>
-
-    <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "block p2 black btn-user-menu" %>
   </div>
 </div>
