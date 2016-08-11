@@ -13,16 +13,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="bg-silver">
-  <div class="clearfix white bg-red fixed" style="width: 100%">
+  <div class="clearfix white bg-red fixed" style="width: 100%; z-index: 9999">
     <div class="max-width-4 mx-auto">
       <div class="m1 flex" style="align-items: center">
-        <div style="flex: 1">
-          <% if current_user.present? %>
-            <%= user_menu current_user %>
-          <% else %>
-            <%= link_to "Entrar", new_user_session_path, class: "left btn" %>
-          <% end %>
-          <%= link_to "MF16", new_volunteer_path, class: "left btn" %>
+        <div style="flex: 1;">
+          <%= user_menu current_user %>
+          <%= link_to image_tag("logo.png", style: "width: 115px"), new_volunteer_path, class: "ml2" %>
         </div>
         <div>
           <% if Setting.livestream_embed.present? %>
