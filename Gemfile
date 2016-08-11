@@ -48,6 +48,7 @@ gem 'cloudinary'
 gem 'pundit'
 gem 'font-awesome-sass'
 gem 'rails-settings-cached'
+gem 'rails-assets-slick.js', source: 'https://rails-assets.org'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
