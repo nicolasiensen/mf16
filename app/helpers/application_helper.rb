@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def card options={}
-    render layout: "shared/card" do
+    render layout: "shared/card", locals: {options: options} do
       yield
     end
   end

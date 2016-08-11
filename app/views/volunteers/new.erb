@@ -176,16 +176,18 @@
 <div class="bg-purple">
   <div class="max-width-1 mx-auto px2 py3 white center">
     <h2 class="caps mt0">Próximos eventos da campanha:</h2>
-    <% Event.where("start_at >= ?", Time.now).order("start_at").each do |event| %>
-      <%= card do %>
-        <%= card_body do %>
-          <h3 class="red m0"><%= event.title %></h3>
-          <h4 class="aqua mt0"><%= l(event.start_at, format: :short) %></h4>
-          <p class="black"><%= event.short_description %></p>
-          <%= link_to "Participar", event.facebook_link, target: :blank, class: "button bg-orange block caps bold white p1 rounded" %>
+    <div class="slick">
+      <% Event.where("start_at >= ?", Time.now).order("start_at").each do |event| %>
+        <%= card(class: "mx1") do %>
+          <%= card_body do %>
+            <h3 class="red m0"><%= event.title %></h3>
+            <h4 class="aqua mt0"><%= l(event.start_at, format: :short) %></h4>
+            <p class="black"><%= truncate(event.short_description, length: 140) %></p>
+            <%= link_to "Participar", event.facebook_link, target: :blank, class: "button bg-orange block caps bold white p1 rounded" %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
 
