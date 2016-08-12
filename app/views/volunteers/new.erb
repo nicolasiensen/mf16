@@ -7,11 +7,11 @@
   <%= favicon_link_tag 'favicon.png' %>
 <% end %>
 
-<div class="bg-red white py1">
+<div class="bg-red white py3">
   <div class="max-width-4 mx-auto">
     <div class="xs-col-12 sm-col-5 mx-auto px2">
       <div class="center">
-        <h1 class="white h3">Um Rio de Janeiro mais humano é possível.</h1>
+        <h1 class="white regular caps mt0">Um Rio de Janeiro mais humano <span class="underline">é possível</span>.</h1>
         <p>
           É hora de apresentarmos um projeto para a cidade construído coletivamente.
           Temos <strong><%= (Date.new(2016, 10, 2) - Date.today).to_i %> dias</strong> até a eleição e <strong><%= number_with_delimiter(User.count + 10000) %></strong> pessoas mobilizadas.
@@ -91,7 +91,7 @@
       <% else %>
         <%= form_for @user, url: volunteers_path do |f| %>
           <div class="mxn2">
-            <div class="col col-12 md-col-6 px2 mb3">
+            <div class="col col-12 md-col-6 px2 mb1">
               <%= f.label :first_name, class: "aqua label required" %>
               <%= f.text_field(:first_name, class: "input", style: "margin-bottom: .25rem") %>
               <div class="h6 white first_name_errors">
@@ -99,7 +99,7 @@
               </div>
             </div>
 
-            <div class="col col-12 md-col-6 px2 mb3">
+            <div class="col col-12 md-col-6 px2 mb1">
               <%= f.label :last_name, class: "aqua label required" %>
               <%= f.text_field(:last_name, class: "input", style: "margin-bottom: .25rem") %>
               <div class="h6 white last_name_errors">
@@ -108,7 +108,7 @@
             </div>
           </div>
 
-          <div class="mb3">
+          <div class="mb1">
             <%= f.label :email, class: "aqua label required" %>
             <%= f.email_field(:email, class: "input", style: "margin-bottom: .25rem") %>
             <div class="h6 white email_errors">
@@ -116,7 +116,7 @@
             </div>
           </div>
 
-          <div class="mb3">
+          <div class="mb1">
             <%= f.label :cell_phone_number, class: "aqua label" %>
             <%= f.telephone_field(:cell_phone_number, class: "input", style: "margin-bottom: .25rem") %>
             <div class="h6 white cell_phone_number_errors">
@@ -124,7 +124,7 @@
             </div>
           </div>
 
-          <div class="mb3">
+          <div class="mb1">
             <%= f.label :district, class: "aqua label" %>
             <%=
               f.select(
@@ -138,12 +138,12 @@
             <div class="h6 white"><%= @user.errors.messages[:district].join(', ') %></div>
           </div>
 
-          <div class="mb3 white">
+          <div class="mb1 white">
             <%= f.check_box :wants_to_receive_tasks_via_whatsapp %>
             <%= f.label :wants_to_receive_tasks_via_whatsapp, style: "cursor: pointer", class: "h5" %>
           </div>
 
-          <div class="mb3">
+          <div>
             <%=
               f.submit(
                 "Tô dentro!",
@@ -160,7 +160,8 @@
 
 <% if Setting.daily_task_description.present? %>
   <div id="daily-task" class="max-width-1 mx-auto px2 py3 black center">
-    <h2 class="caps mt0">O quê você pode fazer hoje?</h2>
+    <%= image_tag "volunteers/icone_tarefa.png", class: "mb1", style: "width: 100px" %>
+    <h2 class="caps mt0 h1 regular">O quê você pode fazer hoje?</h2>
     <div class="mb3"><%= raw Setting.daily_task_description %></div>
     <%=
       link_to(
@@ -175,13 +176,14 @@
 
 <div class="bg-purple">
   <div class="max-width-1 mx-auto px2 py3 white center">
-    <h2 class="caps mt0">Próximos eventos da campanha:</h2>
+    <%= image_tag "volunteers/icone_eventos.png", class: "mb1", style: "width: 100px" %>
+    <h2 class="caps mt0 h1 regular">Próximos eventos da campanha:</h2>
     <div class="slick">
       <% Event.where("start_at >= ?", Time.now).order("start_at").each do |event| %>
         <%= card(class: "mx1") do %>
           <%= card_body do %>
-            <h3 class="red m0"><%= event.title %></h3>
-            <h4 class="aqua mt0"><%= l(event.start_at, format: :short) %></h4>
+            <span class="block bold mb1 h3 red m0"><%= event.title %></span>
+            <span class="block h4 aqua bold mt0"><%= l(event.start_at, format: :short) %></span>
             <p class="black"><%= truncate(event.short_description, length: 140) %></p>
             <%= link_to "Participar", event.facebook_link, target: :blank, class: "button bg-orange block caps bold white p1 rounded" %>
           <% end %>
@@ -192,14 +194,17 @@
 </div>
 
 <div class="max-width-1 mx-auto px2 py3 center black">
-  <h2>Participe da campanha onde você mora ou estuda!</h2>
-  <%= select_tag "group", options_for_select(Group.all.map {|g| [g.name, group_path(g)]}), class: "input", prompt: "Selecione um núcleo", onChange: "window.location = event.target.value" %>
+  <%= image_tag "volunteers/icone_local.png", class: "mb1", style: "width: 100px" %>
+  <h2 class="mt0 h1 caps regular">Participe da campanha onde você mora ou estuda!</h2>
+  <span class="h2 bold block red mb1">Selecione um comitê</span>
+  <%= select_tag "group", options_for_select(Group.all.map {|g| [g.name, group_path(g)]}), class: "input", prompt: "Nome do núcleo", onChange: "window.location = event.target.value" %>
 </div>
 
 <div class="bg-purple white">
   <div class="max-width-1 mx-auto clearfix px2 py3 center">
     <h1 class="h3 regular">
-      <h2 class="mt0">X pessoas estão financiando o Freixo</h2>
+      <%= image_tag "volunteers/icone_money.png", class: "mb1", style: "width: 100px" %>
+      <h2 class="h1 mt0 caps regular">Muitas pessoas estão financiando o Freixo</h2>
       <p>
         Essa campanha é financiada por pessoas comuns como você.<br />
         <strong>Faça sua doação e apoie uma nova forma de fazer política.</strong>
@@ -212,6 +217,33 @@
         class: "button bg-orange white py1 caps bold rounded block"
       )
     %>
+  </div>
+</div>
+
+<div class="max-width-1 mx-auto center py3 px2">
+  <%= image_tag "volunteers/icone_share.png", class: "mb1", style: "width: 100px" %>
+  <h2 class="caps h1 black mt0 regular">Compartilhe</h2>
+  <p>
+    Já somos <%= number_with_delimiter(User.count + 10000) %> pessoas mobilizadas por uma outra cidade possível.
+    Compartilhe esse site nas suas redes para que mais gente se junte à nossa campanha.
+  </p>
+  <p class="mb0">
+    <%= link_to_popup("http://www.facebook.com/sharer/sharer.php?u=#{root_url}", {class: "mr1"}) do %>
+      <%= image_tag "volunteers/icone_face.png", style: "width: 100px" %>
+    <% end %>
+    <%= link_to_popup("https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{root_url}", {}) do %>
+      <%= image_tag "volunteers/icone_twitter.png", style: "width: 100px" %>
+    <% end %>
+  </p>
+</div>
+
+<div class="bg-purple white">
+  <div class="max-width-1 mx-auto center py3 px2">
+    <%= image_tag "volunteers/icone_tv.png", class: "mb1", style: "width: 100px" %>
+    <h2 class="h1 regular mt0 caps">Acompanhe o canal 50</h2>
+    <p>No Brasil, quem se recusa a fazer alianças com partidos aleatórios só para conseguir tempo de TV acaba tendo poucos segundos para apresentar suas ideias.</p>
+    <p class="bold mb3">Assista os nossos vídeos e ajude a compartilhar eles nas suas redes.</p>
+    <%= link_to "Assistir o Canal 50", "https://www.youtube.com/user/marcelofreixo", target: :blank, class: "button bg-orange white py1 px2 rounded h3 caps bold inline-block" %>
   </div>
 </div>
 
