@@ -301,10 +301,13 @@
   </p>
   <p class="mb0">
     <%= link_to_popup("http://www.facebook.com/sharer/sharer.php?u=#{root_url}", {class: "mr1"}) do %>
-      <%= image_tag "volunteers/icone_face.png", style: "width: 100px" %>
+      <%= image_tag "volunteers/icone_face.png", style: "width: 75px" %>
     <% end %>
-    <%= link_to_popup("https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{root_url}", {}) do %>
-      <%= image_tag "volunteers/icone_twitter.png", style: "width: 100px" %>
+    <%= link_to_popup("https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{root_url}", {class: "mr1"}) do %>
+      <%= image_tag "volunteers/icone_twitter.png", style: "width: 75px" %>
+    <% end %>
+    <%= link_to "whatsapp://send?text=#{URI.escape("Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura #{request.url}")}", class: "md-hide lg-hide", data: {action: "share/whatsapp/share"} do %>
+      <%= image_tag "volunteers/icone_whatsapp.png", style: "width: 75px" %>
     <% end %>
   </p>
 </div>
