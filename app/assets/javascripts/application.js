@@ -24,8 +24,11 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-80795517-1', 'auto');
 ga('send', 'pageview');
 
-$(document).ready(function(){
+var handleDocumentReady = function () {
   $('.slick').slick({
     arrows: false
   });
-});
+}
+
+$(document).ready(handleDocumentReady);
+$(document).on('page:load', handleDocumentReady);
