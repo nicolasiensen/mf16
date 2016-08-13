@@ -22,71 +22,64 @@
       </div>
       <% if params[:profile_created] %>
         <%= form_for @user, url: volunteer_path(@user.id), method: :put do |f| %>
-          <%= card do %>
-            <%= card_body do %>
-              <p class="mt0">
-                Obrigado por se juntar a essa campanha!
-              </p>
-              <p>
-                Só queremos te mandar os chamados que sejam mais interessantes pra você. Complete o seu perfil para dizer como você quer ajudar com a campanha:
-              </p>
-              <div class="mb2">
-                <% favorite_tasks.each do |task| %>
-                  <div class="mb1">
-                    <%= f.check_box "favorite_tasks", {multiple: true, include_hidden: false}, task %>
-                    <%= f.label "favorite_tasks_#{task.parameterize.underscore}", task, class: "label inline" %>
-                  </div>
-                <% end %>
+          <div class="center mb3">
+            <p class="mt0">
+              Obrigado por se juntar a essa campanha!
+            </p>
+            <p>
+              Só queremos te mandar os chamados que sejam mais interessantes pra você. Complete o seu perfil para dizer como você quer ajudar com a campanha:
+            </p>
+          </div>
+          <div class="mb3">
+            <% favorite_tasks.each do |task| %>
+              <div class="mb1">
+                <%= f.check_box "favorite_tasks", {multiple: true, include_hidden: false, id: "user_favorite_tasks_#{task.parameterize.underscore}", style: "margin: 0; vertical-align: middle"}, task %>
+                <%= f.label "favorite_tasks_#{task.parameterize.underscore}", task, class: "label inline" %>
               </div>
-
-              <%=
-                f.select(
-                  :school,
-                  school_list,
-                  { prompt: t('activerecord.attributes.user.school') },
-                  class: "input"
-                )
-              %>
-
-              <% favorite_topics.each do |topic| %>
-                <div class="mb1">
-                  <%= f.check_box "favorite_topics", {multiple: true, include_hidden: false}, topic %>
-                  <%= f.label "favorite_topics_#{topic.parameterize.underscore}", topic, class: "label inline" %>
-                </div>
-              <% end %>
             <% end %>
-            <%= card_actions do %>
-              <%= f.submit "Enviar!", class: "button bg-aqua white caps bold border-none h3 p1 rounded" %>
-            <% end %>
+          </div>
+
+          <%= f.label :school, class: "label" %>
+          <%=
+            f.select(
+              :school,
+              school_list,
+              { prompt: t('activerecord.attributes.user.school') },
+              class: "input mb3"
+            )
+          %>
+
+          <% favorite_topics.each do |topic| %>
+            <div class="mb1 mr2 inline-block">
+              <%= f.check_box "favorite_topics", {multiple: true, include_hidden: false, id: "user_favorite_topics_#{topic.parameterize.underscore}", style: "margin: 0; vertical-align: middle"}, topic %>
+              <%= f.label "favorite_topics_#{topic.parameterize.underscore}", topic, class: "label inline" %>
+            </div>
           <% end %>
+          <%= f.submit "Enviar!", class: "button bg-aqua block white caps bold border-none h3 p2 rounded mt3", style: "width: 100%" %>
         <% end %>
       <% elsif params[:profile_completed] %>
-        <div id="profile_completed">
-          <%= card do %>
-            <%= card_body do %>
-              <p class="mt0">Seu perfil foi atualizado! Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.</p>
-              <p>Agora, compartilhe o nosso site de mobilização em todas as suas redes.</p>
-              <p>Quanto mais pessoas estiverem mobilizadas, maiores são as nossas chances de ganhar essa campanha!</p>
-              <div class="center">
-                <%=
-                  link_to_popup(
-                    "http://www.facebook.com/sharer/sharer.php?u=#{root_url}",
-                    class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4 m1"
-                  ) do
-                %>
-                  <%= icon('facebook') %> Compartilhar
-                <% end %>
-                <%=
-                  link_to_popup(
-                    "https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{root_url}",
-                    class: "button bg-twitter-blue white py1 px3 caps inline-block rounded bold h4 m1"
-                  ) do
-                %>
-                  <%= icon('twitter') %> Tweetar
-                <% end %>
-              </div>
+        <div id="profile_completed" class="center">
+          <p class="mt0">Seu perfil foi atualizado! Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.</p>
+          <p>Agora, compartilhe o nosso site de mobilização em todas as suas redes.</p>
+          <p>Quanto mais pessoas estiverem mobilizadas, maiores são as nossas chances de ganhar essa campanha!</p>
+          <div class="center">
+            <%=
+              link_to_popup(
+                "http://www.facebook.com/sharer/sharer.php?u=#{root_url}",
+                class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4 m1"
+              ) do
+            %>
+              <%= icon('facebook') %> Compartilhar
             <% end %>
-          <% end %>
+            <%=
+              link_to_popup(
+                "https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{root_url}",
+                class: "button bg-twitter-blue white py1 px3 caps inline-block rounded bold h4 m1"
+              ) do
+            %>
+              <%= icon('twitter') %> Tweetar
+            <% end %>
+          </div>
         </div>
       <% else %>
         <%= form_for @user, url: volunteers_path do |f| %>
