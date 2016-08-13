@@ -58,7 +58,11 @@ input { box-sizing: border-box; }
 
 .input { border-radius: $border-radius; }
 .caps { letter-spacing: normal; }
+
 label.required:before { content: "*" }
+.label {
+  cursor: pointer;
+}
 
 .btn {
   text-transform: uppercase;
