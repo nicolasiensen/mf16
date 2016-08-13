@@ -272,6 +272,24 @@
   <%= link_to "https://medium.com/mudar-%C3%A9-poss%C3%ADvel/transporte-9120f2f356cb#.bykao4jde", class: "bg-red p2 white caps block", target: :blank do %>
     <h2 class="regular">Transporte</h2>
   <% end %>
+
+  <%= link_to "Veja todo o programa", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "inline-block mt3 mb3 button bg-orange rouded white caps p2 bold" %>
+</div>
+
+<div class="bg-purple white py3 px2 center">
+  <div class="max-width-1 mx-auto">
+    <%= image_tag "volunteers/icone_50.png", class: "mb1", style: "width: 100px" %>
+    <h2 class="caps h1 mt0 regular">Você conhece bem o Freixo e a Luciana?</h2>
+    <div class="black slick">
+      <% freixo_facts.each do |fact| %>
+        <%= card class: "mx2" do %>
+          <%= card_body do %>
+            <%= fact %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <div class="max-width-1 mx-auto center py3 px2">

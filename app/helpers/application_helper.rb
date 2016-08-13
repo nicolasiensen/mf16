@@ -374,4 +374,26 @@ module ApplicationHelper
       "Juventude"
     ]
   end
+
+  def freixo_facts
+    [
+      "Freixo nasceu em 12 de abril de 1967 no Fonseca, bairro da periferia de Niterói.",
+      "É um dos três filhos de Aroldo e Alenice, funcionários de uma escola pública na cidade.",
+      "Freixo teve infância típica de garoto da periferia, vivida nas ruas do bairro, jogando futebol, gude e empinando pipa.",
+      "Aos 15 anos arrumou seu primeiro trabalho distribuindo panfletos publicitárias nas ruas para ajudar a família.",
+      "Nessa mesma época começou a despertar para as desigualdades. Sua primeira experiência política foi na luta por melhorias em seu bairro.",
+      "Aos 21 anos, deixou a faculdade de Economia para realizar o sonho de ser professor: ingressou no curso de História da Universidade Federal Fluminense.",
+      "Ali viveu uma experiência que mudou sua vida: começou a dar aulas no sistema penitenciário como voluntário.",
+      "Conhecer de perto as violências e injustiças foi essencial na sua formação como professor e defensor de Direitos Humanos.",
+      "Elegeu-se deputado pelo PSOL pela primeira vez em 2006, com 13 mil votos.",
+      "Em 2008,  presidiu a CPI das Milícias, que indiciou de 200 pessoas. Os principais líderes foram presos.",
+      "A história inspirou o filme Tropa de Elite II.",
+      "Freixo sofreu diversas ameaças de morte devido à CPI.",
+      "Em 2010, se reelegeu com 177 mil votos.",
+      "Presidiu a CPI do Tráfico de Armas e Munições, além de atuar nas áreas de educação,  saúde, democracia, transparência e combate à corrupção.",
+      "Em 2012,após belíssima campanha que mobilizou toda a cidade, Freixo ficou em segundo lugar na disputa pela prefeitura obtendo 28% dos votos.",
+      "Elegeu-se para o terceiro mandato em 2014, com 350 mil votos. Foi o deputado estadual mais votado do país.",
+      "Queremos que você continue escrevendo essa história com a gente. Juntos nós podemos tornar o Rio um lugar melhor para vivermos!"
+    ]
+  end
 end
