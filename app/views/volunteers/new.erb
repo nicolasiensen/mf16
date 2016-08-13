@@ -7,10 +7,10 @@
   <%= favicon_link_tag 'favicon.png' %>
 <% end %>
 
-<div class="bg-red white py3">
-  <div class="max-width-4 mx-auto">
-    <div class="xs-col-12 sm-col-5 mx-auto px2">
-      <div class="center">
+<div class="bg-red bg-cover white py3 bg-above">
+  <div class="max-width-4 mx-auto clearfix">
+    <div class="col xs-col-12 lg-col-6 mx-auto px2">
+      <div class="sm-center">
         <h1 class="white regular caps mt0">Um Rio de Janeiro mais humano <span class="underline">é possível</span>.</h1>
         <p>
           É hora de apresentarmos um projeto para a cidade construído coletivamente.
@@ -20,6 +20,8 @@
           Junte-se a nós agora e saiba como você pode ajudar a fazer isso acontecer:
         </p>
       </div>
+    </div>
+    <div class="col xs-col-12 lg-col-6 mx-auto px2">
       <% if params[:profile_created] %>
         <%= form_for @user, url: volunteer_path(@user.id), method: :put do |f| %>
           <div class="center mb3">
@@ -140,7 +142,7 @@
             <%=
               f.submit(
                 "Tô dentro!",
-                class: "button bg-aqua block caps p2 h2 white border-none rounded bold",
+                class: "button bg-aqua block caps p2 h2 white border-none rounded bold mt3",
                 style: "width: 100%"
               )
             %>
@@ -151,8 +153,37 @@
   </div>
 </div>
 
+<div class="bg-freixoeluciana bg-cover" style="height: 230px"></div>
+
+<div class="bg-aqua py3 px2 center">
+  <%= link_to "#tarefa", class: "m1 inline-block" do %>
+    <%= image_tag "volunteers/icone_tarefa.png", width: 100 %>
+  <% end %>
+  <%= link_to "#eventos", class: "m1 inline-block" do %>
+    <%= image_tag "volunteers/icone_eventos.png", width: 100 %>
+  <% end %>
+  <%= link_to "#nucleos", class: "m1 inline-block" do %>
+    <%= image_tag "volunteers/icone_local.png", width: 100 %>
+  <% end %>
+  <%= link_to "#apoiar", class: "m1 inline-block" do %>
+    <%= image_tag "volunteers/icone_money.png", width: 100 %>
+  <% end %>
+  <%= link_to "#propostas", class: "m1 inline-block" do %>
+    <%= image_tag "volunteers/icone_ideia.png", width: 100 %>
+  <% end %>
+  <%= link_to "#marcelofreixo", class: "m1 inline-block" do %>
+    <%= image_tag "volunteers/icone_50.png", width: 100 %>
+  <% end %>
+  <%= link_to "#canal50", class: "m1 inline-block" do %>
+    <%= image_tag "volunteers/icone_tv.png", width: 100 %>
+  <% end %>
+  <%= link_to "#compartilhe", class: "m1 inline-block" do %>
+    <%= image_tag "volunteers/icone_share.png", width: 100 %>
+  <% end %>
+</div>
+
 <% if Setting.daily_task_description.present? %>
-  <div id="daily-task" class="max-width-1 mx-auto px2 py3 black center">
+  <div id="tarefa" class="max-width-1 mx-auto px2 py3 black center">
     <%= image_tag "volunteers/icone_tarefa.png", class: "mb1", style: "width: 100px" %>
     <h2 class="caps mt0 h1 regular">O quê você pode fazer hoje?</h2>
     <div class="mb3"><%= raw Setting.daily_task_description %></div>
@@ -167,7 +198,7 @@
   </div>
 <% end %>
 
-<div class="bg-purple">
+<div class="bg-purple" id="eventos">
   <div class="max-width-1 mx-auto px2 py3 white center">
     <%= image_tag "volunteers/icone_eventos.png", class: "mb1", style: "width: 100px" %>
     <h2 class="caps mt0 h1 regular">Próximos eventos da campanha:</h2>
@@ -186,14 +217,14 @@
   </div>
 </div>
 
-<div class="max-width-1 mx-auto px2 py3 center black">
+<div class="max-width-1 mx-auto px2 py3 center black" id="nucleos">
   <%= image_tag "volunteers/icone_local.png", class: "mb1", style: "width: 100px" %>
   <h2 class="mt0 h1 caps regular">Participe da campanha onde você mora ou estuda!</h2>
   <span class="h2 bold block red mb1">Selecione um comitê</span>
   <%= select_tag "group", options_for_select(Group.all.map {|g| [g.name, group_path(g)]}), class: "input", prompt: "Nome do núcleo", onChange: "window.location = event.target.value" %>
 </div>
 
-<div class="bg-purple white">
+<div class="bg-purple white" id="apoiar">
   <div class="max-width-1 mx-auto clearfix px2 py3 center">
     <h1 class="h3 regular">
       <%= image_tag "volunteers/icone_money.png", class: "mb1", style: "width: 100px" %>
@@ -213,7 +244,7 @@
   </div>
 </div>
 
-<div class="max-width-1 mx-auto center py3 px2">
+<div class="max-width-1 mx-auto center py3 px2" id="propostas">
   <%= image_tag "volunteers/icone_ideia.png", class: "mb1", style: "width: 100px" %>
   <h2 class="caps h1 black mt0 regular">Sim, é possível! Conheça as nossas propostas para a cidade:</h2>
   <p>
@@ -269,7 +300,7 @@
   <%= link_to "Veja todo o programa", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "inline-block mt3 mb3 button bg-orange rouded white caps p2 bold" %>
 </div>
 
-<div class="bg-purple white py3 px2 center">
+<div class="bg-purple white py3 px2 center" id="marcelofreixo">
   <div class="max-width-1 mx-auto">
     <%= image_tag "volunteers/icone_50.png", class: "mb1", style: "width: 100px" %>
     <h2 class="caps h1 mt0 regular">Você conhece bem o Freixo e a Luciana?</h2>
@@ -285,7 +316,7 @@
   </div>
 </div>
 
-<div class="max-width-1 mx-auto center py3 px2">
+<div class="max-width-1 mx-auto center py3 px2" id="compartilhe">
   <%= image_tag "volunteers/icone_share.png", class: "mb1", style: "width: 100px" %>
   <h2 class="caps h1 black mt0 regular">Compartilhe</h2>
   <p>
@@ -306,7 +337,7 @@
 </div>
 
 <div class="bg-purple white">
-  <div class="max-width-1 mx-auto center py3 px2">
+  <div class="max-width-1 mx-auto center py3 px2" id="canal50">
     <%= image_tag "volunteers/icone_tv.png", class: "mb1", style: "width: 100px" %>
     <h2 class="h1 regular mt0 caps">Acompanhe o canal 50</h2>
     <p>No Brasil, quem se recusa a fazer alianças com partidos aleatórios só para conseguir tempo de TV acaba tendo poucos segundos para apresentar suas ideias.</p>

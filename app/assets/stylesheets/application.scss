@@ -95,5 +95,35 @@ label.required:before { content: "*" }
   background-color: $twitter-blue;
 }
 
-.bg-red-light { background-color: $red-light; }
-.bg-red-dark { background-color: $red-dark; }
+.bg-red-light {
+  background-color: $red-light;
+}
+
+.bg-red-dark {
+  background-color: $red-dark;
+}
+
+.bg-freixoeluciana {
+  background-image: url('volunteers/bg-freixoeluciana.jpg');
+  background-position: center center;
+}
+
+@media #{$breakpoint-lg} {
+  .bg-above {
+    background-image: url('volunteers/bg-above.png')
+  }
+}
+
+.sm-center {
+  @media #{$breakpoint-xs} {
+    text-align: center;
+  }
+
+  @media #{$breakpoint-sm} {
+    text-align: center;
+  }
+
+  @media #{$breakpoint-lg} {
+    text-align: inherit;
+  }
+}
