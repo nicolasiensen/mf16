@@ -23,6 +23,8 @@ $black: #313131;
 $silver: #e1e1e1;
 $yellow: #ffa600;
 $red: #fa3852;
+$red-light: #ff5b6e;
+$red-dark: #d81c3a;
 $facebook-blue: #2a61a9;
 $twitter-blue: #1da1f3;
 
@@ -90,3 +92,6 @@ label.required:before { content: "*" }
 .bg-twitter-blue {
   background-color: $twitter-blue;
 }
+
+.bg-red-light { background-color: $red-light; }
+.bg-red-dark { background-color: $red-dark; }
