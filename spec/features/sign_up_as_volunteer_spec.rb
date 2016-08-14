@@ -50,16 +50,14 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
 
     context "when the user completes his profile" do
       before do
-        check "user_favorite_tasks_divulgar_materiais_da_campanha"
+        check "user_favorite_tasks_doando_dinheiro"
         select "Instituto Isabel", from: "user[school]"
-        check "user_favorite_topics_mulheres"
         click_on "Enviar!"
       end
 
       it "should update the user" do
         user = User.find_by(email: "jorge@mf16.com")
-        expect(user.favorite_tasks).to include("Divulgar materiais da campanha")
-        expect(user.favorite_topics).to include("Mulheres")
+        expect(user.favorite_tasks).to include("Doando dinheiro")
         expect(user.school).to be_eql("Instituto Isabel")
       end
 

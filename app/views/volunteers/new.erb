@@ -1,10 +1,21 @@
 <%= content_for :head do %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Marcelo Freixo | É o candidato do PSOL à Prefeitura do Rio de Janeiro.</title>
-  <meta property="og:title" content="Dia 16 começa. Participe da campanha do Freixo à Prefeitura." />
+  <meta property="og:title" content="Começou! Participe da campanha do Freixo à Prefeitura!" />
   <meta property="og:image" content="<%= image_url 'volunteers/facebook-share.jpg' %>" />
   <meta property="og:description" content="Clique pra saber como participar." />
   <%= favicon_link_tag 'favicon.png' %>
+<% end %>
+
+<%= content_for :menu do %>
+  <%= link_to "Tarefa do Dia", "#tarefa", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Eventos", "#eventos", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Comitês", "#nucleos", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Financiar", "#apoiar", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Propostas", "#propostas", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Freixo e Luciana", "#marcelofreixo", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Canal 50", "#canal50", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Compartilhe", "#compartilhe", class: "block p2 black btn-user-menu" %>
 <% end %>
 
 <div class="bg-red bg-cover white py3 bg-above">
@@ -24,12 +35,12 @@
     <div class="md-col xs-col-12 sm-col-6 md-col-6 lg-col-6 mx-auto px2">
       <% if params[:profile_created] %>
         <%= form_for @user, url: volunteer_path(@user.id), method: :put do |f| %>
-          <div class="center mb3">
-            <p class="mt0">
+          <div class="sm-center mb3">
+            <p class="mt0 bold">
               Obrigado por se juntar a essa campanha!
             </p>
             <p>
-              Só queremos te mandar os chamados que sejam mais interessantes pra você. Complete o seu perfil para dizer como você quer ajudar com a campanha:
+              Só queremos te mandar os chamados que sejam mais interessantes pra você. <strong>Complete o seu perfil para dizer como você quer ajudar com a campanha:</strong>
             </p>
           </div>
           <div class="mb3">
@@ -42,6 +53,7 @@
           </div>
 
           <%= f.label :school, class: "label" %>
+
           <%=
             f.select(
               :school,
@@ -51,20 +63,17 @@
             )
           %>
 
-          <% favorite_topics.each do |topic| %>
-            <div class="mb1 mr2 inline-block">
-              <%= f.check_box "favorite_topics", {multiple: true, include_hidden: false, id: "user_favorite_topics_#{topic.parameterize.underscore}", style: "margin: 0; vertical-align: middle"}, topic %>
-              <%= f.label "favorite_topics_#{topic.parameterize.underscore}", topic, class: "label inline" %>
-            </div>
-          <% end %>
           <%= f.submit "Enviar!", class: "button bg-aqua block white caps bold border-none h3 p2 rounded mt3", style: "width: 100%" %>
         <% end %>
       <% elsif params[:profile_completed] %>
-        <div id="profile_completed" class="center">
-          <p class="mt0">Seu perfil foi atualizado! Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.</p>
-          <p>Agora, compartilhe o nosso site de mobilização em todas as suas redes.</p>
+        <div id="profile_completed" class="sm-center">
+          <p class="mt0 bold">
+            Seu perfil foi atualizado! Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.
+          </p>
+          <p>Você pode editá-lo a qualquer momento preenchendo novamente o cadastro nessa página principal.</p>
+          <p class="bold">Agora, compartilhe o nosso site de mobilização em todas as suas redes.</p>
           <p>Quanto mais pessoas estiverem mobilizadas, maiores são as nossas chances de ganhar essa campanha!</p>
-          <div class="center">
+          <div class="sm-center">
             <%=
               link_to_popup(
                 "http://www.facebook.com/sharer/sharer.php?u=#{root_url}",
@@ -75,7 +84,7 @@
             <% end %>
             <%=
               link_to_popup(
-                "https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{root_url}",
+                "https://twitter.com/intent/tweet?text=#{URI.escape('Começou! Participe da campanha do Freixo à Prefeitura! #Freixo50 #ÉPossível')}&url=#{root_url}",
                 class: "button bg-twitter-blue white py1 px3 caps inline-block rounded bold h4 m1"
               ) do
             %>
@@ -156,6 +165,7 @@
 <div class="bg-freixoeluciana bg-cover" style="height: 230px"></div>
 
 <div class="bg-aqua py3 px2 center h5">
+  <h2 class="h1 white regular mt0 caps">Participe da campanha!</h2>
   <%= link_to "#tarefa", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_tarefa.png", width: 100 %>
     <div class="mt1">Tarefa do Dia</div>
@@ -231,30 +241,20 @@
 <div class="bg-comite bg-cover">
   <div class="max-width-1 mx-auto px2 py3 center black" id="nucleos">
     <%= image_tag "volunteers/icone_local.png", class: "mb1", style: "width: 100px" %>
-    <h2 class="mt0 h1 caps regular">Participe da campanha onde você mora ou estuda!</h2>
+    <h2 class="mt0 h1 caps regular">Participe da campanha perto de você!</h2>
     <span class="h2 bold block red mb1">Selecione um núcleo</span>
     <%= select_tag "group", options_for_select(Group.all.map {|g| [g.name, group_path(g)]}), class: "input", prompt: "Nome do núcleo", onChange: "window.location = event.target.value" %>
     <%= link_to "Veja o mapa dos núcleos", map_groups_path, class: "button bg-orange py1 px2 caps bold white mt1 inline-block rounded" %>
   </div>
 </div>
 
-<div class="bg-purple white" id="apoiar">
-  <div class="max-width-1 mx-auto clearfix px2 py3 center">
-    <h1 class="h3 regular">
-      <%= image_tag "volunteers/icone_money.png", class: "mb1", style: "width: 100px" %>
-      <h2 class="h1 mt0 caps regular">Muitas pessoas estão financiando o Freixo</h2>
-      <p>
-        Essa campanha é financiada por pessoas comuns como você.<br />
-        <strong>Faça sua doação e apoie uma nova forma de fazer política.</strong>
-      </p>
-    </h1>
-    <%=
-      link_to(
-        "Apoiar",
-        "http://eufinancio.marcelofreixo.com.br",
-        class: "button bg-orange white px3 py1 caps bold rounded inline-block"
-      )
-    %>
+<div class="bg-purple white">
+  <div class="max-width-1 mx-auto center py3 px2" id="canal50">
+    <%= image_tag "volunteers/icone_tv.png", class: "mb1", style: "width: 100px" %>
+    <h2 class="h1 regular mt0 caps">Acompanhe o canal 50</h2>
+    <p>No Brasil, quem se recusa a fazer alianças com partidos aleatórios só para conseguir tempo de TV acaba tendo poucos segundos para apresentar suas ideias.</p>
+    <p class="bold mb3">Assista os nossos vídeos e ajude a compartilhar eles nas suas redes.</p>
+    <%= link_to "Assistir o Canal 50", "https://www.youtube.com/user/marcelofreixo", target: :blank, class: "button bg-orange white py1 px2 rounded h3 caps bold inline-block" %>
   </div>
 </div>
 
@@ -337,6 +337,48 @@
   </div>
 </div>
 
+<div class="bg-purple white" id="apoiar">
+  <div class="max-width-1 mx-auto clearfix px2 py3 center">
+    <%= image_tag "volunteers/icone_money.png", class: "mb1", style: "width: 100px" %>
+    <h2 class="h1 mt0 caps regular">Muitas pessoas estão financiando o Freixo</h2>
+    <%=
+      link_to(
+        "Apoiar",
+        "http://eufinancio.marcelofreixo.com.br",
+        class: "button bg-orange white px3 py1 caps bold rounded inline-block mb2"
+      )
+    %>
+    <p>
+      Essa campanha é financiada por pessoas comuns como você.<br />
+      <strong>Faça sua doação e apoie uma nova forma de fazer política.</strong>
+    </p>
+  </div>
+</div>
+
+<div class="bg-compartilhe bg-cover">
+  <div class="max-width-1 mx-auto center py3 px2" id="compartilhe">
+    <%= image_tag "volunteers/icone_share.png", class: "mb1", style: "width: 100px" %>
+    <h2 class="caps h1 black mt0 regular">Compartilhe</h2>
+    <p>
+      Já somos <%= number_with_delimiter(User.count + 10000) %> pessoas mobilizadas por uma outra cidade possível.
+    </p>
+    <p class="bold">
+      Compartilhe esse site nas suas redes para que mais gente se junte à nossa campanha.
+    </p>
+    <p class="mb0">
+      <%= link_to_popup("http://www.facebook.com/sharer/sharer.php?u=#{root_url}", {class: "mr1"}) do %>
+        <%= image_tag "volunteers/icone_face.png", style: "width: 75px" %>
+      <% end %>
+      <%= link_to_popup("https://twitter.com/intent/tweet?text=#{URI.escape('Começou! Participe da campanha do Freixo à Prefeitura! #Freixo50 #ÉPossível')}&url=#{root_url}", {class: "mr1"}) do %>
+        <%= image_tag "volunteers/icone_twitter.png", style: "width: 75px" %>
+      <% end %>
+      <%= link_to "whatsapp://send?text=#{URI.escape("Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura #{request.url}")}", class: "md-hide lg-hide", data: {action: "share/whatsapp/share"} do %>
+        <%= image_tag "volunteers/icone_whatsapp.png", style: "width: 75px" %>
+      <% end %>
+    </p>
+  </div>
+</div>
+
 <div class="bg-purple white py3 px2 center" id="marcelofreixo">
   <div class="max-width-1 mx-auto">
     <%= image_tag "volunteers/icone_50.png", class: "mb1", style: "width: 100px" %>
@@ -353,63 +395,43 @@
   </div>
 </div>
 
-<div class="bg-compartilhe bg-cover">
-  <div class="max-width-1 mx-auto center py3 px2" id="compartilhe">
-    <%= image_tag "volunteers/icone_share.png", class: "mb1", style: "width: 100px" %>
-    <h2 class="caps h1 black mt0 regular">Compartilhe</h2>
-    <p>
-      Já somos <%= number_with_delimiter(User.count + 10000) %> pessoas mobilizadas por uma outra cidade possível.
-      Compartilhe esse site nas suas redes para que mais gente se junte à nossa campanha.
-    </p>
-    <p class="mb0">
-      <%= link_to_popup("http://www.facebook.com/sharer/sharer.php?u=#{root_url}", {class: "mr1"}) do %>
-        <%= image_tag "volunteers/icone_face.png", style: "width: 75px" %>
-      <% end %>
-      <%= link_to_popup("https://twitter.com/intent/tweet?text=#{URI.escape('Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura')}&url=#{root_url}", {class: "mr1"}) do %>
-        <%= image_tag "volunteers/icone_twitter.png", style: "width: 75px" %>
-      <% end %>
-      <%= link_to "whatsapp://send?text=#{URI.escape("Dia 16 começa! Participe da campanha #Freixo2016 à Prefeitura #{request.url}")}", class: "md-hide lg-hide", data: {action: "share/whatsapp/share"} do %>
-        <%= image_tag "volunteers/icone_whatsapp.png", style: "width: 75px" %>
-      <% end %>
-    </p>
-  </div>
-</div>
-
-<div class="bg-purple white">
-  <div class="max-width-1 mx-auto center py3 px2" id="canal50">
-    <%= image_tag "volunteers/icone_tv.png", class: "mb1", style: "width: 100px" %>
-    <h2 class="h1 regular mt0 caps">Acompanhe o canal 50</h2>
-    <p>No Brasil, quem se recusa a fazer alianças com partidos aleatórios só para conseguir tempo de TV acaba tendo poucos segundos para apresentar suas ideias.</p>
-    <p class="bold mb3">Assista os nossos vídeos e ajude a compartilhar eles nas suas redes.</p>
-    <%= link_to "Assistir o Canal 50", "https://www.youtube.com/user/marcelofreixo", target: :blank, class: "button bg-orange white py1 px2 rounded h3 caps bold inline-block" %>
-  </div>
-</div>
-
-<div class="bg-black clearfix">
-  <div class="max-width-4 mx-auto sm-flex justify-around px2">
-    <a
-      target="_blank"
-      href="https://www.facebook.com/MarceloFreixoPsol/"
-      style="letter-spacing: 2px"
-      class="yellow caps block bold mt2 mb2">
-      <%= icon('facebook', class: "white") %>
-      /marcelofreixopsol
-    </a>
-    <a
-      target="_blank"
-      href="https://twitter.com/marcelofreixo"
-      style="letter-spacing: 2px"
-      class="yellow caps block bold mt2 mb2">
-      <%= icon('twitter', class: "white") %>
-      /marcelofreixo
-    </a>
-    <a
-      target="_blank"
-      href="https://www.instagram.com/marcelofreixo/?hl=en"
-      style="letter-spacing: 2px"
-      class="yellow caps block bold mt2 mb2">
-      <%= icon('instagram', class: "white") %>
-      /marcelofreixo
-    </a>
+<div class="bg-black clearfix white py3">
+  <div class="max-width-4 mx-auto mxn2">
+    <div class="lg-col sm-col-12 lg-col-4 px2 mb3">
+      Rua Beco João Inácio, 12
+    </div>
+    <div class="lg-col sm-col-12 lg-col-4 px2 mb3">
+      <div class="mb1">Sala de Imprensa:</div>
+      <%= link_to "Veja as fotos da campanha", "http://bit.ly/mf50-imprensafotos", class: "block yellow mb1" %>
+      <%= link_to "Assista aos vídeos da campanha", "http://bit.ly/mf50-canal50", class: "block yellow mb1" %>
+      <%= link_to "Leia os releases para imprensa", "http://bit.ly/mf50-imprensa", class: "block yellow mb1" %>
+      <%= link_to "Blog da Campanha", "http://bit.ly/mf50-blog", class: "block yellow mb1" %>
+    </div>
+    <div class="lg-col sm-col-12 lg-col-4 px2">
+      <a
+        target="_blank"
+        href="https://www.facebook.com/MarceloFreixoPsol/"
+        style="letter-spacing: 2px"
+        class="yellow caps block bold mb1">
+        <%= icon('facebook', class: "white") %>
+        /marcelofreixopsol
+      </a>
+      <a
+        target="_blank"
+        href="https://twitter.com/marcelofreixo"
+        style="letter-spacing: 2px"
+        class="yellow caps block bold mb1">
+        <%= icon('twitter', class: "white") %>
+        /marcelofreixo
+      </a>
+      <a
+        target="_blank"
+        href="https://www.instagram.com/marcelofreixo/?hl=en"
+        style="letter-spacing: 2px"
+        class="yellow caps block bold">
+        <%= icon('instagram', class: "white") %>
+        /marcelofreixo
+      </a>
+    </div>
   </div>
 </div>

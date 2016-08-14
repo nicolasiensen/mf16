@@ -350,13 +350,15 @@ module ApplicationHelper
 
   def favorite_tasks
     [
-      "Divulgar materiais da campanha",
-      "Ajudar com pesquisas de opinião coletivas pelo celular",
-      "Participar da campanha no meu bairro ",
-      "Participar de mutirões de cadastramento e contato com apoiadores da campanha",
-      "Organizar eventos da campanha na minha casa/bairro/trabalho/escola/universidade",
-      "Abrir a minha casa para ser um ponto de distribuição de materiais",
-      "Doar dinheiro"
+      "Participando de panfletagens onde eu moro, trabalho ou estudo",
+      "Participando de mutirões de cadastramento e contato com outros voluntários e apoiadores da campanha",
+      "Ajudando a organizar eventos da campanha na rua",
+      "Disponibilizando a minha casa para ser um ponto de distribuição de materiais",
+      "Participando de vídeos da campanha",
+      "Ajudando com design para redes",
+      "Ajudando com fotografia e filmagem",
+      "Ajudando com pesquisas de opinião coletivas pelo celular",
+      "Doando dinheiro"
     ]
   end
 
