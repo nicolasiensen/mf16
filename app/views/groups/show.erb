@@ -52,11 +52,17 @@
       <% end %>
 
       <% if @group.facebook_group.present? %>
-        <div class="mb1">
+        <div class="mb2">
           <div class="inline-block center" style="width: 17px">
             <%= icon("facebook") %>
           </div>
           <%= link_to("Participe do núcleo no Facebook", @group.facebook_group, target: :blank, class: "white underline") %>
+        </div>
+      <% end %>
+
+      <% if @group.description.present? %>
+        <div class="mb1">
+          <%= raw @group.description %>
         </div>
       <% end %>
 
@@ -65,7 +71,7 @@
           link_to(
             "Editar núcleo",
             edit_group_path(@group),
-            class: "button bg-aqua white rounded caps bold p1 inline-block mb2"
+            class: "button bg-aqua white rounded caps bold p1 inline-block mt2"
           )
         %>
       <% end %>

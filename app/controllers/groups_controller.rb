@@ -54,7 +54,8 @@ class GroupsController < ApplicationController
       :phone,
       :facebook_page,
       :facebook_group,
-      :theme
+      :theme,
+      :description
     )
   end
 end

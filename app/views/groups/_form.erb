@@ -69,6 +69,9 @@
 
       <%= form.label :facebook_group, class: "label" %>
       <%= form.url_field :facebook_group, class: "input" %>
+
+      <%= form.label :description, class: "label" %>
+      <%= form.text_area :description, class: "input", style: "box-sizing: border-box; height: 100px" %>
     <% end %>
     <%= card_actions do %>
       <%= form.submit class: "button bg-orange white caps bold p1 border-none h4 rounded" %>
