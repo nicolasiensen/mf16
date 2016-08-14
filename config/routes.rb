@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root 'volunteers#new'
-  resources :volunteers, only: [:new, :create, :update]
+  resources :volunteers, only: [:new, :create, :update], path: "voluntarios", path_names: {new: "novo"}
   resource :debate_petition_signatures, only: [:new, :create]
-  resources :events, only: [:index, :new, :create]
+  resources :events, only: [:index, :new, :create], path: "eventos", path_names: {new: "novo"}
 
-  resources :groups, only: [:show, :new, :create, :edit, :update] do
-    resource :group_subscriptions, only: [:create]
+  resources :groups, only: [:show, :new, :create, :edit, :update], path: "nucleos", path_names: {new: "novo", edit: "editar"} do
+    resource :group_subscriptions, only: [:create], path: "incricoes"
   end
 
   devise_for :users, :controllers => {
@@ -13,17 +13,17 @@ Rails.application.routes.draw do
     :registrations => "registrations"
   }
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show], path: "usuarios" do
     collection do
-      get :search
+      get :search, path: "procurar"
     end
 
     member do
-      put :make_admin
+      put :make_admin, path: "tornar_admin"
     end
   end
 
-  resource :settings, only: [:edit, :update]
+  resource :settings, only: [:edit, :update], path: "configuracoes"
 
   # devise_scope :user do
   #   unauthenticated do
