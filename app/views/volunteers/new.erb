@@ -9,7 +9,7 @@
 
 <div class="bg-red bg-cover white py3 bg-above">
   <div class="max-width-4 mx-auto clearfix">
-    <div class="col xs-col-12 lg-col-6 mx-auto px2">
+    <div class="md-col xs-col-12 sm-col-6 md-col-6 lg-col-6 mx-auto px2">
       <div class="sm-center">
         <h1 class="white regular caps mt0">Um Rio de Janeiro mais humano <span class="underline">é possível</span>.</h1>
         <p>
@@ -21,7 +21,7 @@
         </p>
       </div>
     </div>
-    <div class="col xs-col-12 lg-col-6 mx-auto px2">
+    <div class="md-col xs-col-12 sm-col-6 md-col-6 lg-col-6 mx-auto px2">
       <% if params[:profile_created] %>
         <%= form_for @user, url: volunteer_path(@user.id), method: :put do |f| %>
           <div class="center mb3">
@@ -155,30 +155,38 @@
 
 <div class="bg-freixoeluciana bg-cover" style="height: 230px"></div>
 
-<div class="bg-aqua py3 px2 center">
-  <%= link_to "#tarefa", class: "m1 inline-block" do %>
+<div class="bg-aqua py3 px2 center h5">
+  <%= link_to "#tarefa", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_tarefa.png", width: 100 %>
+    <div class="mt1">Tarefa do Dia</div>
   <% end %>
-  <%= link_to "#eventos", class: "m1 inline-block" do %>
+  <%= link_to "#eventos", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_eventos.png", width: 100 %>
+    <div class="mt1">Eventos</div>
   <% end %>
-  <%= link_to "#nucleos", class: "m1 inline-block" do %>
+  <%= link_to "#nucleos", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_local.png", width: 100 %>
+    <div class="mt1">Comitês</div>
   <% end %>
-  <%= link_to "#apoiar", class: "m1 inline-block" do %>
+  <%= link_to "#apoiar", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_money.png", width: 100 %>
+    <div class="mt1">Financiar</div>
   <% end %>
-  <%= link_to "#propostas", class: "m1 inline-block" do %>
+  <%= link_to "#propostas", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_ideia.png", width: 100 %>
+    <div class="mt1">Propostas</div>
   <% end %>
-  <%= link_to "#marcelofreixo", class: "m1 inline-block" do %>
+  <%= link_to "#marcelofreixo", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_50.png", width: 100 %>
+    <div class="mt1">Freixo e Luciana</div>
   <% end %>
-  <%= link_to "#canal50", class: "m1 inline-block" do %>
+  <%= link_to "#canal50", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_tv.png", width: 100 %>
+    <div class="mt1">Canal 50</div>
   <% end %>
-  <%= link_to "#compartilhe", class: "m1 inline-block" do %>
+  <%= link_to "#compartilhe", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_share.png", width: 100 %>
+    <div class="mt1">Compartilhe</div>
   <% end %>
 </div>
 
