@@ -216,6 +216,7 @@
         <% end %>
       <% end %>
     </div>
+    <%= link_to "Veja o mapa dos eventos", map_groups_path, class: "button bg-orange py1 px2 caps bold white mt1 inline-block rounded" %>
   </div>
 </div>
 
@@ -223,8 +224,9 @@
   <div class="max-width-1 mx-auto px2 py3 center black" id="nucleos">
     <%= image_tag "volunteers/icone_local.png", class: "mb1", style: "width: 100px" %>
     <h2 class="mt0 h1 caps regular">Participe da campanha onde você mora ou estuda!</h2>
-    <span class="h2 bold block red mb1">Selecione um comitê</span>
+    <span class="h2 bold block red mb1">Selecione um núcleo</span>
     <%= select_tag "group", options_for_select(Group.all.map {|g| [g.name, group_path(g)]}), class: "input", prompt: "Nome do núcleo", onChange: "window.location = event.target.value" %>
+    <%= link_to "Veja o mapa dos núcleos", map_groups_path, class: "button bg-orange py1 px2 caps bold white mt1 inline-block rounded" %>
   </div>
 </div>
 

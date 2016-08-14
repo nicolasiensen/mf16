@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :new, :create], path: "eventos", path_names: {new: "novo"}
 
   resources :groups, only: [:show, :new, :create, :edit, :update], path: "nucleos", path_names: {new: "novo", edit: "editar"} do
+    collection do
+      get :map, path: "mapa"
+    end
     resource :group_subscriptions, only: [:create], path: "incricoes"
   end
 

@@ -38,11 +38,11 @@
       </div>
     </div>
   </div>
-  <div class="max-width-4 mx-auto">
-    <%= flash_message(type: :notice, message: flash[:notice]) if flash[:notice] %>
-    <%= flash_message(type: :alert, message: flash[:alert]) if flash[:alert] %>
-  </div>
-  <div style="padding-top: 52px">
+  <div style="padding-top: 55px; height: 100%; box-sizing: border-box;">
+    <div class="max-width-4 mx-auto">
+      <%= flash_message(type: :notice, message: flash[:notice]) if flash[:notice] %>
+      <%= flash_message(type: :alert, message: flash[:alert]) if flash[:alert] %>
+    </div>
     <%= yield %>
   </div>
 </body>
