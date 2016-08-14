@@ -3,150 +3,147 @@
   <meta property="og:title" content="<%= @group.name %>" />
 <% end %>
 
-<div class="max-width-3 mx-auto p1">
-  <h1 class="regular black h2 m0">
-    Bem-vindo ao núcleo
-    <span class="bold block"><%= @group.name %></span>
-  </h1>
+<div class="bg-cover bg-red clearfix white py3 bg-above">
+  <div class="max-width-4 mx-auto mxn2 px1">
+    <div class="col lg-col-6 px2 mb2">
+      <span class="regular h2 m0">
+        Bem-vindo ao núcleo
+        <span class="bold block"><%= @group.name %></span>
+      </span>
 
-  <% if @group.territorial? %>
-    <p>Um núcleo territorial do bairro <%= @group.district %></p>
-  <% elsif @group.thematic? %>
-    <p>Um núcleo temático sobre <%= @group.theme.downcase %></p>
-  <% end %>
+      <% if @group.territorial? %>
+        <p>Um núcleo territorial do bairro <%= @group.district %></p>
+      <% elsif @group.thematic? %>
+        <p>Um núcleo temático sobre <%= @group.theme.downcase %></p>
+      <% end %>
 
-  <% if policy(Group).edit? %>
-    <%=
-      link_to(
-        "Editar núcleo",
-        edit_group_path(@group),
-        class: "button bg-orange white rounded caps bold p1 inline-block mb2"
-      )
-    %>
-  <% end %>
+      <% if @group.address.present? %>
+        <div class="mb1">
+          <div class="inline-block center" style="width: 17px">
+            <%= icon('map-marker') %>
+          </div>
+          <%= @group.address %>
+        </div>
+      <% end %>
+      <% if @group.email.present? %>
+        <div class="mb1">
+          <div class="inline-block center" style="width: 17px">
+            <%= icon('envelope-o') %>
+          </div>
+          <%= @group.email %>
+        </div>
+      <% end %>
+      <% if @group.phone.present? %>
+        <div class="mb1">
+          <div class="inline-block center" style="width: 17px">
+            <%= icon('phone') %>
+          </div>
+          <%= @group.phone %>
+        </div>
+      <% end %>
 
-  <div class="clearfix mxn1">
-    <div class="col col-12 xs-col-12 sm-col-12 md-col-6 lg-col-6 px1">
-      <div class="mb1">
-        <%= card do %>
-          <% if flash[:group_subscription_created] %>
-            <%= card_body do %>
-              <div class="thanks_for_subscribing">
-                <p class="mt0">Valeu por se inscrever no nosso núcleo, agora aguarde que entraremos em contato.</p>
-                <p>Para fortalecer ainda mais o nosso núcleo, não deixe de compartilhar essa página em suas redes sociais:</p>
-                <div class="center">
-                  <%=
-                    link_to_popup(
-                      "http://www.facebook.com/sharer/sharer.php?u=#{group_url(@group)}",
-                      class: "button bg-facebook-blue white caps bold p1 inline-block mb1 rounded"
-                    ) do
-                  %>
-                    <%= icon("facebook") %> Compartilhar
-                  <% end %>
-                  <%=
-                    link_to_popup(
-                      "https://twitter.com/intent/tweet?text=#{URI.escape('')}&url=#{group_url(@group)}",
-                      class: "button bg-twitter-blue white caps bold p1 inline-block rounded"
-                    ) do
-                  %>
-                    <%= icon("twitter") %> Tweetar
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          <% else %>
-            <%= form_for [@group, @group_subscription] do |f| %>
-              <%= card_body do %>
-                <p class="mt0">Receba notificações sobre as atividades do nosso núcleo, e participe!</p>
-                <div class="mb2">
-                  <%= f.label :email, class: "label" %>
-                  <%= f.email_field :email, class: "input mb0" %>
-                  <div class="h6 red email_errors">
-                    <%= @group_subscription.errors.messages[:email].join(', ') %>
-                  </div>
-                </div>
+      <% if @group.facebook_page.present? %>
+        <div class="mb1">
+          <div class="inline-block center" style="width: 17px">
+            <%= icon("facebook") %>
+          </div>
+          <%= link_to("Participe do núcleo no Facebook", @group.facebook_page, target: :blank, class: "white underline") %>
+        </div>
+      <% end %>
 
-                <div>
-                  <%= f.label :phone, class: "label" %>
-                  <%= f.text_field :phone, class: "input mb0" %>
-                  <div class="h6 red phone_errors">
-                    <%= @group_subscription.errors.messages[:phone].join(', ') %>
-                  </div>
-                </div>
+      <% if @group.facebook_group.present? %>
+        <div class="mb1">
+          <div class="inline-block center" style="width: 17px">
+            <%= icon("facebook") %>
+          </div>
+          <%= link_to("Participe do núcleo no Facebook", @group.facebook_group, target: :blank, class: "white underline") %>
+        </div>
+      <% end %>
+
+      <% if policy(Group).edit? %>
+        <%=
+          link_to(
+            "Editar núcleo",
+            edit_group_path(@group),
+            class: "button bg-aqua white rounded caps bold p1 inline-block mb2"
+          )
+        %>
+      <% end %>
+    </div>
+    <div class="col lg-col-6 px2">
+      <% if flash[:group_subscription_created] %>
+        <%= card_body do %>
+          <div class="thanks_for_subscribing">
+            <p class="mt0">Valeu por se inscrever no nosso núcleo, agora aguarde que entraremos em contato.</p>
+            <p>Para fortalecer ainda mais o nosso núcleo, não deixe de compartilhar essa página em suas redes sociais:</p>
+            <div class="center">
+              <%=
+                link_to_popup(
+                  "http://www.facebook.com/sharer/sharer.php?u=#{group_url(@group)}",
+                  class: "button bg-facebook-blue white caps bold p1 inline-block mb1 rounded"
+                ) do
+              %>
+                <%= icon("facebook") %> Compartilhar
               <% end %>
-              <%= card_actions do %>
-                <%= f.submit "Inscrever-se", class: "button bg-orange p1 caps white border-none h4 rounded bold" %>
+              <%=
+                link_to_popup(
+                  "https://twitter.com/intent/tweet?text=#{URI.escape('')}&url=#{group_url(@group)}",
+                  class: "button bg-twitter-blue white caps bold p1 inline-block rounded"
+                ) do
+              %>
+                <%= icon("twitter") %> Tweetar
               <% end %>
-            <% end %>
-          <% end %>
+            </div>
+          </div>
         <% end %>
-      </div>
-      <% if @group.facebook_page.present? || @group.facebook_group.present? %>
-        <%= card do %>
-          <%= card_body do %>
-            <p class="mt0">O nosso núcleo está também no Facebook</p>
-            <% if @group.facebook_page.present? %>
-              <%=
-                link_to(
-                  @group.facebook_page,
-                  target: :blank,
-                  class: "button bg-facebook-blue caps white border-none p1 bold inline-block mb1"
-                ) do
-              %>
-                <%= icon("facebook") %> Veja nossa página
-              <% end %>
-            <% end %>
+      <% else %>
+        <%= form_for [@group, @group_subscription] do |f| %>
+          <p class="mt0">Deixe os seus contatos para receber chamados específicos desse núcleo:</p>
+          <div class="mb2">
+            <%= f.label :email, class: "label" %>
+            <%= f.email_field :email, class: "input mb0" %>
+            <div class="h6 red email_errors">
+              <%= @group_subscription.errors.messages[:email].join(', ') %>
+            </div>
+          </div>
 
-            <% if @group.facebook_group.present? %>
-              <%=
-                link_to(
-                  @group.facebook_group,
-                  target: :blank,
-                  class: "button bg-facebook-blue caps white border-none p1 bold inline-block"
-                ) do
-              %>
-                <%= icon("facebook") %> Veja nosso grupo
-              <% end %>
-            <% end %>
-          <% end %>
+          <div>
+            <%= f.label :phone, class: "label" %>
+            <%= f.text_field :phone, class: "input mb0" %>
+            <div class="h6 red phone_errors">
+              <%= @group_subscription.errors.messages[:phone].join(', ') %>
+            </div>
+          </div>
+          <%= f.submit "Inscrever-se", class: "button bg-aqua p2 caps white border-none h4 rounded bold block mt3", style: "width: 100%" %>
         <% end %>
       <% end %>
     </div>
+  </div>
+</div>
 
-    <% if @group.address.present? || @group.email.present? || @group.phone.present? %>
-      <div class="col col-12 xs-col-12 sm-col-12 md-col-6 lg-col-6 px1">
-        <%= card do %>
-          <%= card_header do %>
-            Entre em contato
-          <% end %>
-          <%= card_body do %>
-            <% if @group.address.present? %>
-              <div class="mb1">
-                <div class="inline-block center" style="width: 17px">
-                  <%= icon('map-marker') %>
-                </div>
-                <%= @group.address %>
-              </div>
-            <% end %>
-            <% if @group.email.present? %>
-              <div class="mb1">
-                <div class="inline-block center" style="width: 17px">
-                  <%= icon('envelope-o') %>
-                </div>
-                <%= @group.email %>
-              </div>
-            <% end %>
-            <% if @group.phone.present? %>
-              <div>
-                <div class="inline-block center" style="width: 17px">
-                  <%= icon('phone') %>
-                </div>
-                <%= @group.phone %>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
+<div class="max-width-1 mx-auto clearfix px2 py3 center black">
+  <h1 class="h3 regular">
+    <%= image_tag "volunteers/icone_money.png", class: "mb1", style: "width: 100px" %>
+    <h2 class="h1 mt0 caps regular">Faça uma doação</h2>
+    <p>
+      A sua doação ajuda a gente a estruturar melhor os núcleos da campanha e a garantir que estaremos nos 4 cantos da cidade.
+    </p>
+  </h1>
+  <%=
+    link_to(
+      "Doar agora",
+      "http://eufinancio.marcelofreixo.com.br",
+      class: "button bg-orange white px3 py1 caps bold rounded inline-block"
+    )
+  %>
+</div>
+
+<div class="bg-black">
+  <div class="max-width-4 mx-auto clearfix center">
+    <%= link_to "Crie um núcleo", "http://bit.ly/freixo50-novonucleo", class: "button p2 white inline-block" %>
+    <%= link_to "Crie o seu evento", "http://bit.ly/freixo50-novoevento", class: "button p2 white inline-block" %>
+    <%= link_to "Abra sua casa", "http://bit.ly/freixo50-abrasuacasa", class: "button p2 white inline-block" %>
+    <%= link_to "Propostas", "http://bit.ly/freixo50-propostas", class: "button p2 white inline-block" %>
+    <%= link_to "Fazer uma doação", "https://eufinancio.marcelofreixo.com.br", class: "button p2 white inline-block" %>
   </div>
 </div>
