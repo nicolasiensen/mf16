@@ -109,6 +109,18 @@ label.required:before { content: "*" }
 }
 
 @media #{$breakpoint-lg} {
+  .bg-comite {
+    background-image: url('volunteers/bg-comite.png')
+  }
+}
+
+@media #{$breakpoint-lg} {
+  .bg-compartilhe {
+    background-image: url('volunteers/bg-compartilhe.png')
+  }
+}
+
+@media #{$breakpoint-lg} {
   .bg-above {
     background-image: url('volunteers/bg-above.png')
   }
