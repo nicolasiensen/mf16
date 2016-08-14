@@ -10,7 +10,7 @@
 <%= content_for :menu do %>
   <%= link_to "Tarefa do Dia", "#tarefa", class: "block p2 black btn-user-menu" %>
   <%= link_to "Eventos", "#eventos", class: "block p2 black btn-user-menu" %>
-  <%= link_to "Comitês", "#nucleos", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Núcleos de Mobilização", "#nucleos", class: "block p2 black btn-user-menu" %>
   <%= link_to "Financiar", "#apoiar", class: "block p2 black btn-user-menu" %>
   <%= link_to "Propostas", "#propostas", class: "block p2 black btn-user-menu" %>
   <%= link_to "Freixo e Luciana", "#marcelofreixo", class: "block p2 black btn-user-menu" %>
@@ -82,7 +82,7 @@
       <% elsif params[:profile_completed] %>
         <div id="profile_completed" class="sm-center">
           <p class="mt0 bold">
-            Seu perfil foi atualizado! Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.
+            Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.
           </p>
           <p>Você pode editá-lo a qualquer momento preenchendo novamente o cadastro nessa página principal.</p>
           <p class="bold">Agora, compartilhe o nosso site de mobilização em todas as suas redes.</p>
@@ -190,7 +190,7 @@
   <% end %>
   <%= link_to "#nucleos", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_local.png", width: 100 %>
-    <div class="mt1">Comitês</div>
+    <div class="mt1">Núcleos</div>
   <% end %>
   <%= link_to "#apoiar", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_money.png", width: 100 %>
