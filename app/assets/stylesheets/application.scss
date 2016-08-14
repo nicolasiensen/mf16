@@ -105,37 +105,37 @@ label.required:before { content: "*" }
 }
 
 .bg-freixoeluciana {
-  background-image: url('volunteers/bg-freixoeluciana.jpg');
+  background-image: asset-url('volunteers/bg-freixoeluciana.jpg');
   background-position: center center;
 }
 
 @media #{$breakpoint-lg} {
   .bg-comite {
-    background-image: url('volunteers/bg-comite.jpg')
+    background-image: asset-url('volunteers/bg-comite.jpg')
   }
 }
 
 @media #{$breakpoint-lg} {
   .bg-compartilhe {
-    background-image: url('volunteers/bg-compartilhe.jpg')
+    background-image: asset-url('volunteers/bg-compartilhe.jpg')
   }
 }
 
 @media #{$breakpoint-lg} {
   .bg-above {
-    background-image: url('volunteers/bg-above.jpg')
+    background-image: asset-url('volunteers/bg-above.jpg')
   }
 }
 
 @media #{$breakpoint-lg} {
   .bg-tarefa {
-    background-image: url('volunteers/bg-tarefa.jpg')
+    background-image: asset-url('volunteers/bg-tarefa.jpg')
   }
 }
 
 @media #{$breakpoint-lg} {
   .bg-propostas {
-    background-image: url('volunteers/bg-propostas.jpg')
+    background-image: asset-url('volunteers/bg-propostas.jpg')
   }
 }
 
