@@ -183,18 +183,20 @@
 </div>
 
 <% if Setting.daily_task_description.present? %>
-  <div id="tarefa" class="max-width-1 mx-auto px2 py3 black center">
-    <%= image_tag "volunteers/icone_tarefa.png", class: "mb1", style: "width: 100px" %>
-    <h2 class="caps mt0 h1 regular">O quê você pode fazer hoje?</h2>
-    <div class="mb3"><%= raw Setting.daily_task_description %></div>
-    <%=
-      link_to(
-        "Fazer tarefa",
-        Setting.daily_task_link,
-        class: "button bg-orange h4 white caps block p2 center bold",
-        target: :blank
-      )
-    %>
+  <div class="bg-tarefa bg-cover">
+    <div id="tarefa" class="max-width-1 mx-auto px2 py3 black center">
+      <%= image_tag "volunteers/icone_tarefa.png", class: "mb1", style: "width: 100px" %>
+      <h2 class="caps mt0 h1 regular">O quê você pode fazer hoje?</h2>
+      <div class="mb3"><%= raw Setting.daily_task_description %></div>
+      <%=
+        link_to(
+          "Fazer tarefa",
+          Setting.daily_task_link,
+          class: "button bg-orange h4 white caps block p2 center bold",
+          target: :blank
+        )
+      %>
+    </div>
   </div>
 <% end %>
 
