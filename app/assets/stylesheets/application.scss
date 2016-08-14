@@ -35,9 +35,10 @@ $border-radius: 1px;
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-body {
+html, body {
   font-family: 'Gotham', sans-serif;
   margin: 0;
+  height: 100%;
 }
 
 input {

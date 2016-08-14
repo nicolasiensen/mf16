@@ -38,6 +38,10 @@ class GroupsController < ApplicationController
     end
   end
 
+  def map
+    skip_authorization
+  end
+
   private
 
   def group_params
