@@ -35,6 +35,17 @@ var handleDocumentReady = function () {
       }
     ]
   });
+
+  $(".typed-title").typed({
+    stringsElement: $('#typed-title-strings'),
+    backDelay: 1000
+  });
+
+  $(".typed-proposals").typed({
+    stringsElement: $('#typed-proposals-strings'),
+    backDelay: 1000,
+    loop: true
+  });
 }
 
 $(document).ready(handleDocumentReady);
