@@ -23,7 +23,7 @@ class VolunteersController < ApplicationController
     if @user.save
       Notifier.welcome(@user).deliver_later
       redirect_to(
-        new_volunteer_path(profile_created: true, anchor: "edit_user_#{@user.id}"),
+        new_volunteer_path(profile_created: true),
         flash: {user_id: @user.id}
       )
     else
@@ -37,7 +37,7 @@ class VolunteersController < ApplicationController
     user = User.find(params[:id])
     user.update_attributes(user_params)
 
-    redirect_to new_volunteer_path(profile_completed: true, anchor: "profile_completed")
+    redirect_to new_volunteer_path(profile_completed: true)
   end
 
   private

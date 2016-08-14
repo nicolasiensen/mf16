@@ -38,11 +38,7 @@
     class="bg-white black absolute left-0 rounded hide"
     style="white-space: nowrap; box-shadow: 0 0 2px #999; top: 45px; max-height: 400px; overflow-y: scroll">
 
-    <%= link_to "Crie um núcleo", "http://bit.ly/freixo50-novonucleo", class: "block p2 black btn-user-menu" %>
-    <%= link_to "Crie o seu evento", "http://bit.ly/freixo50-novoevento", class: "block p2 black btn-user-menu" %>
-    <%= link_to "Abra sua casa", "http://bit.ly/freixo50-abrasuacasa", class: "block p2 black btn-user-menu" %>
-    <%= link_to "Propostas", "http://bit.ly/freixo50-propostas", class: "block p2 black btn-user-menu" %>
-    <%= link_to "Fazer uma doação", "https://eufinancio.marcelofreixo.com.br", class: "block p2 black btn-user-menu" %>
+    <%= yield :menu %>
 
     <% if current_user.present? %>
       <div class="p2 flex items-center">
@@ -65,8 +61,6 @@
       <% end %>
 
       <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "block p2 black btn-user-menu" %>
-    <% else %>
-      <%= link_to "Entrar", new_user_session_path, class: "block p2 black btn-user-menu" %>
     <% end %>
   </div>
 </div>
