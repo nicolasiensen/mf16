@@ -114,6 +114,12 @@ label.required:before { content: "*" }
   }
 }
 
+@media #{$breakpoint-lg} {
+  .bg-tarefa {
+    background-image: url('volunteers/bg-tarefa.png')
+  }
+}
+
 .sm-center {
   @media #{$breakpoint-xs} {
     text-align: center;
