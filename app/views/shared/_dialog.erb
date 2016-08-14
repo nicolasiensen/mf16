@@ -9,9 +9,18 @@
 <div
   id="<%= id %>"
   onClick="return closeDialog<%= id %>()"
-  class="absolute bg-darken-4 flex center items-center justify-center hide"
-  style="top: 0; left: 0; width: 100vw; height: 100vh">
-  <div class="inline-block" style="max-width: 100%; overflow: hidden">
+  class="fixed bg-darken-4 flex center items-center justify-center hide"
+  style="top: 0; left: 0; width: 100vw; height: 100vh; z-index: 10000">
+  <div
+    class="inline-block"
+    style="max-width: 100%; overflow-y: scroll; overflow-x: hidden; max-height: 90vh; position: relative">
     <%= yield %>
+    <a
+      href="#"
+      onClick="return closeDialog<%= id %>()"
+      class="black p1"
+      style="position: absolute; top: 0; right: 0;">
+      <%= icon('times') %>
+    </a>
   </div>
 </div>
