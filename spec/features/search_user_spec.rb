@@ -23,7 +23,7 @@ RSpec.feature "SearchUser", type: :feature, js: true do
   end
 
   it "should not allow non admin users" do
-    visit '/users/search'
+    visit search_users_path
     expect(current_path).to_not be_eql('/users/search')
     expect(page).to have_css('#alert-message')
   end

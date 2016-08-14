@@ -21,9 +21,10 @@
       <div class="m1 flex" style="align-items: center">
         <div style="flex: 1;">
           <%= user_menu current_user %>
-          <%= link_to image_tag("logo.png", style: "width: 115px"), new_volunteer_path, class: "ml2" %>
+          <%= link_to image_tag("logo.png", style: "width: 115px"), root_path, class: "ml2" %>
         </div>
         <div>
+          <%= link_to "Fazer doação", "https://eufinancio.marcelofreixo.com.br/", class: "button bg-aqua white caps p1 inline-block bold rounded mr1 xs-hide", target: :blank %>
           <% if Setting.livestream_embed.present? %>
             <%= toggle_link_to "livestream", id: "livestream-button", class: "right button p1 white caps" do %>
               Ao vivo
@@ -32,9 +33,6 @@
             <%= dialog "livestream" do %>
               <%= raw Setting.livestream_embed %>
             <% end %>
-          <% else %>
-            <%= link_to "Faça uma doação", "https://eufinancio.marcelofreixo.com.br/", class: "button bg-aqua white caps p1 inline-block right bold rounded mr1 xs-hide", target: :blank %>
-            <%= link_to "Doar", "https://eufinancio.marcelofreixo.com.br/", class: "button bg-aqua white caps p1 inline-block right bold rounded mr1 md-hide sm-hide lg-hide", target: :blank %>
           <% end %>
         </div>
       </div>
