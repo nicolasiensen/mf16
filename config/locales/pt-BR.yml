@@ -38,6 +38,7 @@ pt-BR:
         facebook_page: "Página do Facebook"
         facebook_group: "Grupo do Facebook"
         theme: "Tema"
+        description: "Descrição"
       group_subscription:
         email: "E-mail"
         phone: "Telefone"
