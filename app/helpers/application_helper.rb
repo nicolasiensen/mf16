@@ -475,4 +475,25 @@ module ApplicationHelper
       }
     ]
   end
+
+  def luciana_facts
+    [
+      "Luciana nasceu em 20 de novembro de 1972 no Rio Comprido, Zona Norte do Rio de Janeiro.",
+      "É a mais velha dos três filhos de Sergio, engenheiro, e Lucia Marina, professora primária e bibliotecária.",
+      "Passou sua infância e adolescência no bairro de Botafogo, onde estudou no Colégio Santo Inácio. ",
+      "Tinha 17 anos quando votou pela primeira vez para presidente em 1989, logo após a Constituição ter autorizado o voto para 16 anos. Participou das manifestações estudantis pelo Fora Collor em 1992.",
+      "Aos 18 anos, ingressou por Curso de Direito na UERJ, tendo sido a primeira mulher presidente da Associação Atlética Acadêmica Ricardo Lyra.",
+      "Aos 23 anos, se formou em Direito e logo iniciou o Mestrado da UERJ em Direito da Cidade, onde ministrou suas primeiras aulas como professora substituta. Sua dissertação teve como tema o sistema penitenciário.",
+      "Trabalhou como advogada criminal por mais de 10 anos, tendo atuado como pro bono em várias causas, até que decidiu se dedicar exclusivamente à docência universitária. ",
+      "Terminou seu Doutorado em Direito Penal em 2006, na Universidade de São Paulo, com tese sobre o Controle Penal sobre as Drogas Ilícitas.",
+      "Ingressou por concurso na Faculdade Nacional de Direito da UFRJ como Professora Adjunta de Direito Penal e Criminologia em 2007 e, desde então, dá aulas na graduação e pós graduação e atualmente é bolsista de produtividade em pesquisa do CNPq.",
+      "Desenvolveu pesquisas sobre política de drogas, gênero e sistema penitenciário, é autora de vários artigos e capítulos de livros.",
+      "Na sua atuação como professora da UFRJ, destacou-se por sua atuação em projetos de extensão em direitos humanos e na assistência jurídica a mulheres encarceradas. ",
+      "Foi Chefe de Departamento (2007-2009), coordenadora do Curso de Direito (2009) e Membro do Conselho de Ensino de Graduação (CEG) da UFRJ (2010-2014). É ainda membro da Comissão da Verdade da UFRJ.",
+      "Foi duas vezes diretora da Seção Sindical do ANDES dos Docentes da UFRJ (ADUFRJ), entre 2011-2015. ",
+      "Foi Vice-presidente do Conselho Penitenciário do Estado Rio de Janeiro (2014-2015)",
+      "Filiou-se ao PSOL em 2016 e essa é a primeira eleição da qual participa.",
+      "Queremos que você continue escrevendo essa história com a gente. Juntos nós podemos tornar o Rio um lugar melhor para vivermos."
+    ]
+  end
 end
