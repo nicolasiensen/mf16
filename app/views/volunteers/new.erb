@@ -609,9 +609,20 @@
   <div class="max-width-1 mx-auto">
     <%= image_tag "volunteers/icone_50.png", class: "mb1", style: "width: 100px" %>
     <h2 class="caps h1 mt0 regular">Você conhece bem o Freixo e a Luciana?</h2>
-    <div class="black slick">
+    <select class="input" id="fact-switcher">
+      <option value="marcelo">Marcelo Freixo</option>
+      <option value="luciana">Luciana</option>
+    </select>
+    <div class="black slick" id="facts">
       <% freixo_facts.each do |fact| %>
-        <%= card class: "mx2" do %>
+        <%= card class: "mx2 marcelo-fact" do %>
+          <%= card_body do %>
+            <%= fact %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% luciana_facts.each do |fact| %>
+        <%= card class: "mx2 luciana-fact" do %>
           <%= card_body do %>
             <%= fact %>
           <% end %>
