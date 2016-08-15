@@ -29,20 +29,21 @@
           <div id="typed-title-strings" class="hide">
             <p>humano</p>
             <p>democrático</p>
-            <p>plural</p>
             <p>diverso</p>
             <p>justo</p>
             <p>verde</p>
+            <p>acolhedor</p>
+            <p>dinâmico</p>
             <p>vivo</p>
+            <p>plural</p>
           </div>
           <span class="underline"> é possível</span>.
         </h1>
         <p>
-          É hora de apresentarmos um projeto para a cidade construído coletivamente.
-          Temos <strong><%= (Date.new(2016, 10, 2) - Date.today).to_i %> dias</strong> até a eleição e <strong><%= number_with_delimiter(User.count + 10000) %></strong> pessoas mobilizadas.
+          É hora de apresentarmos um projeto para a cidade construído coletivamente e elegermos Marcelo Freixo prefeito do Rio. Temos <strong><%= (Date.new(2016, 9, 30) - Date.today).to_i %> dias</strong> dias até a eleição e <strong><%= number_with_delimiter(User.count + 10000) %></strong> pessoas mobilizadas.
         </p>
         <p class="bold mb3">
-          Junte-se a nós agora e saiba como você pode ajudar a fazer isso acontecer:
+          <%= link_to "Conheça nossas propostas", "#propostas", class: "aqua" %> e junte-se a nós agora para saber como você pode fazer isso acontecer:
         </p>
       </div>
     </div>
@@ -617,14 +618,15 @@
 <div class="bg-black clearfix white py3">
   <div class="max-width-4 mx-auto mxn2">
     <div class="lg-col sm-col-12 lg-col-4 px2 mb3">
-      Rua Beco João Inácio, 12
+      <p class="mt0 mb0 h5">Diretório do PSOL no Rio:</p>
+      <p class="mt0">Rua Beco João Inácio, 12</p>
     </div>
     <div class="lg-col sm-col-12 lg-col-4 px2 mb3">
       <div class="mb1">Sala de Imprensa:</div>
       <%= link_to "Veja as fotos da campanha", "http://bit.ly/mf50-imprensafotos", class: "block yellow mb1" %>
       <%= link_to "Assista aos vídeos da campanha", "http://bit.ly/mf50-canal50", class: "block yellow mb1" %>
       <%= link_to "Leia os releases para imprensa", "http://bit.ly/mf50-imprensa", class: "block yellow mb1" %>
-      <%= link_to "Blog da Campanha", "http://bit.ly/mf50-blog", class: "block yellow mb1" %>
+      <%= link_to "Agenda do Marcelo e da Luciana", "http://bit.ly/agendadecampanha-freixo50", class: "block yellow mb1" %>
     </div>
     <div class="lg-col sm-col-12 lg-col-4 px2">
       <a
@@ -632,7 +634,7 @@
         href="https://www.facebook.com/MarceloFreixoPsol/"
         style="letter-spacing: 2px"
         class="yellow caps block bold mb1">
-        <%= icon('facebook', class: "white") %>
+        <%= icon('facebook', class: "white", style: "width: 18px; text-align: center") %>
         /marcelofreixopsol
       </a>
       <a
@@ -640,17 +642,31 @@
         href="https://twitter.com/marcelofreixo"
         style="letter-spacing: 2px"
         class="yellow caps block bold mb1">
-        <%= icon('twitter', class: "white") %>
+        <%= icon('twitter', class: "white", style: "width: 18px; text-align: center") %>
         /marcelofreixo
       </a>
       <a
         target="_blank"
         href="https://www.instagram.com/marcelofreixo/?hl=en"
         style="letter-spacing: 2px"
-        class="yellow caps block bold">
-        <%= icon('instagram', class: "white") %>
+        class="yellow caps block bold mb1">
+        <%= icon('instagram', class: "white", style: "width: 18px; text-align: center") %>
         /marcelofreixo
       </a>
+      <a
+        target="_blank"
+        href="https://www.youtube.com/c/marcelofreixo"
+        style="letter-spacing: 2px"
+        class="yellow caps block bold mb1">
+        <%= icon('youtube', class: "white", style: "width: 18px; text-align: center") %>
+        /marcelofreixo
+      </a>
+      <span
+        style="letter-spacing: 2px"
+        class="yellow caps block bold">
+        <%= icon('snapchat', class: "white", style: "width: 18px; text-align: center") %>
+        /marcelofreixo
+      </span>
     </div>
   </div>
 </div>
