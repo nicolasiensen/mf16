@@ -16,6 +16,7 @@
   <%= link_to "Financiar", "#apoiar", class: "block p2 black btn-user-menu" %>
   <%= link_to "Compartilhe", "#compartilhe", class: "block p2 black btn-user-menu" %>
   <%= link_to "Freixo e Luciana", "#marcelofreixo", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Apoiadores", "#apoiadores", class: "block p2 black btn-user-menu" %>
 <% end %>
 
 <div class="bg-red bg-cover white py3 bg-above">
@@ -31,6 +32,7 @@
             <p>democrático</p>
             <p>diverso</p>
             <p>justo</p>
+            <p>barato</p>
             <p>verde</p>
             <p>acolhedor</p>
             <p>dinâmico</p>
@@ -211,6 +213,10 @@
   <% end %>
   <%= link_to "#compartilhe", class: "m1 inline-block white", style: "width: 120px" do %>
     <%= image_tag "volunteers/icone_share.png", width: 100 %>
+    <div class="mt1">Compartilhe</div>
+  <% end %>
+  <%= link_to "#apoiadores", class: "m1 inline-block white", style: "width: 120px" do %>
+    <%= image_tag "volunteers/icone_juntos.png", width: 100 %>
     <div class="mt1">Compartilhe</div>
   <% end %>
 </div>
@@ -612,6 +618,30 @@
         <% end %>
       <% end %>
     </div>
+  </div>
+</div>
+
+<div class="max-width-1 mx-auto center py4 px2" id="apoiadores">
+  <%= image_tag "volunteers/icone_juntos.png", class: "mb1", style: "width: 100px" %>
+  <h2 class="caps h1 mt0 black regular">Veja quem acredita que outra cidade é possível:</h2>
+  <div class="slick">
+    <% supporters.each do |supporter| %>
+      <%= card class: "mx1" do %>
+        <%= card_body do %>
+          <div class="center">
+            <%= image_tag supporter[:photo], class: "circle mb1 mx-auto", width: 75, height: 75 %>
+            <div>
+              <div class="mb1">
+                <strong><%= supporter[:name] %></strong>
+                <br />
+                <%= supporter[:description] %>
+              </div>
+              <div class="italic">"<%= supporter[:testimony] %>"</div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
