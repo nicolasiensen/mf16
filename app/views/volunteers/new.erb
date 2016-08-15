@@ -11,11 +11,11 @@
   <%= link_to "Tarefa do Dia", "#tarefa", class: "block p2 black btn-user-menu" %>
   <%= link_to "Eventos", "#eventos", class: "block p2 black btn-user-menu" %>
   <%= link_to "Núcleos de Mobilização", "#nucleos", class: "block p2 black btn-user-menu" %>
-  <%= link_to "Financiar", "#apoiar", class: "block p2 black btn-user-menu" %>
-  <%= link_to "Propostas", "#propostas", class: "block p2 black btn-user-menu" %>
-  <%= link_to "Freixo e Luciana", "#marcelofreixo", class: "block p2 black btn-user-menu" %>
   <%= link_to "Canal 50", "#canal50", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Propostas", "#propostas", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Financiar", "#apoiar", class: "block p2 black btn-user-menu" %>
   <%= link_to "Compartilhe", "#compartilhe", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Freixo e Luciana", "#marcelofreixo", class: "block p2 black btn-user-menu" %>
 <% end %>
 
 <div class="bg-red bg-cover white py3 bg-above">
@@ -217,7 +217,7 @@
 
 <% if Setting.daily_task_description.present? %>
   <div class="bg-tarefa bg-cover">
-    <div id="tarefa" class="max-width-1 mx-auto px2 py3 black center">
+    <div id="tarefa" class="max-width-1 mx-auto px2 py4 black center">
       <%= image_tag "volunteers/icone_tarefa.png", class: "mb1", style: "width: 100px" %>
       <h2 class="caps mt0 h1 regular">O quê você pode fazer hoje?</h2>
       <div class="mb3"><%= raw Setting.daily_task_description %></div>
@@ -234,7 +234,7 @@
 <% end %>
 
 <div class="bg-purple" id="eventos">
-  <div class="max-width-1 mx-auto px2 py3 white center">
+  <div class="max-width-1 mx-auto px2 py4 white center">
     <%= image_tag "volunteers/icone_eventos.png", class: "mb1", style: "width: 100px" %>
     <h2 class="caps mt0 h1 regular">Próximos eventos da campanha:</h2>
     <div class="slick">
@@ -254,7 +254,7 @@
 </div>
 
 <div class="bg-comite bg-cover">
-  <div class="max-width-1 mx-auto px2 py3 center black" id="nucleos">
+  <div class="max-width-1 mx-auto px2 py4 center black" id="nucleos">
     <%= image_tag "volunteers/icone_local.png", class: "mb1", style: "width: 100px" %>
     <h2 class="mt0 h1 caps regular">Participe da campanha perto de você!</h2>
     <span class="h2 bold block red mb1">Selecione um núcleo</span>
@@ -264,7 +264,7 @@
 </div>
 
 <div class="bg-purple white">
-  <div class="max-width-1 mx-auto center py3 px2" id="canal50">
+  <div class="max-width-1 mx-auto center py3 py4" id="canal50">
     <%= image_tag "volunteers/icone_tv.png", class: "mb1", style: "width: 100px" %>
     <h2 class="h1 regular mt0 caps">Acompanhe o canal 50</h2>
     <p>No Brasil, quem se recusa a fazer alianças com partidos aleatórios só para conseguir tempo de TV acaba tendo poucos segundos para apresentar suas ideias.</p>
@@ -274,7 +274,7 @@
 </div>
 
 <div class="bg-propostas bg-cover">
-  <div class="max-width-1 mx-auto center py3 px2" id="propostas">
+  <div class="max-width-1 mx-auto center py4 px2" id="propostas">
     <%= image_tag "volunteers/icone_ideia.png", class: "mb1", style: "width: 100px" %>
     <h2 class="caps h1 black mt0 regular">
       Sim, é possível! Conheça as nossas propostas para uma cidade mais
@@ -558,7 +558,7 @@
 </div>
 
 <div class="bg-purple white" id="apoiar">
-  <div class="max-width-1 mx-auto clearfix px2 py3 center">
+  <div class="max-width-1 mx-auto clearfix px2 py4 center">
     <%= image_tag "volunteers/icone_money.png", class: "mb1", style: "width: 100px" %>
     <h2 class="h1 mt0 caps regular">Muitas pessoas estão financiando o Freixo</h2>
     <%=
@@ -576,7 +576,7 @@
 </div>
 
 <div class="bg-compartilhe bg-cover">
-  <div class="max-width-1 mx-auto center py3 px2" id="compartilhe">
+  <div class="max-width-1 mx-auto center py4 px2" id="compartilhe">
     <%= image_tag "volunteers/icone_share.png", class: "mb1", style: "width: 100px" %>
     <h2 class="caps h1 black mt0 regular">Compartilhe</h2>
     <p>
@@ -599,7 +599,7 @@
   </div>
 </div>
 
-<div class="bg-purple white py3 px2 center" id="marcelofreixo">
+<div class="bg-purple white py4 px2 center" id="marcelofreixo">
   <div class="max-width-1 mx-auto">
     <%= image_tag "volunteers/icone_50.png", class: "mb1", style: "width: 100px" %>
     <h2 class="caps h1 mt0 regular">Você conhece bem o Freixo e a Luciana?</h2>
