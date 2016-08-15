@@ -398,4 +398,81 @@ module ApplicationHelper
       "Queremos que você continue escrevendo essa história com a gente. Juntos nós podemos tornar o Rio um lugar melhor para vivermos!"
     ]
   end
+
+  def supporters
+    [
+      {
+        name: "Dona Penha",
+        description: "Moradora da Vila Autódromo",
+        testimony: "Fico muito feliz de ver essa população sem medo de lutar, de ser feliz e de cobrar os seus direitos.",
+        photo: image_url("volunteers/supporters/DonaPenha.png")
+      },
+      {
+        name: "Wagner Moura",
+        description: "Ator",
+        testimony: "Sempre que penso no Marcelo eu penso nos valores, na justiça social, na luta pelos direitos humanos e pela dignidade das pessoas, contra a homofobia e o racismo. Tô fechado com ele sempre",
+        photo: image_url("volunteers/supporters/WagnerMoura.png")
+      },
+      {
+        name: "Teresa Cristina",
+        description: "Cantora",
+        testimony: "Eu sou mulher, negra e suburbana e quero estar representada nessa prefeitura. Eu tenho dois sonhos, o primeiro é a gente se livrar do PMDB do Rio de Janeiro e o segundo é a gente ter um prefeito íntegro que não tenha rabo preso",
+        photo: image_url("volunteers/supporters/TeresaCristina.png")
+      },
+      {
+        name: "Guilherme Boulos",
+        description: "Movimento dos Trabalhadores Sem Teto",
+        testimony: "Eu tô com Freixo, o MTST tá com Freixo, porque a sua pré candidatura representa o enfrentamento à este modelo de cidade negócio",
+        photo: image_url("volunteers/supporters/GuilhermeBoulos.png")
+      },
+      {
+        name: "Mônica Cunha",
+        description: "Movimento Moleque",
+        testimony: "Eu quero que esses adolescentes que estão sendo assassinados e encarcerados possam viver. Eu acredito em Freixo e nesse movimento que está surgindo. Podemos fazer um Rio diferente",
+        photo: image_url("volunteers/supporters/MonicaCunha.png")
+      },
+      {
+        name: "Leonardo Boff",
+        description: "Teólogo",
+        testimony: "O Rio de Janeiro precisa de uma liderança política nova, que permita a cidade encontrar consigo mesma. A cidade precisa de alguém como Marcelo Freixo.",
+        photo: image_url("volunteers/supporters/LeonardoBoff.png")
+      },
+      {
+        name: "Ivanir dos Santos",
+        description: "Babalawo",
+        testimony: "Eu tenho um lado: da liberdade, do respeito, da democracia e da luta antiracista",
+        photo: image_url("volunteers/supporters/IvanirdosSantos.png")
+      },
+      {
+        name: "José Trajano",
+        description: "Jornalista esportivo",
+        testimony: "Para que a gente transforme essa cidade verdadeiramente na nossa cidade, temos que estar de braços dados com Marcelo Freixo",
+        photo: image_url("volunteers/supporters/JoseTrajano.png")
+      },
+      {
+        name: "Luiza Erundina",
+        description: "Deputada Federal",
+        testimony: "Nós estamos começando um novo tempo nessa cidade mágica, essa cidade do povo, que é o orgulho do Brasil",
+        photo: image_url("volunteers/supporters/LuizaErundina.png")
+      },
+      {
+        name: "Raquel Rolnik",
+        description: "Urbanista",
+        testimony: "Nesse momento de extrema crise política onde tudo parece desmanchar, aqui é o lugar onde vamos construir um movimento pelo direito à cidade para todos",
+        photo: image_url("volunteers/supporters/RaquelRolnik.png")
+      },
+      {
+        name: "Chico Alencar",
+        description: "Deputado federal",
+        testimony: "Isso é um prenúncio de que nós estamos predispostos a não dar sossego aos pré históricos que querem continuar mandando na cidade e no país",
+        photo: image_url("volunteers/supporters/ChicoAlencar.png")
+      },
+      {
+        name: "Frei Betto",
+        description: "Escritor",
+        testimony: "Conheço Marcelo Freixo de longa data e estou convicto de ser um político ético, íntegro e corajoso. Com Freixo tenho certeza que o Rio voltará a ser a cidade maravilhosa",
+        photo: image_url("volunteers/supporters/FreiBetto.png")
+      }
+    ]
+  end
 end
