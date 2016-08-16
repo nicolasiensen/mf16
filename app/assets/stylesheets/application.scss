@@ -189,3 +189,7 @@ label.required:before { content: "*" }
     50% { opacity:0; }
     100% { opacity:1; }
 }
+
+.blocker {
+  z-index: 10000;
+}
