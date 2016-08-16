@@ -19,7 +19,7 @@
   <%= link_to "Apoiadores", "#apoiadores", class: "block p2 black btn-user-menu" %>
 <% end %>
 
-<div class="white py3 bg-marcelo-luciana" style="padding-top: 100px; background-color: #ff8200; background-position: bottom center">
+<div class="white py3 bg-marcelo-luciana" style="margin-top: -55px; padding-top: 100px; background-color: #ff8200; background-position: bottom center">
   <div class="max-width-4 mx-auto clearfix mxn2">
     <div class="center col-12 xs-col-12 sm-col-6 md-col-6 lg-col-4 px2 lg-right mx-auto" style="box-sizing: border-box">
       <h1 class="white regular caps mt0" style="font-size: 2.5rem">
@@ -54,11 +54,17 @@
     <div class="md-col xs-col-12 sm-col-6 md-col-6 lg-col-6 mx-auto px2">
       <div class="sm-center">
         <h2 class="mt0 h1 caps regular">Participe da campanha</h2>
-        <p>
-          É hora de apresentarmos um projeto para a cidade construído coletivamente e elegermos Marcelo Freixo prefeito do Rio. Temos <strong><%= (Date.new(2016, 9, 30) - Date.today).to_i %> dias</strong> dias até a eleição e <strong><%= number_with_delimiter(User.count + 10000) %></strong> pessoas mobilizadas.
+        <p class="h3">
+          Temos <strong><%= (Date.new(2016, 9, 30) - Date.today).to_i %> dias</strong> dias até o fim da campanha.
         </p>
-        <p class="bold mb3">
-          <%= link_to "Conheça nossas propostas", "#propostas", class: "aqua" %> e junte-se a nós agora para saber como você pode fazer isso acontecer:
+        <p>
+          É hora de apresentarmos um projeto para a cidade construído coletivamente e elegermos Marcelo Freixo prefeito do Rio.
+        </p>
+        <p class="h3">
+          <strong><%= number_with_delimiter(User.count + 40000) %></strong> pessoas já estão se mobilizando!
+        </p>
+        <p>
+          Junte-se a nós agora para saber como você pode fazer isso acontecer:
         </p>
       </div>
     </div>
@@ -98,12 +104,18 @@
           <% end %>
         <% elsif params[:profile_completed] %>
           <div id="profile_completed" class="sm-center">
-            <p class="mt0 bold">
-              Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.
+            <p>
+              <b>Valeu! Seu perfil foi atualizado! \o/ </b>
             </p>
-            <p>Você pode editá-lo a qualquer momento preenchendo novamente o cadastro nessa página principal.</p>
-            <p class="bold">Agora, compartilhe o nosso site de mobilização em todas as suas redes.</p>
-            <p>Quanto mais pessoas estiverem mobilizadas, maiores são as nossas chances de ganhar essa campanha!</p>
+            <p>
+              Você pode editá-lo a qualquer momento preenchendo novamente o cadastro nessa página principal.
+            </p>
+            <p>
+              <b>Agora, compartilhe o nosso site de mobilização em todas as suas redes.</b>
+            </p>
+            <p>
+              Quanto mais pessoas estiverem mobilizadas, maiores são as nossas chances de ganhar essa campanha!
+            </p>
             <div class="sm-center">
               <%=
                 link_to_popup(
@@ -258,7 +270,9 @@
             <span class="block bold mb1 h3 red m0"><%= event.title %></span>
             <span class="block h4 aqua bold mt0"><%= l(event.start_at, format: :short) %></span>
             <p class="black"><%= truncate(event.short_description, length: 140) %></p>
-            <%= link_to "Participar", event.facebook_link, target: :blank, class: "button bg-orange block caps bold white p1 rounded" %>
+            <% if event.facebook_link.present? %>
+              <%= link_to "Participar", event.facebook_link, target: :blank, class: "button bg-orange block caps bold white p1 rounded" %>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
@@ -274,6 +288,7 @@
     <span class="h2 bold block red mb1">Selecione um núcleo</span>
     <%= select_tag "group", options_for_select(Group.all.map {|g| [g.name, group_path(g)]}), class: "input", prompt: "Nome do núcleo", onChange: "window.location = event.target.value" %>
     <%= link_to "Veja o mapa dos núcleos", map_groups_path, class: "button bg-orange py1 px2 caps bold white mt1 inline-block rounded" %>
+    <%= link_to "Baixe as artes da campanha pra espalhar", "https://drive.google.com/drive/folders/0B0zcLMaA7FRtOTY5YVoxRjFiY3M", class: "orange bold block mt2" %>
   </div>
 </div>
 
@@ -537,11 +552,11 @@
 <div class="bg-purple white" id="apoiar">
   <div class="max-width-1 mx-auto clearfix px2 py4 center">
     <%= image_tag "volunteers/icone_money.png", class: "mb1", style: "width: 100px" %>
-    <h2 class="h1 mt0 caps regular">Muitas pessoas estão financiando o Freixo</h2>
+    <h2 class="h1 mt0 caps regular">Milhares de pessoas estão financiando o Freixo</h2>
     <%=
       link_to(
         "Apoiar",
-        "http://eufinancio.marcelofreixo.com.br",
+        "http://eufinancio.marcelofreixo.com.br/t/site2",
         class: "button bg-orange white px3 py1 caps bold rounded inline-block mb2"
       )
     %>
@@ -557,7 +572,7 @@
     <%= image_tag "volunteers/icone_share.png", class: "mb1", style: "width: 100px" %>
     <h2 class="caps h1 black mt0 regular">Compartilhe</h2>
     <p>
-      Já somos <%= number_with_delimiter(User.count + 10000) %> pessoas mobilizadas por uma outra cidade possível.
+      Já somos <%= number_with_delimiter(User.count + 40000) %> pessoas mobilizadas por uma outra cidade possível.
     </p>
     <p class="bold">
       Compartilhe esse site nas suas redes para que mais gente se junte à nossa campanha.
