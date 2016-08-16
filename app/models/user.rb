@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true
   validates :cell_phone_number, presence: true, if: :wants_to_receive_tasks_via_whatsapp?
-  validates :cell_phone_number, format: { with: /\(\d{2}\)[\d\W]+/, allow_blank: true }
 
   def facebook_friends
     User.where("facebook_id IN (?)", (super || []).map {|f| f["id"]})
