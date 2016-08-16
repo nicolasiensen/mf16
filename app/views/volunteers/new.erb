@@ -9,7 +9,7 @@
 
 <%= content_for :menu do %>
   <%= link_to "Tarefa do Dia", "#tarefa", class: "block p2 black btn-user-menu" %>
-  <%= link_to "Eventos", "#eventos", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Agenda da campanha", "#eventos", class: "block p2 black btn-user-menu" %>
   <%= link_to "Núcleos de Mobilização", "#nucleos", class: "block p2 black btn-user-menu" %>
   <%= link_to "Canal 50", "#canal50", class: "block p2 black btn-user-menu" %>
   <%= link_to "Propostas", "#propostas", class: "block p2 black btn-user-menu" %>
@@ -159,11 +159,6 @@
             <div class="h6 white"><%= @user.errors.messages[:district].join(', ') %></div>
           </div>
 
-          <div class="mb1 white">
-            <%= f.check_box :wants_to_receive_tasks_via_whatsapp %>
-            <%= f.label :wants_to_receive_tasks_via_whatsapp, style: "cursor: pointer", class: "h5" %>
-          </div>
-
           <div>
             <%=
               f.submit(
@@ -183,41 +178,41 @@
 
 <div class="bg-aqua py3 px2 center h5">
   <h2 class="h1 white regular mt0 caps">Participe da campanha!</h2>
-  <%= link_to "#tarefa", class: "m1 inline-block white", style: "width: 120px" do %>
+  <%= link_to "#tarefa", class: "m1 inline-block white", style: "width: 120px; vertical-align: top" do %>
     <%= image_tag "volunteers/icone_tarefa.png", width: 100 %>
-    <div class="mt1">Tarefa do Dia</div>
+    <div class="mt1 bold">Tarefa do Dia</div>
   <% end %>
-  <%= link_to "#eventos", class: "m1 inline-block white", style: "width: 120px" do %>
+  <%= link_to "#eventos", class: "m1 inline-block white", style: "width: 120px; vertical-align: top" do %>
     <%= image_tag "volunteers/icone_eventos.png", width: 100 %>
-    <div class="mt1">Eventos</div>
+    <div class="mt1 bold">Agenda da campanha</div>
   <% end %>
-  <%= link_to "#nucleos", class: "m1 inline-block white", style: "width: 120px" do %>
+  <%= link_to "#nucleos", class: "m1 inline-block white", style: "width: 120px; vertical-align: top" do %>
     <%= image_tag "volunteers/icone_local.png", width: 100 %>
-    <div class="mt1">Núcleos</div>
+    <div class="mt1 bold">Núcleos</div>
   <% end %>
-  <%= link_to "#apoiar", class: "m1 inline-block white", style: "width: 120px" do %>
+  <%= link_to "#apoiar", class: "m1 inline-block white", style: "width: 120px; vertical-align: top" do %>
     <%= image_tag "volunteers/icone_money.png", width: 100 %>
-    <div class="mt1">Financiar</div>
+    <div class="mt1 bold">Financiar</div>
   <% end %>
-  <%= link_to "#propostas", class: "m1 inline-block white", style: "width: 120px" do %>
+  <%= link_to "#propostas", class: "m1 inline-block white", style: "width: 120px; vertical-align: top" do %>
     <%= image_tag "volunteers/icone_ideia.png", width: 100 %>
-    <div class="mt1">Propostas</div>
+    <div class="mt1 bold">Propostas</div>
   <% end %>
-  <%= link_to "#marcelofreixo", class: "m1 inline-block white", style: "width: 120px" do %>
+  <%= link_to "#marcelofreixo", class: "m1 inline-block white", style: "width: 120px; vertical-align: top" do %>
     <%= image_tag "volunteers/icone_50.png", width: 100 %>
-    <div class="mt1">Freixo e Luciana</div>
+    <div class="mt1 bold">Freixo e Luciana</div>
   <% end %>
-  <%= link_to "#canal50", class: "m1 inline-block white", style: "width: 120px" do %>
+  <%= link_to "#canal50", class: "m1 inline-block white", style: "width: 120px; vertical-align: top" do %>
     <%= image_tag "volunteers/icone_tv.png", width: 100 %>
-    <div class="mt1">Canal 50</div>
+    <div class="mt1 bold">Canal 50</div>
   <% end %>
-  <%= link_to "#compartilhe", class: "m1 inline-block white", style: "width: 120px" do %>
+  <%= link_to "#compartilhe", class: "m1 inline-block white", style: "width: 120px; vertical-align: top" do %>
     <%= image_tag "volunteers/icone_share.png", width: 100 %>
-    <div class="mt1">Compartilhe</div>
+    <div class="mt1 bold">Compartilhe</div>
   <% end %>
-  <%= link_to "#apoiadores", class: "m1 inline-block white", style: "width: 120px" do %>
+  <%= link_to "#apoiadores", class: "m1 inline-block white", style: "width: 120px; vertical-align: top" do %>
     <%= image_tag "volunteers/icone_juntos.png", width: 100 %>
-    <div class="mt1">Compartilhe</div>
+    <div class="mt1 bold">Apoiadores</div>
   <% end %>
 </div>
 
@@ -242,7 +237,7 @@
 <div class="bg-purple" id="eventos">
   <div class="max-width-1 mx-auto px2 py4 white center">
     <%= image_tag "volunteers/icone_eventos.png", class: "mb1", style: "width: 100px" %>
-    <h2 class="caps mt0 h1 regular">Próximos eventos da campanha:</h2>
+    <h2 class="caps mt0 h1 regular">Agenda da campanha:</h2>
     <div class="slick">
       <% Event.where("start_at >= ?", Time.now).order("start_at").each do |event| %>
         <%= card(class: "mx1") do %>
@@ -275,7 +270,7 @@
     <h2 class="h1 regular mt0 caps">Acompanhe o canal 50</h2>
     <p>No Brasil, quem se recusa a fazer alianças com partidos aleatórios só para conseguir tempo de TV acaba tendo poucos segundos para apresentar suas ideias.</p>
     <p class="bold mb3">Assista os nossos vídeos e ajude a compartilhar eles nas suas redes.</p>
-    <%= link_to "Assistir o Canal 50", "https://www.youtube.com/user/marcelofreixo", target: :blank, class: "button bg-orange white py1 px2 rounded h3 caps bold inline-block" %>
+    <%= link_to "Assistir o Canal 50", "https://www.facebook.com/MarceloFreixoPsol/videos", target: :blank, class: "button bg-orange white py1 px2 rounded h3 caps bold inline-block" %>
   </div>
 </div>
 
@@ -659,8 +654,21 @@
 <div class="bg-black clearfix white py3">
   <div class="max-width-4 mx-auto mxn2">
     <div class="lg-col sm-col-12 lg-col-4 px2 mb3">
-      <p class="mt0 mb0 h5">Diretório do PSOL no Rio:</p>
-      <p class="mt0">Rua Beco João Inácio, 12</p>
+      <p class="mt0 h5">
+        Diretório do PSOL no Rio:
+        <br />
+        Rua Beco João Inácio, 12
+      </p>
+      <p class="h5">
+        Site desenvolvido com <3
+        <br />
+        para a campanha do Freixo e da Luciana.
+      </p>
+      <p class="h5 mb0">
+        CNPJ da Campanha:
+        <br />
+        25.283.699/0001-75
+      </p>
     </div>
     <div class="lg-col sm-col-12 lg-col-4 px2 mb3">
       <div class="mb1">Sala de Imprensa:</div>

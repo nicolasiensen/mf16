@@ -11,12 +11,6 @@
         <span class="bold block"><%= @group.name %></span>
       </span>
 
-      <% if @group.territorial? %>
-        <p>Um núcleo territorial do bairro <%= @group.district %></p>
-      <% elsif @group.thematic? %>
-        <p>Um núcleo temático sobre <%= @group.theme.downcase %></p>
-      <% end %>
-
       <% if @group.address.present? %>
         <div class="mb1">
           <div class="inline-block center" style="width: 17px">
