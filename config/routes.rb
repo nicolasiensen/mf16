@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'volunteers#new'
   resources :volunteers, only: [:new, :create, :update], path: "voluntarios", path_names: {new: "novo"}
   resource :debate_petition_signatures, only: [:new, :create]
-  resources :events, only: [:index, :new, :create], path: "eventos", path_names: {new: "novo"}
+  resources :events, only: [:index, :new, :create, :edit, :update], path: "eventos", path_names: {new: "novo", edit: "editar"}
 
   resources :groups, only: [:show, :new, :create, :edit, :update], path: "nucleos", path_names: {new: "novo", edit: "editar"} do
     collection do

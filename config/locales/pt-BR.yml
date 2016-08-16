@@ -3,6 +3,7 @@ pt-BR:
   activerecord:
     models:
       group: "Núcleo"
+      event: "Evento"
     attributes:
       user:
         email: 'Seu e-mail'

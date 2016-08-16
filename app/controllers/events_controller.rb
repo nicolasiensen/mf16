@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   def index
     skip_authorization
-    @events = Event.all
+    @events = Event.order(start_at: "desc")
   end
 
   def new
@@ -19,6 +19,22 @@ class EventsController < ApplicationController
       redirect_to events_path
     else
       render :new
+    end
+  end
+
+  def edit
+    authorize Event
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    authorize Event
+    @event = Event.find(params[:id])
+
+    if @event.update_attributes(event_params)
+      redirect_to events_path, notice: "Evento atualizado!"
+    else
+      render :edit
     end
   end
 

@@ -1,0 +1,64 @@
+<%= form_for @event do |form| %>
+  <%= card do %>
+    <%= card_body do %>
+      <div class="mb3">
+        <%= label_tag :organizer_email, "Email do organizador", class: "label" %>
+        <%= email_field_tag :organizer_email, nil, class: "input" %>
+      </div>
+
+      <div class="mb3">
+        <%= form.label :title, class: "label" %>
+        <%= form.text_field :title, class: "input", style: "margin-bottom: .25rem" %>
+        <div class="h6 red title_errors">
+          <%= @event.errors.messages[:title].join(', ') %>
+        </div>
+      </div>
+
+      <div class="mb3">
+        <%= form.label :category, class: "label" %>
+        <%= form.select :category, event_category_list, {}, class: "input rounded" %>
+      </div>
+
+      <div class="mb3">
+        <%= form.label :short_description, class: "label" %>
+        <%= form.text_area :short_description, class: "input", style: "box-sizing: border-box" %>
+      </div>
+
+      <div class="mb3">
+        <%= form.label :long_description, class: "label" %>
+        <%= form.text_area :long_description, class: "input", style: "box-sizing: border-box" %>
+      </div>
+
+      <div class="mb3">
+        <%= form.label :address, class: "label" %>
+        <%= form.text_field :address, class: "input" %>
+      </div>
+
+      <div class="mb3">
+        <%= form.label :start_at, class: "label" %>
+        <%= form.datetime_select :start_at, {}, class: "input", style: "display: inline-block; width: auto" %>
+      </div>
+
+      <div class="mb3">
+        <%= form.label :facebook_link, class: "label" %>
+        <%= form.url_field :facebook_link, class: "input" %>
+      </div>
+
+      <div class="mb3">
+        <%= form.label :google_calendar_link, class: "label" %>
+        <%= form.url_field :google_calendar_link, class: "input" %>
+      </div>
+
+      <div>
+        <%= form.label :has_streaming, class: "label" do %>
+          <%= form.check_box :has_streaming %>
+          <%= t('activerecord.attributes.event.has_streaming') %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= card_actions do %>
+      <%= form.submit nil, class: "button px2 py1 bg-orange white bold border-none caps h4" %>
+      <%= link_to "Cancelar", :back, class: "button px2 py1 bg-gray white bold border-none caps h4" %>
+    <% end %>
+  <% end %>
+<% end %>

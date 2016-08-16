@@ -14,6 +14,9 @@
           <%= l(event.start_at, format: :short) %>
         </div>
       <% end %>
+      <%= card_actions do %>
+        <%= link_to "Editar", edit_event_path(event), class: "button bg-white orange caps bold p1 h6 inline-block" %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
