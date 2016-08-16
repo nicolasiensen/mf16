@@ -110,6 +110,12 @@ label.required:before { content: "*" }
 }
 
 @media #{$breakpoint-lg} {
+  .bg-marcelo-luciana {
+    background-image: asset-url('volunteers/bg-header-marcelo-luciana.png')
+  }
+}
+
+@media #{$breakpoint-lg} {
   .bg-comite {
     background-image: asset-url('volunteers/bg-comite.jpg')
   }
@@ -150,6 +156,12 @@ label.required:before { content: "*" }
 
   @media #{$breakpoint-lg} {
     text-align: inherit;
+  }
+}
+
+.lg-right {
+  @media #{$breakpoint-lg} {
+    float: right;
   }
 }
 

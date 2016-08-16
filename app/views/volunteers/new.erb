@@ -19,28 +19,39 @@
   <%= link_to "Apoiadores", "#apoiadores", class: "block p2 black btn-user-menu" %>
 <% end %>
 
-<div class="bg-red bg-cover white py3 bg-above">
+<div class="white py3 bg-marcelo-luciana" style="padding-top: 80px; background-color: #ff8200; background-position: bottom center">
+  <div class="max-width-4 mx-auto clearfix mxn2">
+    <div class="center col-12 xs-col-12 sm-col-6 md-col-6 lg-col-4 px2 lg-right mx-auto" style="box-sizing: border-box">
+      <h1 class="white regular caps mt0" style="font-size: 2.5rem">
+        Um Rio de Janeiro
+        <br />
+        mais <span class="typed-title"></span>
+        <div id="typed-title-strings" class="hide">
+          <p>humano</p>
+          <p>democrático</p>
+          <p>diverso</p>
+          <p>justo</p>
+          <p>barato</p>
+          <p>verde</p>
+          <p>acolhedor</p>
+          <p>dinâmico</p>
+          <p>vivo</p>
+          <p>plural</p>
+        </div>
+        <br />
+        <span class="underline"> é possível</span>.
+      </h1>
+      <%= link_to "Participe da campanha", "#participe", class: "bg-purple white p1 caps bold rounded block mb2" %>
+      <%= link_to "Conheça as propostas", "#propostas", class: "bg-purple white p1 caps bold rounded block" %>
+    </div>
+  </div>
+</div>
+
+<div class="bg-purple white py3" id="participe">
   <div class="max-width-4 mx-auto clearfix">
     <div class="md-col xs-col-12 sm-col-6 md-col-6 lg-col-6 mx-auto px2">
       <div class="sm-center">
-        <h1 class="white regular caps mt0">
-          Um Rio de Janeiro mais
-          <br />
-          <span class="typed-title"></span>
-          <div id="typed-title-strings" class="hide">
-            <p>humano</p>
-            <p>democrático</p>
-            <p>diverso</p>
-            <p>justo</p>
-            <p>barato</p>
-            <p>verde</p>
-            <p>acolhedor</p>
-            <p>dinâmico</p>
-            <p>vivo</p>
-            <p>plural</p>
-          </div>
-          <span class="underline"> é possível</span>.
-        </h1>
+        <h2 class="mt0 h1 caps regular">Participe da campanha</h2>
         <p>
           É hora de apresentarmos um projeto para a cidade construído coletivamente e elegermos Marcelo Freixo prefeito do Rio. Temos <strong><%= (Date.new(2016, 9, 30) - Date.today).to_i %> dias</strong> dias até a eleição e <strong><%= number_with_delimiter(User.count + 10000) %></strong> pessoas mobilizadas.
         </p>
@@ -50,131 +61,131 @@
       </div>
     </div>
     <div class="md-col xs-col-12 sm-col-6 md-col-6 lg-col-6 mx-auto px2">
-      <% if params[:profile_created] %>
-        <%= form_for @user, url: volunteer_path(@user.id), method: :put do |f| %>
-          <div class="sm-center mb3">
-            <p class="mt0 bold">
-              Obrigado por se juntar a essa campanha!
-            </p>
-            <p>
-              Só queremos te mandar os chamados que sejam mais interessantes pra você. <strong>Complete o seu perfil para dizer como você quer ajudar com a campanha:</strong>
-            </p>
-          </div>
-          <div class="mb3">
-            <% favorite_tasks.each do |task| %>
-              <div class="mb1">
-                <%= f.check_box "favorite_tasks", {multiple: true, include_hidden: false, id: "user_favorite_tasks_#{task.parameterize.underscore}", style: "margin: 0; vertical-align: middle"}, task %>
-                <%= f.label "favorite_tasks_#{task.parameterize.underscore}", task, class: "label inline" %>
-              </div>
-            <% end %>
-          </div>
-
-          <%= f.label :school, class: "label" %>
-
-          <%=
-            f.select(
-              :school,
-              school_list,
-              { prompt: t('activerecord.attributes.user.school') },
-              class: "input mb3"
-            )
-          %>
-
-          <%= f.submit "Enviar!", class: "button bg-aqua block white caps bold border-none h3 p2 rounded mt3", style: "width: 100%" %>
-        <% end %>
-      <% elsif params[:profile_completed] %>
-        <div id="profile_completed" class="sm-center">
-          <p class="mt0 bold">
-            Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.
-          </p>
-          <p>Você pode editá-lo a qualquer momento preenchendo novamente o cadastro nessa página principal.</p>
-          <p class="bold">Agora, compartilhe o nosso site de mobilização em todas as suas redes.</p>
-          <p>Quanto mais pessoas estiverem mobilizadas, maiores são as nossas chances de ganhar essa campanha!</p>
-          <div class="sm-center">
-            <%=
-              link_to_popup(
-                "http://www.facebook.com/sharer/sharer.php?u=#{root_url}",
-                class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4 m1"
-              ) do
-            %>
-              <%= icon('facebook') %> Compartilhar
-            <% end %>
-            <%=
-              link_to_popup(
-                "https://twitter.com/intent/tweet?text=#{URI.escape('Começou! Participe da campanha do Freixo à Prefeitura! #Freixo50 #ÉPossível')}&url=#{root_url}",
-                class: "button bg-twitter-blue white py1 px3 caps inline-block rounded bold h4 m1"
-              ) do
-            %>
-              <%= icon('twitter') %> Tweetar
-            <% end %>
-          </div>
-        </div>
-      <% else %>
-        <%= form_for @user, url: volunteers_path do |f| %>
-          <div class="mxn2">
-            <div class="col col-12 md-col-6 px2 mb1">
-              <%= f.label :first_name, class: "aqua label required" %>
-              <%= f.text_field(:first_name, class: "input", style: "margin-bottom: .25rem") %>
-              <div class="h6 white first_name_errors">
-                <%= @user.errors.messages[:first_name].join(', ') %>
-              </div>
+      <div class="p2 bg-darken-4">
+        <% if params[:profile_created] %>
+          <%= form_for @user, url: volunteer_path(@user.id), method: :put do |f| %>
+            <div class="sm-center mb3">
+              <p class="mt0 bold">
+                Obrigado por se juntar a essa campanha!
+              </p>
+              <p>
+                Só queremos te mandar os chamados que sejam mais interessantes pra você. <strong>Complete o seu perfil para dizer como você quer ajudar com a campanha:</strong>
+              </p>
+            </div>
+            <div class="mb3">
+              <% favorite_tasks.each do |task| %>
+                <div class="mb1">
+                  <%= f.check_box "favorite_tasks", {multiple: true, include_hidden: false, id: "user_favorite_tasks_#{task.parameterize.underscore}", style: "margin: 0; vertical-align: middle"}, task %>
+                  <%= f.label "favorite_tasks_#{task.parameterize.underscore}", task, class: "label inline" %>
+                </div>
+              <% end %>
             </div>
 
-            <div class="col col-12 md-col-6 px2 mb1">
-              <%= f.label :last_name, class: "aqua label required" %>
-              <%= f.text_field(:last_name, class: "input", style: "margin-bottom: .25rem") %>
-              <div class="h6 white last_name_errors">
-                <%= @user.errors.messages[:last_name].join(', ') %>
-              </div>
-            </div>
-          </div>
+            <%= f.label :school, class: "label" %>
 
-          <div class="mb1">
-            <%= f.label :email, class: "aqua label required" %>
-            <%= f.email_field(:email, class: "input", style: "margin-bottom: .25rem") %>
-            <div class="h6 white email_errors">
-              <%= @user.errors.messages[:email].join(', ') %>
-            </div>
-          </div>
-
-          <div class="mb1">
-            <%= f.label :cell_phone_number, class: "aqua label" %>
-            <%= f.telephone_field(:cell_phone_number, class: "input", style: "margin-bottom: .25rem") %>
-            <div class="h6 white cell_phone_number_errors">
-              <%= @user.errors.messages[:cell_phone_number].join(', ') %>
-            </div>
-          </div>
-
-          <div class="mb1">
-            <%= f.label :district, class: "aqua label" %>
             <%=
               f.select(
-                :district,
-                district_list,
-                {include_blank: true},
-                class: "input rounded",
-                style: "margin-bottom: .25rem"
+                :school,
+                school_list,
+                { prompt: t('activerecord.attributes.user.school') },
+                class: "input mb3"
               )
             %>
-            <div class="h6 white"><%= @user.errors.messages[:district].join(', ') %></div>
-          </div>
 
-          <div>
-            <%=
-              f.submit(
-                "Tô dentro!",
-                class: "button bg-aqua block caps p2 h2 white border-none rounded bold mt3",
-                style: "width: 100%"
-              )
-            %>
+            <%= f.submit "Enviar!", class: "button bg-aqua block white caps bold border-none h3 p2 rounded mt3", style: "width: 100%" %>
+          <% end %>
+        <% elsif params[:profile_completed] %>
+          <div id="profile_completed" class="sm-center">
+            <p class="mt0 bold">
+              Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.
+            </p>
+            <p>Você pode editá-lo a qualquer momento preenchendo novamente o cadastro nessa página principal.</p>
+            <p class="bold">Agora, compartilhe o nosso site de mobilização em todas as suas redes.</p>
+            <p>Quanto mais pessoas estiverem mobilizadas, maiores são as nossas chances de ganhar essa campanha!</p>
+            <div class="sm-center">
+              <%=
+                link_to_popup(
+                  "http://www.facebook.com/sharer/sharer.php?u=#{root_url}",
+                  class: "button bg-facebook-blue white py1 px3 caps inline-block rounded bold h4 m1"
+                ) do
+              %>
+                <%= icon('facebook') %> Compartilhar
+              <% end %>
+              <%=
+                link_to_popup(
+                  "https://twitter.com/intent/tweet?text=#{URI.escape('Começou! Participe da campanha do Freixo à Prefeitura! #Freixo50 #ÉPossível')}&url=#{root_url}",
+                  class: "button bg-twitter-blue white py1 px3 caps inline-block rounded bold h4 m1"
+                ) do
+              %>
+                <%= icon('twitter') %> Tweetar
+              <% end %>
+            </div>
           </div>
+        <% else %>
+          <%= form_for @user, url: volunteers_path do |f| %>
+            <div class="mxn2">
+              <div class="col col-12 md-col-6 px2 mb1">
+                <%= f.label :first_name, class: "aqua label required" %>
+                <%= f.text_field(:first_name, class: "input", style: "margin-bottom: .25rem") %>
+                <div class="h6 white first_name_errors">
+                  <%= @user.errors.messages[:first_name].join(', ') %>
+                </div>
+              </div>
+
+              <div class="col col-12 md-col-6 px2 mb1">
+                <%= f.label :last_name, class: "aqua label required" %>
+                <%= f.text_field(:last_name, class: "input", style: "margin-bottom: .25rem") %>
+                <div class="h6 white last_name_errors">
+                  <%= @user.errors.messages[:last_name].join(', ') %>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb1">
+              <%= f.label :email, class: "aqua label required" %>
+              <%= f.email_field(:email, class: "input", style: "margin-bottom: .25rem") %>
+              <div class="h6 white email_errors">
+                <%= @user.errors.messages[:email].join(', ') %>
+              </div>
+            </div>
+
+            <div class="mb1">
+              <%= f.label :cell_phone_number, class: "aqua label" %>
+              <%= f.telephone_field(:cell_phone_number, class: "input", style: "margin-bottom: .25rem") %>
+              <div class="h6 white cell_phone_number_errors">
+                <%= @user.errors.messages[:cell_phone_number].join(', ') %>
+              </div>
+            </div>
+
+            <div class="mb1">
+              <%= f.label :district, class: "aqua label" %>
+              <%=
+                f.select(
+                  :district,
+                  district_list,
+                  {include_blank: true},
+                  class: "input rounded",
+                  style: "margin-bottom: .25rem"
+                )
+              %>
+              <div class="h6 white"><%= @user.errors.messages[:district].join(', ') %></div>
+            </div>
+
+            <div>
+              <%=
+                f.submit(
+                  "Tô dentro!",
+                  class: "button bg-aqua block caps p2 h2 white border-none rounded bold mt3",
+                  style: "width: 100%"
+                )
+              %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="bg-freixoeluciana bg-cover" style="height: 230px"></div>
 
 <div class="bg-aqua py3 px2 center h5">
   <h2 class="h1 white regular mt0 caps">Participe da campanha!</h2>

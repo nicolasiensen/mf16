@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="bg-silver">
-  <div class="clearfix white bg-red fixed" style="width: 100%; z-index: 9999">
+  <div class="clearfix white bg-darken-4 fixed" style="width: 100%; z-index: 9999">
     <div class="max-width-4 mx-auto">
       <div class="m1 flex" style="align-items: center">
         <div style="flex: 1;">
@@ -39,7 +39,7 @@
       </div>
     </div>
   </div>
-  <div style="padding-top: 55px; height: 100%; box-sizing: border-box;">
+  <div style="height: 100%; box-sizing: border-box;">
     <div class="max-width-4 mx-auto">
       <%= flash_message(type: :notice, message: flash[:notice]) if flash[:notice] %>
       <%= flash_message(type: :alert, message: flash[:alert]) if flash[:alert] %>
