@@ -1,7 +1,6 @@
 class Group < ActiveRecord::Base
   validates :kind, :name, presence: true
-  validates :district, presence: true, if: :territorial?
-  validates :theme, presence: true, if: :thematic?
+  validates :theme, presence: true
 
   has_many :group_subscriptions
 

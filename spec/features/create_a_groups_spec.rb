@@ -14,8 +14,7 @@ RSpec.feature "CreateAGroup", type: :feature do
         within("#new_group") do
           choose "Territorial"
           fill_in "group[name]", with: "Amigos de Botafogo"
-          select "Botafogo", from: "group[district]"
-          select "Saúde", from: "group[theme]"
+          select "Alemão", from: "group[theme]"
           fill_in "group[address]", with: "Rua Mena Barreto, 161 - Botafogo"
           fill_in "group[email]", with: "botafogo@mf16.com"
           fill_in "group[phone]", with: "(21) 99999 9999"

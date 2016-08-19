@@ -13,6 +13,7 @@ FactoryGirl.define do
     phone "MyString"
     facebook_page "MyString"
     facebook_group "MyString"
+    theme "MyString"
   end
   factory :user do
     first_name "Nícolas"

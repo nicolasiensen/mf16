@@ -33,23 +33,8 @@
       </div>
 
       <div class="mb2">
-        <%= form.label :district, class: "label" %>
-        <%=
-          form.select(
-            :district,
-            (district_list - ["Não moro no Rio", "Outro"]),
-            {prompt: "Selecione um bairro"},
-            class: "input mb0"
-          )
-        %>
-        <div class="h6 red district_errors">
-          <%= @group.errors.messages[:district].join(', ') %>
-        </div>
-      </div>
-
-      <div class="mb2">
         <%= form.label :theme, class: "label" %>
-        <%= form.select :theme, theme_list, {prompt: "Selecione um tema"}, class: "input mb0" %>
+        <%= form.select :theme, group_theme_list, {prompt: "Selecione um tema"}, class: "input mb0" %>
         <div class="h6 red theme_errors">
           <%= @group.errors.messages[:theme].join(', ') %>
         </div>

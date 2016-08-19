@@ -62,7 +62,7 @@ RSpec.feature "SignUpAsVolunteer", type: :feature do
       end
 
       it "should show the thanks message" do
-        expect(page).to have_content("Você pode editá-lo a qualquer momento no menu do topo esquerdo da página.")
+        expect(page).to have_css("#profile_completed")
       end
     end
   end

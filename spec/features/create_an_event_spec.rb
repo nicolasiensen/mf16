@@ -29,7 +29,7 @@ RSpec.feature "CreateAnEvent", type: :feature do
         check "event[has_streaming]"
         fill_in "organizer_email", with: @event_organizer.email
 
-        click_on "Criar evento"
+        click_on "Criar Evento"
       end
 
       it "should create a new event" do
@@ -49,7 +49,7 @@ RSpec.feature "CreateAnEvent", type: :feature do
       before do
         visit events_path
         click_on "Novo evento"
-        click_on "Criar evento"
+        click_on "Criar Evento"
       end
 
       it "should not create a new event" do
