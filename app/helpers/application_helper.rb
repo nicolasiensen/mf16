@@ -388,7 +388,7 @@ module ApplicationHelper
       "Ali viveu uma experiência que mudou sua vida: começou a dar aulas no sistema penitenciário como voluntário.",
       "Conhecer de perto as violências e injustiças foi essencial na sua formação como professor e defensor de Direitos Humanos.",
       "Elegeu-se deputado pelo PSOL pela primeira vez em 2006, com 13 mil votos.",
-      "Em 2008,  presidiu a CPI das Milícias, que indiciou de 200 pessoas. Os principais líderes foram presos.",
+      "Em 2008, presidiu a CPI das Milícias, que pediu o indiciamento de 226 pessoas. Os principais líderes foram presos.",
       "A história inspirou o filme Tropa de Elite II.",
       "Freixo sofreu diversas ameaças de morte devido à CPI.",
       "Em 2010, se reelegeu com 177 mil votos.",
