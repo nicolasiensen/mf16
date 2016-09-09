@@ -11,13 +11,13 @@
   <%= link_to "Tarefa do Dia", "#tarefa", class: "block p2 black btn-user-menu" %>
   <%= link_to "Agenda da campanha", "#eventos", class: "block p2 black btn-user-menu" %>
   <%= link_to "Núcleos de Mobilização", "#nucleos", class: "block p2 black btn-user-menu" %>
-  <%= link_to "Canal 50", "#canal50", class: "block p2 black btn-user-menu" %>
+    <%= link_to "Canal 50", "#canal50", class: "block p2 black btn-user-menu" %>
   <%= link_to "Propostas", "#propostas", class: "block p2 black btn-user-menu" %>
   <%= link_to "Financiar", "#apoiar", class: "block p2 black btn-user-menu" %>
   <%= link_to "Compartilhe", "#compartilhe", class: "block p2 black btn-user-menu" %>
   <%= link_to "Freixo e Luciana", "#marcelofreixo", class: "block p2 black btn-user-menu" %>
   <%= link_to "Apoiadores", "#apoiadores", class: "block p2 black btn-user-menu" %>
-  <%= link_to "Materiais", "#baixemateriais", class: "block p2 black btn-user-menu" %>
+  <%= link_to "Baixe nossos materiais", "#baixemateriais", class: "block p2 black btn-user-menu" %>
 <% end %>
 
 <div class="white py3 bg-marcelo-luciana" style="margin-top: -55px; padding-top: 100px; background-color: #ff8200; background-position: bottom center">
@@ -311,7 +311,7 @@
     <h2 class="h1 regular mt0 caps">Acompanhe o canal 50</h2>
     <p>No Brasil, quem se recusa a fazer alianças com partidos aleatórios só para conseguir tempo de TV acaba tendo poucos segundos para apresentar suas ideias.</p>
     <p class="bold mb3">Assista os nossos vídeos e ajude a compartilhar eles nas suas redes.</p>
-    <%= link_to "Assistir o Canal 50", "https://www.facebook.com/MarceloFreixoPsol/videos", target: :blank, class: "button bg-orange white py1 px2 rounded h3 caps bold inline-block" %>
+    <%= link_to "Assistir o Canal 50", "http://canal50.com.br", target: :blank, class: "button bg-orange white py1 px2 rounded h3 caps bold inline-block" %>
   </div>
 </div>
 
@@ -336,8 +336,150 @@
     </p>
   </div>
   <div class="max-width-4 mx-auto center clearfix mxn2">
-    <div class="col col-12 lg-col-4 sm-col-12 lg-p1 hide">
-      <%= link_to "#cultura", rel: "modal:open", class: "bg-red-light p2 white caps block"  do %>
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "#transporte", rel: "modal:open", class: "bg-red-light p2 white caps block"  do %>
+          <h2 class="regular">Transporte</h2>
+      <% end %>
+
+      <div id="transporte" style="display: none">
+        <div class="max-width-2 left-align">
+          <h2 class="center black caps regular mt0">Nossas propostas para o transporte</h2>
+          <p>- Realizar auditoria imediata nos contratos da concessão dos ônibus de 2010;</p>
+          <p>- Criar uma Empresa Pública de Transportes para realizar o planejamento, gestão e fiscalização do sistema de transportes;</p>
+          <p>- Implementar o Fundo Municipal de Transportes, garantindo investimentos contínuos na melhoria do transporte público municipal e no barateamento da tarifa;</p>
+          <p>- Coordenar um planejamento participativo as linhas de ônibus de acordo com as reais necessidades da população;</p>
+          <p>- Criar o VLT suburbano, para melhorar os deslocamentos na Zona Norte e integrar os diversos modos de transporte e equipamentos municipais;;</p>
+          <p>- Promover a integração das tarifas de todos os sistemas.</p>
+          <p>- Desenvolver o Plano Cicloviário Carioca, para que a população oriente a expansão das ciclovias na cidade, em especial na Zona Norte e Oeste.</p>
+          <div class="center">
+            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "#saude", rel: "modal:open", class: "bg-red p2 white caps block"  do %>
+          <h2 class="regular">Saúde</h2>
+      <% end %>
+
+      <div id="saude" style="display: none">
+        <div class="max-width-2 left-align">
+          <h2 class="center black caps regular mt0">Nossas propostas para a saúde</h2>
+          <p>- Realizar concursos para, gradativamente, retomar a gestão pública das unidades de saúde, sem que o atendimento à população seja prejudicado;</p>
+          <p>- Instituir plano de cargos e salários para valorizar a carreira dos profissionais;</p>
+          <p>- Universalizar o atendimento da rede de atenção primária na cidade;</p>
+          <p>- Diminuir os gargalos no atendimento na rede de média e alta capacidade;</p>
+          <p>- Criar empresa pública para garantir saneamento básico.</p>
+          <div class="center">
+            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "#educacao", rel: "modal:open", class: "bg-red-dark p2 white caps block"  do %>
+          <h2 class="regular">Educação</h2>
+      <% end %>
+      <div id="educacao" style="display:none">
+        <div class="max-width-2 left-align">
+          <h2 class="center black caps regular mt0">Nossas propostas para a educação</h2>
+          <p>- Abrir as escolas para a realização de cursos e atividades culturais e de preservação da memória dos bairros;</p>
+          <p>- Realizar eleições diretas para a direção das escolas;</p>
+          <p>- Melhorar os salários, as condições de trabalho e garantir a autonomia pedagógica aos professores;</p>
+          <p>- Limitar a 30 a quantidade de alunos por sala, instalar ar condicionado em todas as unidades e ampliar bibliotecas e salas de informática;</p>
+          <p>- Garantir às escolas municipais o acesso aos equipamentos e instalações esportivas dos clubes de bairro;</p>
+          <p>- Universalizar o acesso às creches municipais.</p>
+          <div class="center">
+            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "#participacaoDemocratica", rel: "modal:open", class: "bg-red-light p2 white caps block"  do %>
+          <h2 class="regular">Participação democrática</h2>
+      <% end %>
+
+      <div id="participacaoDemocratica" style="display: none">
+        <div class="max-width-2 left-align">
+          <h2 class="center black caps regular mt0">Nossas propostas para a participação democrática</h2>
+          <p>- Criar o orçamento participativo para que todos possam opinar sobre como a prefeitura usará seu dinheiro;</p>
+          <p>- Implantar o gabinete virtual para garantir total acesso da população a informações de interesse público disponíveis na prefeitura;</p>
+          <p>- Estabelecer o permanente diálogo com a população através do uso de tecnologias digitais e da internet;</p>
+          <p>- Realizar a cada dois anos o Fórum Carioca para discutir com a população os principais desafios e soluções para a cidade;</p>
+          <p>- Criar conselhos de moradores em todas as regiões administrativas da cidade para debater e decidir sobre futuras intervenções e obras do poder público nos seus bairros.</p>
+          <div class="center">
+            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "#trabalhoEmprego", rel: "modal:open", class: "bg-red p2 white caps block"  do %>
+          <h2 class="regular">Trabalho e emprego</h2>
+      <% end %>
+
+      <div id="trabalhoEmprego" style="display: none">
+        <div class="max-width-2 left-align">
+          <h2 class="center black caps regular mt0">Nossas propostas para o trabalho e emprego</h2>
+          <p>- Criar o Banco Municipal de Desenvolvimento, abrindo linhas de microcrédito e fomento para autoempreendedores, cooperativas, comércio de bairro e economia solidária;</p>
+          <p>- Estimular o setor da economia criativa, transformando o Rio num polo de inovação, colaboração e tecnologia.</p>
+          <p>- Oferecer cursos de qualificação profissional para a gestão de pequenos negócios e cooperativas;</p>
+          <p>- Criar centros de comércio popular nos bairros, levando opções de lazer para as famílias e promovendo melhorias no espaço público;</p>
+          <p>- Investir em obras de saneamento básico para garantir emprego dos trabalhadores de construção civil que estarão ociosos após os Jogos Olímpicos;</p>
+          <p>- Estimular a formalização do trabalho através de assistência social, técnica e profissional.</p>
+          <div class="center">
+            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "#moradia", rel: "modal:open", class: "bg-red-dark p2 white caps block"  do %>
+          <h2 class="regular">Moradia</h2>
+      <% end %>
+
+      <div id="moradia" style="display: none">
+        <div class="max-width-2 left-align">
+          <h2 class="center black caps regular mt0">Nossas propostas para a moradia</h2>
+          <p>- Utilizar imóveis públicos ociosos localizados em áreas centrais em programas de moradia popular;</p>
+          <p>- Ampliar a oferta de serviços públicos (transporte, postos de saúde, escolas, lugares de lazer e cultura) para favelas e regiões onde foram construídos projetos de habitação popular, como o Minha Casa Minha Vida</p>
+          <p>- Criar programa de moradia popular que priorize pessoas que ganham até três salários mínimos;</p>
+          <p>- Promover regularização dos terrenos nas favelas e garantir o acesso a serviços públicos com qualidade.</p>
+          <div class="center">
+            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "#pluralidade", rel: "modal:open", class: "bg-red-light p2 white caps block"  do %>
+          <h2 class="regular">Pluralidade</h2>
+      <% end %>
+
+      <div id="pluralidade" style="display: none">
+        <div class="max-width-2 left-align">
+          <h2 class="center black caps regular mt0">Nossas propostas para a pluralidade</h2>
+          <p>- Criar e fortalecer conselhos de políticas públicas, em especial, os de defesa dos direitos das mulheres, negros, população LGBT e pessoas com deficiência;</p>
+          <p>- Investir na formação de professores e material pedagógico para combater a discriminação nas escolas públicas;</p>
+          <p>- Garantir o Estado Laico e a diversidade religiosa, em especial na educação públicas;</p>
+          <p>- Promover o parto humanizado em toda a rede de saúde pública;</p>
+          <p>- Implantar plano municipal de políticas para população LGBT.</p>
+          <div class="center">
+            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-12 lg-col-4 sm-col-12 lg-p1">
+      <%= link_to "#cultura", rel: "modal:open", class: "bg-red p2 white caps block"  do %>
         <h2 class="regular">Cultura</h2>
       <% end %>
       <div id="cultura" style="display:none">
@@ -358,8 +500,8 @@
       </div>
     </div>
 
-    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1 hide">
-      <%= link_to "#custoDeVida", rel: "modal:open", class: "bg-red p2 white caps block"  do %>
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "#custoDeVida", rel: "modal:open", class: "bg-red-dark p2 white caps block"  do %>
         <h2 class="regular">Custo de vida</h2>
       <% end %>
       <div id="custoDeVida" style="display:none">
@@ -377,127 +519,9 @@
       </div>
     </div>
 
-    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1 hide">
-      <%= link_to "#educacao", rel: "modal:open", class: "bg-red-dark p2 white caps block"  do %>
-        <h2 class="regular">Educação</h2>
-      <% end %>
-      <div id="educacao" style="display:none">
-        <div class="max-width-2 left-align">
-          <h2 class="center black caps regular mt0">Nossas propostas para a educação</h2>
-          <p>- Abrir as escolas para a realização de cursos e atividades culturais e de preservação da memória dos bairros;</p>
-          <p>- Realizar eleições diretas para a direção das escolas;</p>
-          <p>- Melhorar os salários, as condições de trabalho e garantir a autonomia pedagógica aos professores;</p>
-          <p>- Limitar a 30 a quantidade de alunos por sala, instalar ar condicionado em todas as unidades e ampliar bibliotecas e salas de informática;</p>
-          <p>- Garantir às escolas municipais o acesso aos equipamentos e instalações esportivas dos clubes de bairro;</p>
-          <p>- Universalizar o acesso às creches municipais.</p>
-          <div class="center">
-            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1 hide">
-      <%= link_to "#meioAmbiente", rel: "modal:open", class: "bg-red-light p2 white caps block"  do %>
-        <h2 class="regular">Meio ambiente</h2>
-      <% end %>
-      <div id="meioAmbiente" style="display:none">
-        <div class="max-width-2 left-align">
-          <h2 class="center black caps regular mt0">Nossas propostas para o meio ambiente</h2>
-          <p>- Avançar na garantia do saneamento básico com acesso à água tratada e rede de esgoto;</p>
-          <p>- Despoluir as baías de Guanabara e de Sepetiba e os rios;</p>
-          <p>- Implementar política de Lixo Zero baseada em coleta seletiva, reciclagem e reaproveitamento;</p>
-          <p>- Priorizar e investir em energias renováveis e não poluentes.</p>
-          <p>- Ampliar as unidades de conservação, criar parques urbanos e arborizar a cidade.</p>
-          <div class="center">
-            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1 hide">
-      <%= link_to "#moradia", rel: "modal:open", class: "bg-red p2 white caps block"  do %>
-        <h2 class="regular">Moradia</h2>
-      <% end %>
-
-      <div id="moradia" style="display: none">
-        <div class="max-width-2 left-align">
-          <h2 class="center black caps regular mt0">Nossas propostas para a moradia</h2>
-          <p>- Utilizar imóveis públicos ociosos localizados em áreas centrais em programas de moradia popular;</p>
-          <p>- Ampliar a oferta de serviços públicos (transporte, postos de saúde, escolas, lugares de lazer e cultura) para favelas e regiões onde foram construídos projetos de habitação popular, como o Minha Casa Minha Vida</p>
-          <p>- Criar programa de moradia popular que priorize pessoas que ganham até três salários mínimos;</p>
-          <p>- Promover regularização dos terrenos nas favelas e garantir o acesso a serviços públicos com qualidade.</p>
-          <div class="center">
-            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1 hide">
-      <%= link_to "#participacaoDemocratica", rel: "modal:open", class: "bg-red-dark p2 white caps block"  do %>
-        <h2 class="regular">Participação democrática</h2>
-      <% end %>
-
-      <div id="participacaoDemocratica" style="display: none">
-        <div class="max-width-2 left-align">
-          <h2 class="center black caps regular mt0">Nossas propostas para a participação democrática</h2>
-          <p>- Criar o orçamento participativo para que todos possam opinar sobre como a prefeitura usará seu dinheiro;</p>
-          <p>- Implantar o gabinete virtual para garantir total acesso da população a informações de interesse público disponíveis na prefeitura;</p>
-          <p>- Estabelecer o permanente diálogo com a população através do uso de tecnologias digitais e da internet;</p>
-          <p>- Realizar a cada dois anos o Fórum Carioca para discutir com a população os principais desafios e soluções para a cidade;</p>
-          <p>- Criar conselhos de moradores em todas as regiões administrativas da cidade para debater e decidir sobre futuras intervenções e obras do poder público nos seus bairros.</p>
-          <div class="center">
-            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1 hide">
-      <%= link_to "#pluralidade", rel: "modal:open", class: "bg-red-light p2 white caps block"  do %>
-        <h2 class="regular">Pluralidade</h2>
-      <% end %>
-
-      <div id="pluralidade" style="display: none">
-        <div class="max-width-2 left-align">
-          <h2 class="center black caps regular mt0">Nossas propostas para a pluralidade</h2>
-          <p>- Criar e fortalecer conselhos de políticas públicas, em especial, os de defesa dos direitos das mulheres, negros, população LGBT e pessoas com deficiência;</p>
-          <p>- Investir na formação de professores e material pedagógico para combater a discriminação nas escolas públicas;</p>
-          <p>- Garantir o Estado Laico e a diversidade religiosa, em especial na educação públicas;</p>
-          <p>- Promover o parto humanizado em toda a rede de saúde pública;</p>
-          <p>- Implantar plano municipal de políticas para população LGBT.</p>
-          <div class="center">
-            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1 hide">
-      <%= link_to "#saude", rel: "modal:open", class: "bg-red p2 white caps block"  do %>
-        <h2 class="regular">Saúde</h2>
-      <% end %>
-
-      <div id="saude" style="display: none">
-        <div class="max-width-2 left-align">
-          <h2 class="center black caps regular mt0">Nossas propostas para a saúde</h2>
-          <p>- Realizar concursos para, gradativamente, retomar a gestão pública das unidades de saúde, sem que o atendimento à população seja prejudicado;</p>
-          <p>- Instituir plano de cargos e salários para valorizar a carreira dos profissionais;</p>
-          <p>- Universalizar o atendimento da rede de atenção primária na cidade;</p>
-          <p>- Diminuir os gargalos no atendimento na rede de média e alta capacidade;</p>
-          <p>- Criar empresa pública para garantir saneamento básico.</p>
-          <div class="center">
-            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1 hide">
-      <%= link_to "#segurancaPublica", rel: "modal:open", class: "bg-red-dark p2 white caps block"  do %>
-        <h2 class="regular">Segurança pública</h2>
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "#segurancaPublica", rel: "modal:open", class: "bg-red-light p2 white caps block"  do %>
+          <h2 class="regular">Segurança pública</h2>
       <% end %>
 
       <div id="segurancaPublica" style="display: none">
@@ -515,20 +539,18 @@
       </div>
     </div>
 
-    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1 hide">
-      <%= link_to "#trabalhoEmprego", rel: "modal:open", class: "bg-red-light p2 white caps block"  do %>
-        <h2 class="regular">Trabalho e emprego</h2>
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "#meioAmbiente", rel: "modal:open", class: "bg-red p2 white caps block"  do %>
+        <h2 class="regular">Meio ambiente</h2>
       <% end %>
-
-      <div id="trabalhoEmprego" style="display: none">
+      <div id="meioAmbiente" style="display:none">
         <div class="max-width-2 left-align">
-          <h2 class="center black caps regular mt0">Nossas propostas para o trabalho e emprego</h2>
-          <p>- Criar o Banco Municipal de Desenvolvimento, abrindo linhas de microcrédito e fomento para autoempreendedores, cooperativas, comércio de bairro e economia solidária;</p>
-          <p>- Estimular o setor da economia criativa, transformando o Rio num polo de inovação, colaboração e tecnologia.</p>
-          <p>- Oferecer cursos de qualificação profissional para a gestão de pequenos negócios e cooperativas;</p>
-          <p>- Criar centros de comércio popular nos bairros, levando opções de lazer para as famílias e promovendo melhorias no espaço público;</p>
-          <p>- Investir em obras de saneamento básico para garantir emprego dos trabalhadores de construção civil que estarão ociosos após os Jogos Olímpicos;</p>
-          <p>- Estimular a formalização do trabalho através de assistência social, técnica e profissional.</p>
+          <h2 class="center black caps regular mt0">Nossas propostas para o meio ambiente</h2>
+          <p>- Avançar na garantia do saneamento básico com acesso à água tratada e rede de esgoto;</p>
+          <p>- Despoluir as baías de Guanabara e de Sepetiba e os rios;</p>
+          <p>- Implementar política de Lixo Zero baseada em coleta seletiva, reciclagem e reaproveitamento;</p>
+          <p>- Priorizar e investir em energias renováveis e não poluentes.</p>
+          <p>- Ampliar as unidades de conservação, criar parques urbanos e arborizar a cidade.</p>
           <div class="center">
             <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
           </div>
@@ -536,29 +558,11 @@
       </div>
     </div>
 
-    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1 hide">
-      <%= link_to "#transporte", rel: "modal:open", class: "bg-red p2 white caps block"  do %>
-        <h2 class="regular">Transporte</h2>
+    <div class="col col-12 lg-col-4 sm-col-12 xs-col-12 lg-p1">
+      <%= link_to "https://drive.google.com/file/d/0BxudcFRqOVDobi0yTzR1c1djbVBkbkZWemJ6cVpqb1pOU3Vv/view", target: :blank, class: "button bg-orange rouded white p2 caps block bold", style:"margin-top:25px;" do%>
+          Veja todo o programa
       <% end %>
-
-      <div id="transporte" style="display: none">
-        <div class="max-width-2 left-align">
-          <h2 class="center black caps regular mt0">Nossas propostas para o transporte</h2>
-          <p>- Realizar auditoria imediata nos contratos da concessão dos ônibus de 2010;</p>
-          <p>- Criar uma Empresa Pública de Transportes para realizar o planejamento, gestão e fiscalização do sistema de transportes;</p>
-          <p>- Implementar o Fundo Municipal de Transportes, garantindo investimentos contínuos na melhoria do transporte público municipal e no barateamento da tarifa;</p>
-          <p>- Coordenar um planejamento participativo as linhas de ônibus de acordo com as reais necessidades da população;</p>
-          <p>- Criar o VLT suburbano, para melhorar os deslocamentos na Zona Norte e integrar os diversos modos de transporte e equipamentos municipais;;</p>
-          <p>- Promover a integração das tarifas de todos os sistemas.</p>
-          <p>- Desenvolver o Plano Cicloviário Carioca, para que a população oriente a expansão das ciclovias na cidade, em especial na Zona Norte e Oeste.</p>
-          <div class="center">
-            <%= link_to "Veja todas as propostas", "https://medium.com/mudar-%C3%A9-poss%C3%ADvel", target: :blank, class: "button bg-yellow p1 white caps bold rounded mt1 inline-block" %>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <%= link_to "Veja todo o programa", "https://drive.google.com/file/d/0BxudcFRqOVDobi0yTzR1c1djbVBkbkZWemJ6cVpqb1pOU3Vv/view", target: :blank, class: "inline-block button bg-orange rouded white caps p2 bold" %>
   </div>
 </div>
 
@@ -657,14 +661,12 @@
 
 <div class="bg-purple white py4 px2 center" id="baixemateriais">
   <div class="max-width-1 mx-auto">
+    <%= image_tag "http://i.imgur.com/9dzTWtP.png", class: "mb1", style: "width: 100px" %>
     <h2 class="caps h1 mt0 regular">BAIXE NOSSOS MATERIAIS</h2>
     <p>
       Acesse a nossa parta online e baixe os materiais para espalhar nossa campanha pelas ruas e redes! Lá você encontra as artes abertas pra poder criar suas próprias artes!
       <br>
     </p>
-    <a href="https://drive.google.com/drive/folders/0B0zcLMaA7FRtOTY5YVoxRjFiY3M" target="_blank">
-      <%= image_tag "http://i.imgur.com/9dzTWtP.png", class: "mb1", style: "width: 100px" %>
-    </a>
     <br><br>
     <a href="https://drive.google.com/drive/folders/0B0zcLMaA7FRtOTY5YVoxRjFiY3M" target="_blank" class="inline-block button bg-orange rouded white caps p2 bold">VER PASTA</a>
   </div>
