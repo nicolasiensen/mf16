@@ -56,7 +56,7 @@
       <div class="sm-center">
         <h2 class="mt0 h1 caps regular">Participe da campanha</h2>
         <p class="h3">
-          <% if (Date.new(2016, 10, 2) - Date.today).to_i != 0 %>
+          <% if (Date.new(2016, 10, 2) - Date.today).to_i > 0 %>
             Temos <strong><%= (Date.new(2016, 10, 2) - Date.today).to_i %> dia</strong> até o fim da campanha.
           <% else %>
             
