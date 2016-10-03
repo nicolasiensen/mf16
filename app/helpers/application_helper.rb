@@ -348,20 +348,6 @@ module ApplicationHelper
     ]
   end
 
-  def favorite_tasks
-    [
-      "Participando de panfletagens onde eu moro, trabalho ou estudo",
-      "Participando de mutirões de cadastramento e contato com outros voluntários e apoiadores da campanha",
-      "Ajudando a organizar eventos da campanha na rua",
-      "Disponibilizando a minha casa para ser um ponto de distribuição de materiais",
-      "Participando de vídeos da campanha",
-      "Ajudando com design para redes",
-      "Ajudando com fotografia e filmagem",
-      "Ajudando com pesquisas de opinião coletivas pelo celular",
-      "Doando dinheiro"
-    ]
-  end
-
   def favorite_topics
     [
       "Mulheres",

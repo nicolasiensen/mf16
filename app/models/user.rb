@@ -82,4 +82,44 @@ class User < ActiveRecord::Base
     member = list.members(Digest::MD5.hexdigest(user.email))
     member.upsert(body: user.mailchimp_fields)
   end
+
+  FAVORITE_TASKS = [
+    {
+      mailchimp_interest_id: ENV["FAVORITE_TASK_PANFLETAGEM_MAILCHIMP_INTEREST_ID"],
+      text: "Participando de panfletagens onde eu moro, trabalho ou estudo",
+      slug: "participando_de_panfletagens_onde_eu_moro_trabalho_ou_estudo"
+    }, {
+      mailchimp_interest_id: ENV["FAVORITE_TASK_MULTIROES_MAILCHIMP_INTEREST_ID"],
+      text: "Participando de mutirões de cadastramento e contato com outros voluntários e apoiadores da campanha",
+      slug: "participando_de_mutiroes_de_cadastramento_e_contato_com_outros_voluntarios_e_apoiadores_da_campanha"
+    }, {
+      mailchimp_interest_id: ENV["FAVORITE_TASK_EVENTOS_MAILCHIMP_INTEREST_ID"],
+      text: "Ajudando a organizar eventos da campanha na rua",
+      slug: "ajudando_a_organizar_eventos_da_campanha_na_rua"
+    }, {
+      mailchimp_interest_id: ENV["FAVORITE_TASK_DISTRIBUIDOR_MAILCHIMP_INTEREST_ID"],
+      text: "Disponibilizando a minha casa para ser um ponto de distribuição de materiais",
+      slug: "disponibilizando_a_minha_casa_para_ser_um_ponto_de_distribuicao_de_materiais"
+    }, {
+      mailchimp_interest_id: ENV["FAVORITE_TASK_VIDEOS_MAILCHIMP_INTEREST_ID"],
+      text: "Participando de vídeos da campanha",
+      slug: "participando_de_videos_da_campanha"
+    }, {
+      mailchimp_interest_id: ENV["FAVORITE_TASK_DESIGN_MAILCHIMP_INTEREST_ID"],
+      text: "Ajudando com design para redes",
+      slug: "ajudando_com_design_para_redes"
+    }, {
+      mailchimp_interest_id: ENV["FAVORITE_TASK_FOTOGRAFIA_MAILCHIMP_INTEREST_ID"],
+      text: "Ajudando com fotografia e filmagem",
+      slug: "ajudando_com_fotografia_e_filmagem"
+    }, {
+      mailchimp_interest_id: ENV["FAVORITE_TASK_PESQUISA_MAILCHIMP_INTEREST_ID"],
+      text: "Ajudando com pesquisas de opinião coletivas pelo celular",
+      slug: "ajudando_com_pesquisas_de_opiniao_coletivas_pelo_celular"
+    }, {
+      mailchimp_interest_id: ENV["FAVORITE_TASK_DOACAO_MAILCHIMP_INTEREST_ID"],
+      text: "Doando dinheiro",
+      slug: "doando_dinheiro"
+    }
+  ]
 end

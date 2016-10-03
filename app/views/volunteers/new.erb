@@ -81,10 +81,10 @@
               </p>
             </div>
             <div class="mb3">
-              <% favorite_tasks.each do |task| %>
+              <% User::FAVORITE_TASKS.each do |task| %>
                 <div class="mb1">
-                  <%= f.check_box "favorite_tasks", {multiple: true, include_hidden: false, id: "user_favorite_tasks_#{task.parameterize.underscore}", style: "margin: 0; vertical-align: middle"}, task %>
-                  <%= f.label "favorite_tasks_#{task.parameterize.underscore}", task, class: "label inline" %>
+                  <%= f.check_box "favorite_tasks", {multiple: true, include_hidden: false, id: "user_favorite_tasks_#{task[:slug]}", style: "margin: 0; vertical-align: middle"}, task[:text] %>
+                  <%= f.label "favorite_tasks_#{task[:slug]}", task, class: "label inline" %>
                 </div>
               <% end %>
             </div>
