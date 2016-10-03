@@ -14,3 +14,6 @@
 config/initializers/01_env_vars.rb
 .DS_Store
 dump.rdb
+
+#RubyMine
+/.idea
