@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
       status: "subscribed",
       interests: {
         "#{ENV["MAILCHIMP_INTEREST_ID"]}" => true,
-        "#{ENV["MAILCHIMP_SIGNED_DEBATE_PETITION_INTEREST_ID"]}" => self.has_signed_debate_petition
+        "#{ENV["MAILCHIMP_SIGNED_DEBATE_PETITION_INTEREST_ID"]}" => self.has_signed_debate_petition?
       }.merge(
         FAVORITE_TASKS.inject({}) do |h, t|
           h.merge(t[:mailchimp_interest_id] => self.favorite_tasks.include?(t[:text]))
